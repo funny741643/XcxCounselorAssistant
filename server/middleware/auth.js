@@ -34,6 +34,12 @@ function authMiddleware (req) {
             const sKey = encryptSha1(session_key);
 
             let decryptedData = Json.parse(decryptByAES(encryptedData, session_key, iv));
+
+            return saveUserInfo({
+                userInfo: decryptedData,
+                session_key,
+                skey
+            })
         })
         .catch(err => {
             return {
