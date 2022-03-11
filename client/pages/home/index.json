@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "主页菜单",
+  "usingComponents": {
+    "mp-dialog": "weui-miniprogram/dialog/dialog"
+  }
+}

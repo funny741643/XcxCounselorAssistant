@@ -41,7 +41,7 @@ function authMiddleware(req) {
 
             // 存入用户数据表中
             return saveUserInfo({
-                decryptedData,
+                userInfo: decryptedData,
                 session_key,
                 skey
             })

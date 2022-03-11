@@ -27,12 +27,13 @@ const user = {
             'sessionkey': session_key,
             'uavatar': userInfo.avatarUrl
         }
-        return _.query($sqlQuery.hasUser, uid)
+        return _.query($sqlQuery.queryById, uid)
             .then(function(res) {
-                console.log(res);
                 if (res && res[0]) {
+                    console.log('更新成功')
                     return _.query($sqlQuery.update, [updateObj, uid])
                 } else {
+                    console.log('插入成功')
                     return _.query($sqlQuery.add, insertObj)
                 }
             })

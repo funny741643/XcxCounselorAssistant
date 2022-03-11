@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">个人信息</text>
+  </view>
+</view>
