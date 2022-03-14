@@ -3,34 +3,31 @@ const _ = require('./query');
 const $sqlQuery = require('./sqlCRUD').user;
 
 const user = {
-    saveUserInfo: function(userInfo, session_key, skey) {
-        const uid = userInfo.openId,
+    saveUserInfo: function(userInfo, session_key, skey, openid) {
+        const uid = openid,
             create_time = moment().format('YYYY-MM-DD HH:mm:ss'),
             update_time = create_time;
         const insertObj = {
             'uid': uid,
-            'create_time': create_time,
             'uname': userInfo.nickName,
-            'ugender': userInfo.gender,
-            'uaddress': `${userInfo.province},${userInfo.country}`,
-            'update_time': update_time,
+            'uavatar': userInfo.avatarUrl,
             'skey': skey,
             'sessionkey': session_key,
-            'uavatar': userInfo.avatarUrl
+            'update_time': update_time,
+            'create_time': create_time,
+            'role': 0,
         }
         const updateObj = {
             'uname': userInfo.nickName,
-            'ugender': userInfo.gender,
-            'uaddress': userInfo.province + ',' + userInfo.country,
-            'update_time': update_time,
+            'uavatar': userInfo.avatarUrl,
             'skey': skey,
             'sessionkey': session_key,
-            'uavatar': userInfo.avatarUrl
+            'update_time': update_time
         }
         return _.query($sqlQuery.queryById, uid)
             .then(function(res) {
                 if (res && res[0]) {
-                    console.log('更新成功')
+                    console.log('更新成功:')
                     return _.query($sqlQuery.update, [updateObj, uid])
                 } else {
                     console.log('插入成功')
@@ -38,10 +35,8 @@ const user = {
                 }
             })
             .then(function() {
-                const resUserObj = Object.assign({}, userInfo)
-                delete resUserObj.openId && delete resUserObj.watermark;
                 return {
-                    userInfo: resUserObj,
+                    uid,
                     skey: skey
                 }
             })

@@ -1,7 +1,6 @@
 const http = require("axios");
-const crypto = require("crypto");
 const { appConfig: config } = require("../conf/app");
-const { decryptByAES, encryptSha1 } = require("../util");
+const { encryptSha1 } = require("../util");
 const { saveUserInfo } = require('../controllers/users');
 
 function authorizeMiddleware(req, res, next) {
@@ -16,34 +15,21 @@ function authMiddleware(req) {
 
     const {
         code, // 临时登录凭证
-        encryptedData, // 用户敏感信息
-        iv, // 解密算法向量
+        userInfo
     } = req.query;
-
-    // 检查参数完整性
-    if ([code, encryptedData, iv].some((item) => !item)) {
-        return {
-            result: -1,
-            errmsg: "缺少参数字段，请检查后重试",
-        };
-    }
 
     return getSessionKey(code, appid, secret)
         .then((resData) => {
-            const { session_key } = resData;
+            const { session_key, openid } = resData;
             // 生成小程序自己的用户登录标识
             const skey = encryptSha1(session_key);
 
-            // 解密获取用户的敏感信息
-            let decryptedData = decryptByAES(encryptedData, session_key, iv);
-
-            // console.log(decryptedData)
-
             // 存入用户数据表中
             return saveUserInfo({
-                userInfo: decryptedData,
+                userInfo,
                 session_key,
-                skey
+                skey,
+                openid
             })
         })
         .catch((err) => {

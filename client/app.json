@@ -1,14 +1,16 @@
 {
-  "pages":[
+  "pages": [
+    "pages/login/index",
+    "pages/verify/index",
     "pages/home/index",
     "pages/my/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [

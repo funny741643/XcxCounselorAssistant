@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", function (req, res, next) {
-    if (res["auth_data"] && res["auth_data"]["userInfo"]) {
+    if (res["auth_data"] && res["auth_data"]["uid"]) {
         res.json(Object.assign(res["auth_data"], { result: 0 }));
     } else {
         res.json({
