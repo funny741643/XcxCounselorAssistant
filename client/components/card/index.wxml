@@ -1,0 +1,5 @@
+<view class="f-card">
+    <view class="f-card-headline">{{headline}}</view>
+    <slot></slot>
+</view>
+<!-- <slot></slot> -->

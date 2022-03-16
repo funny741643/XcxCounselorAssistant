@@ -1,25 +1,35 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <!-- <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
+  <f-card headline="学生管理">
+    <view class="student-manage-list">
+      <view class="list-item">
+        <view class="list-item-pic"></view>
+        <view class="list-item-text">请假</view>
       </view>
-      <open-data type="userNickName"></open-data> -->
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <!-- <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button> -->
-      <!-- <view wx:else> 请使用1.4.4及以上版本基础库 </view> -->
-    </block>
-    <block wx:else>
-      <text>123456</text>
-      <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <text>lalal</text>
-  </view>
+      <view class="list-item">
+        <view class="list-item-pic"></view>
+        <view class="list-item-text">请假</view>
+      </view>
+      <view class="list-item">
+        <view class="list-item-pic"></view>
+        <view class="list-item-text">请假</view>
+      </view>
+    </view>
+  </f-card>
+  <f-card headline="日常管理">
+    <view class="student-manage-list">
+      <view class="list-item">
+        <view class="list-item-pic"></view>
+        <view class="list-item-text">请假</view>
+      </view>
+      <view class="list-item">
+        <view class="list-item-pic"></view>
+        <view class="list-item-text">请假</view>
+      </view>
+      <view class="list-item">
+        <view class="list-item-pic"></view>
+        <view class="list-item-text">请假</view>
+      </view>
+    </view>
+  </f-card>
 </view>

@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "主页菜单",
   "usingComponents": {
-    "mp-dialog": "weui-miniprogram/dialog/dialog"
+    "f-card": "/components/card/index"
   }
 }

@@ -1,8 +1,14 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
-  <view class="userinfo">
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">个人信息</text>
-  </view>
+  <f-card headline="基本信息">
+    <view class="base-info">
+      <view class="user-avatar-wrapper">
+        <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="user-info">
+        <view class="user-name">{{userInfo.nickName}}</view>
+        <view class="user-school">西安邮电大学</view>
+      </view>
+    </view>
+  </f-card>
 </view>

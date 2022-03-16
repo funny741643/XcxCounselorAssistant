@@ -1,4 +1,6 @@
 {
     "navigationBarTitleText": "个人信息",
-    "usingComponents": {}
-  }
+    "usingComponents": {
+      "f-card": "/components/card/index"
+    }
+}
