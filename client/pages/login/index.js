@@ -47,7 +47,7 @@ Page({
                 success: function () {
                     let userStorageInfo = wx.getStorageSync("userInfo");
                     if (userStorageInfo) {
-                        that.globalData.userInfo = JSON.parse(userStorageInfo);
+                        app.globalData.userInfo = userStorageInfo;
                     } else {
                         app.showInfo("缓存信息缺失");
                         console.error(
@@ -83,9 +83,13 @@ Page({
                             res = res.data;
 
                             if (res.result == 0) {
-                                app.globalData.userInfo = res.userInfo;
+                                app.globalData.userInfo = that.data.userInfo;
                                 wx.setStorageSync("openId", res.uid);
                                 wx.setStorageSync("loginFlag", res.skey);
+                                wx.setStorageSync('userInfo', that.data.userInfo);
+                                wx.switchTab({
+                                    url: '/pages/home/index'
+                                })
                                 callback();
                             } else {
                                 app.showInfo(res.errmsg);
