@@ -4,6 +4,12 @@ const user = {
     update: 'update users set ? where uid=?',
 };
 
+const student = {
+    queryById: 'select * from students where uid=?',
+    add: 'insert into students set ?',
+}
+
 module.exports = {
-    user
+    user,
+    student
 }

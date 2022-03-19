@@ -11,6 +11,7 @@ const user = {
             'uid': uid,
             'uname': userInfo.nickName,
             'uavatar': userInfo.avatarUrl,
+            'ugender': userInfo.gender,
             'skey': skey,
             'sessionkey': session_key,
             'update_time': update_time,
@@ -20,14 +21,17 @@ const user = {
         const updateObj = {
             'uname': userInfo.nickName,
             'uavatar': userInfo.avatarUrl,
+            'ugender': userInfo.gender,
             'skey': skey,
             'sessionkey': session_key,
             'update_time': update_time
         }
+        let urole;
         return _.query($sqlQuery.queryById, uid)
             .then(function(res) {
                 if (res && res[0]) {
-                    console.log('更新成功:')
+                    console.log('更新成功')
+                    urole = res[0].urole;
                     return _.query($sqlQuery.update, [updateObj, uid])
                 } else {
                     console.log('插入成功')
@@ -35,9 +39,11 @@ const user = {
                 }
             })
             .then(function() {
+                const resUserObj = Object.assign({}, userInfo, { role: urole });
                 return {
                     uid,
-                    skey: skey
+                    skey: skey,
+                    userInfo: resUserObj
                 }
             })
             .catch(function(e) {

@@ -83,10 +83,15 @@ Page({
                             res = res.data;
 
                             if (res.result == 0) {
-                                app.globalData.userInfo = that.data.userInfo;
+                                app.globalData.userInfo = res.userInfo;
                                 wx.setStorageSync("openId", res.uid);
                                 wx.setStorageSync("loginFlag", res.skey);
-                                wx.setStorageSync('userInfo', that.data.userInfo);
+                                wx.setStorageSync('userInfo', res.userInfo);
+                                if (res.userInfo.urole === 0) {
+                                    wx.navigateTo({
+                                        url: "/pages/verify/index"
+                                    });
+                                }
                                 wx.switchTab({
                                     url: '/pages/home/index'
                                 })

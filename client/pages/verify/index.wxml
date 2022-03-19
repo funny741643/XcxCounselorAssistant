@@ -1,0 +1,35 @@
+<view class="container">
+    <view class="role-select-wrapper" bindtap="handleRoleSelect">
+        <view class="role-item {{isStuHidden ? 'role-item-selected' : '' }}" data-role="1">
+            我是辅导员
+        </view>
+        <view class="role-item {{isStuHidden ? '' : 'role-item-selected' }}" data-role="2">
+            我是学生
+        </view>
+    </view>
+    <view class="counselor-form" hidden="{{!isStuHidden}}">
+        <f-card headline="辅导员认证">
+            <van-cell-group>
+                <van-field model:value="{{ counselorNumber }}" required label="职工号" placeholder="请输入职工号" />
+                <van-field model:value="{{ counselorName }}" required label="姓名" placeholder="请输入姓名" />
+                <van-field model:value="{{ counselorCollege }}" required label="学院" placeholder="请输入所属学院" />
+                <van-field model:value="{{ counselorMajor }}" required label="专业" placeholder="请输入所在专业" />
+                <van-field model:value="{{ counselorPhonenumber }}" required label="手机号" placeholder="手机号绑定" />
+            </van-cell-group>
+            <van-button type="primary" bind:click="handleSubmitCounselor">提交</van-button>
+        </f-card>
+    </view>
+    <view class="student-form" hidden="{{isStuHidden}}">
+        <f-card headline="学生认证">
+            <van-cell-group>
+                <van-field model:value="{{ studentNumber }}" required label="学生号" placeholder="请输入职工号" />
+                <van-field model:value="{{ studentName }}" required label="姓名" placeholder="请输入姓名" />
+                <van-field model:value="{{ studentCollege }}" required label="学院" placeholder="请输入所属学院" />
+                <van-field model:value="{{ studentMajor }}" required label="专业" placeholder="请输入所在专业" />
+                <van-field model:value="{{ studentClass }}" required label="班级" placeholder="请输入所在班级" />
+                <van-field model:value="{{ studentPhonenumber }}" required label="手机号" placeholder="手机号绑定" />
+                <van-button type="primary" bind:click="handleSubmitCounselor">提交</van-button>
+            </van-cell-group>
+        </f-card>
+    </view>
+</view>

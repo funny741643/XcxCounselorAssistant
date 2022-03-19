@@ -9,9 +9,15 @@ App({
                     let userStorageInfo = wx.getStorageSync("userInfo");
                     if (userStorageInfo) {
                         that.globalData.userInfo = userStorageInfo;
-                        wx.switchTab({
-                            url: "/pages/home/index",
-                        });
+                        if (userStorageInfo.role === 0) {
+                            wx.navigateTo({
+                                url: "/pages/verify/index"
+                            });
+                        } else {
+                            wx.switchTab({
+                                url: "/pages/home/index",
+                            });
+                        }
                     } else {
                         app.showInfo("缓存信息缺失");
                         console.error(

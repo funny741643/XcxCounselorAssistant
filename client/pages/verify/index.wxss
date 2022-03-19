@@ -1,0 +1,20 @@
+.role-select-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 700rpx;
+    height: 100rpx;
+}
+
+.role-item {
+    width: 48%;
+    height: 100%;
+    line-height: 100rpx;
+    text-align: center;
+    background-color: rgb(241, 190, 190);
+    border-radius: 10rpx;
+}
+
+.role-item-selected {
+    background-color: rgb(250, 133, 133);
+}
