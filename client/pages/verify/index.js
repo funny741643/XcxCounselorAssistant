@@ -6,68 +6,100 @@ Page({
      * 页面的初始数据
      */
     data: {
-      role: 0,
-      isStuHidden: true,
-      studentNumber: '',
-      studentName: '',
-      studentCollege: '',
-      studentMajor: '',
-      studentClass: '',
-      studentPhonenumber: '',
-      counselorNumber: '',
-      counselorName: '',
-      counselorCollege: '',
-      counselorMajor: '',
-      counselorPhonenumber: '',
+        role: 1,
+        isStuHidden: true,
+        studentNumber: "",
+        studentName: "",
+        studentCollege: "",
+        studentMajor: "",
+        studentClass: "",
+        studentPhonenumber: "",
+        counselorNumber: "",
+        counselorName: "",
+        counselorCollege: "",
+        counselorMajor: "",
+        counselorPhonenumber: "",
     },
 
-    handleRoleSelect: function(event) {
-      let role = +event.target.dataset.role
-      let isStuHidden = true;
-      if (role === 2) {
-        isStuHidden = false;
-      }
-      this.setData({
-        role,
-        isStuHidden
-      })
-    },
-
-    handleSubmitCounselor() {
-      let counselorInfo = {}
-      counselorInfo.number = this.data.counselorNumber
-      counselorInfo.name = this.data.counselorName
-      counselorInfo.college = this.data.counselorCollege
-      counselorInfo.major = this.data.counselorMajor
-      counselorInfo.phonenumber = this.data.counselorPhonenumber
-      console.log(counselorInfo)
-    },
-
-    handleSubmitCounselor() {
-      let studentInfo = {}
-      studentInfo.number = this.data.studentNumber
-      studentInfo.name = this.data.studentName
-      studentInfo.college = this.data.studentCollege
-      studentInfo.major = this.data.studentMajor
-      studentInfo.class = this.data.studentClass
-      studentInfo.phonenumber = this.data.studentPhonenumber
-      console.log(studentInfo);
-      wx.request({
-        url: api.studentVerify,
-        data: {
-          uid: wx.getStorageSync('openId'),
-          role: this.data.role,
-          studentInfo
-        },
-
-        success: function (res) {
-          console.log(res)
-        },
-
-        fail: function (error) {
-          app.showInfo('调用接口失败')
+    handleRoleSelect: function (event) {
+        let role = +event.target.dataset.role;
+        let isStuHidden = true;
+        if (role === 2) {
+            isStuHidden = false;
         }
-      })
+        this.setData({
+            role,
+            isStuHidden,
+        });
+    },
+
+    handleSubmitCounselor() {
+        let counselorInfo = {};
+        counselorInfo.number = this.data.counselorNumber;
+        counselorInfo.name = this.data.counselorName;
+        counselorInfo.college = this.data.counselorCollege;
+        counselorInfo.major = this.data.counselorMajor;
+        counselorInfo.telephone = this.data.counselorPhonenumber;
+        console.log(counselorInfo);
+        wx.request({
+            url: api.counselorVerify,
+            data: {
+                uid: wx.getStorageSync("openId"),
+                role: this.data.role,
+                counselorInfo,
+            },
+
+            success: function (res) {
+                let data = res.data;
+                if (data.result === 0) {
+                    const { counselorInfo, role } = data.data;
+                    wx.setStorageSync("detailInfo", counselorInfo);
+                    wx.setStorageSync("role", role);
+                    wx.switchTab({
+                        url: "/pages/home/index",
+                    });
+                }
+            },
+
+            fail: function (error) {
+                app.showInfo("调用接口失败");
+            },
+        });
+    },
+
+    handleSubmitStudent() {
+        let studentInfo = {};
+        studentInfo.number = this.data.studentNumber;
+        studentInfo.name = this.data.studentName;
+        studentInfo.college = this.data.studentCollege;
+        studentInfo.major = this.data.studentMajor;
+        studentInfo.class = this.data.studentClass;
+        studentInfo.telephone = this.data.studentPhonenumber;
+        console.log(studentInfo);
+        wx.request({
+            url: api.studentVerify,
+            data: {
+                uid: wx.getStorageSync("openId"),
+                role: this.data.role,
+                studentInfo,
+            },
+
+            success: function (res) {
+                let data = res.data;
+                if (data.result === 0) {
+                    const { studentInfo, role } = data.data;
+                    wx.setStorageSync("detailInfo", studentInfo);
+                    wx.setStorageSync("role", role);
+                    wx.switchTab({
+                        url: "/pages/home/index",
+                    });
+                }
+            },
+
+            fail: function (error) {
+                app.showInfo("调用接口失败");
+            },
+        });
     },
 
     /**

@@ -1,10 +1,10 @@
-const Students = require("../dao/students");
+const Counselors = require("../dao/counselors");
 
 module.exports = {
-    insertStudentInfo(req, res, next) {
-        const {studentInfo, uid, role} = req.query;
+    insertCounselorInfo(req, res, next) {
+        const {counselorInfo, uid, role} = req.query;
 
-        Students.insertStudentInfo(uid, studentInfo, role).then(function(resData) {
+        Counselors.insertCounselorInfo(uid, counselorInfo, role).then(function(resData) {
             if (resData.errmsg) {
                 res.json({
                     result: -3,

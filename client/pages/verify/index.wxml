@@ -28,7 +28,7 @@
                 <van-field model:value="{{ studentMajor }}" required label="专业" placeholder="请输入所在专业" />
                 <van-field model:value="{{ studentClass }}" required label="班级" placeholder="请输入所在班级" />
                 <van-field model:value="{{ studentPhonenumber }}" required label="手机号" placeholder="手机号绑定" />
-                <van-button type="primary" bind:click="handleSubmitCounselor">提交</van-button>
+                <van-button type="primary" bind:click="handleSubmitStudent">提交</van-button>
             </van-cell-group>
         </f-card>
     </view>

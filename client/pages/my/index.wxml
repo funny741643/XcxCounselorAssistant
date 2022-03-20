@@ -11,4 +11,28 @@
       </view>
     </view>
   </f-card>
+  <f-card headline="个人信息">
+    <view class="person-info">
+      <view class="person-info-item">
+        <text>姓名：</text>
+        {{detailInfo.name}}
+      </view>
+      <view class="person-info-item">
+        <text>学号：</text>
+        {{detailInfo.number}}
+      </view>
+      <view class="person-info-item">
+        <text>学院：</text>
+        {{detailInfo.college}}
+      </view>
+      <view class="person-info-item">
+        <text>专业：</text>
+        {{detailInfo.major}}
+      </view>
+      <view class="person-info-item">
+        <text>班级：</text>
+        {{detailInfo.class}}
+      </view>
+    </view>
+  </f-card>
 </view>

@@ -7,9 +7,10 @@ App({
             wx.checkSession({
                 success: function () {
                     let userStorageInfo = wx.getStorageSync("userInfo");
+                    let role = wx.getStorageSync("role");
                     if (userStorageInfo) {
                         that.globalData.userInfo = userStorageInfo;
-                        if (userStorageInfo.role === 0) {
+                        if (role === 0) {
                             wx.navigateTo({
                                 url: "/pages/verify/index"
                             });

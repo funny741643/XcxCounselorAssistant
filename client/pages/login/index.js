@@ -79,15 +79,17 @@ Page({
                         },
 
                         success: function (res) {
-                            console.log(res)
                             res = res.data;
 
                             if (res.result == 0) {
-                                app.globalData.userInfo = res.userInfo;
-                                wx.setStorageSync("openId", res.uid);
-                                wx.setStorageSync("loginFlag", res.skey);
-                                wx.setStorageSync('userInfo', res.userInfo);
-                                if (res.userInfo.urole === 0) {
+                                app.globalData.userInfo = res.data;
+                                const {uid, skey, role, detailInfo, userInfo} =  res.data;
+                                wx.setStorageSync("openId", uid);
+                                wx.setStorageSync("loginFlag", skey);
+                                wx.setStorageSync('userInfo', userInfo);
+                                wx.setStorageSync('detailInfo', detailInfo);
+                                wx.setStorageSync('role', role);
+                                if (role === 0) {
                                     wx.navigateTo({
                                         url: "/pages/verify/index"
                                     });

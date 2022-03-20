@@ -3,7 +3,10 @@ const router = express.Router();
 
 router.get("/", function (req, res, next) {
     if (res["auth_data"] && res["auth_data"]["uid"]) {
-        res.json(Object.assign(res["auth_data"], { result: 0 }));
+        res.json({
+            result: 0,
+            data: res["auth_data"]
+        });
     } else {
         res.json({
             result: -3,

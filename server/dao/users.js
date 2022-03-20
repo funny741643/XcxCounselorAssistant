@@ -1,6 +1,8 @@
 const moment = require('moment');
 const _ = require('./query');
-const $sqlQuery = require('./sqlCRUD').user;
+const $sqlQueryUser = require('./sqlCRUD').user;
+const $sqlQueryStu = require('./sqlCRUD').student;
+const $sqlQueryCounselor = require('./sqlCRUD').counselor;
 
 const user = {
     saveUserInfo: function(userInfo, session_key, skey, openid) {
@@ -26,24 +28,38 @@ const user = {
             'sessionkey': session_key,
             'update_time': update_time
         }
-        let urole;
-        return _.query($sqlQuery.queryById, uid)
+        
+        let role = 0;
+        return _.query($sqlQueryUser.queryById, uid)
             .then(function(res) {
                 if (res && res[0]) {
-                    console.log('更新成功')
-                    urole = res[0].urole;
-                    return _.query($sqlQuery.update, [updateObj, uid])
+                    role = res[0].urole;
+                    return _.query($sqlQueryUser.update, [updateObj, uid])
                 } else {
                     console.log('插入成功')
-                    return _.query($sqlQuery.add, insertObj)
+                    return _.query($sqlQueryUser.add, insertObj)
                 }
             })
-            .then(function() {
-                const resUserObj = Object.assign({}, userInfo, { role: urole });
+            .then(function() { 
+                if (role === 1) {
+                    return _.query($sqlQueryCounselor.queryById, uid)
+                } else if (role === 2) {
+                    return _.query($sqlQueryStu.queryById, uid)
+                } else {
+                    return new Promise((resolve, reject) => {
+                        resolve([{}])
+                    })
+                }
+            })
+            .then((res) => {
+                const resUserObj = Object.assign({}, userInfo)
+                let detailInfo = res[0];
                 return {
                     uid,
-                    skey: skey,
-                    userInfo: resUserObj
+                    skey,
+                    role,
+                    detailInfo,
+                    userInfo: resUserObj,
                 }
             })
             .catch(function(e) {

@@ -5,11 +5,13 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
+    detailInfo: {}
   },
 
   onLoad() {
     this.setData({
-      userInfo: wx.getStorageSync("userInfo")
+      userInfo: wx.getStorageSync("userInfo"),
+      detailInfo: wx.getStorageSync('detailInfo') 
     })
   },
 })

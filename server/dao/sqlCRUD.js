@@ -9,7 +9,13 @@ const student = {
     add: 'insert into students set ?',
 }
 
+const counselor = {
+    queryById: 'select * from counselors where uid=?',
+    add: 'insert into counselors set ?',
+}
+
 module.exports = {
     user,
-    student
+    student,
+    counselor
 }
