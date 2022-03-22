@@ -7,10 +7,8 @@ const counselor = {
        counselorInfo = JSON.parse(counselorInfo)
         const insertObj = {
             'uid': uid,
-            'class_number': 'KNSKPI',
             ...counselorInfo
         }
-        console.log(insertObj)
         _.query($sqlQueryUser.update, [{urole: role}, uid]).then((res) => {
             console.log('辅导员角色更新成功');
         })
@@ -24,7 +22,6 @@ const counselor = {
                     return _.query($sqlQueryCounselor.add, insertObj);
                 }
             }).then(function(res) {
-                console.log(res);
                 const resCounselorObj = Object.assign({}, counselorInfo)
                 return {
                     counselorInfo: resCounselorObj,

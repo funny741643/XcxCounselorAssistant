@@ -10,8 +10,12 @@ const studentVerify = baseUrl + 'api/student/verify';
 // 辅导员验证接口
 const counselorVerify = baseUrl + 'api/counselor/verify';
 
+// 获取所管班级的所有学生
+const allStudentsOfClass = baseUrl + 'api/classes/allStudents';
+
 module.exports = {
     loginUrl,
     studentVerify,
-    counselorVerify
+    counselorVerify,
+    allStudentsOfClass
 }

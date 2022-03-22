@@ -14,6 +14,7 @@
                 <van-field model:value="{{ counselorName }}" required label="姓名" placeholder="请输入姓名" />
                 <van-field model:value="{{ counselorCollege }}" required label="学院" placeholder="请输入所属学院" />
                 <van-field model:value="{{ counselorMajor }}" required label="专业" placeholder="请输入所在专业" />
+                <van-field model:value="{{ counselorGrade }}" required label="年级" placeholder="请输入所管年级,例 18" />
                 <van-field model:value="{{ counselorPhonenumber }}" required label="手机号" placeholder="手机号绑定" />
             </van-cell-group>
             <van-button type="primary" bind:click="handleSubmitCounselor">提交</van-button>

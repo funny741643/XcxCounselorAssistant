@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "学生管理",
+  "usingComponents": {
+    "van-tree-select": "@vant/weapp/tree-select/index",
+    "van-button": "@vant/weapp/button/index"
+  }
+}

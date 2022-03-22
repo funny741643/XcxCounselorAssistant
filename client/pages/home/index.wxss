@@ -4,13 +4,14 @@
 }
 
 .list-item {
-    width: 100rpx;
+    width: 120rpx;
     height: auto;
 }
 
 .list-item-pic {
     width: 100rpx;
     height: 100rpx;
+    margin: auto;
     margin-bottom: 5rpx;
     border-radius: 50%;
     background-color: rgb(248, 166, 166);

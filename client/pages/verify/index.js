@@ -18,6 +18,7 @@ Page({
         counselorName: "",
         counselorCollege: "",
         counselorMajor: "",
+        counselorGrade: "",
         counselorPhonenumber: "",
     },
 
@@ -40,6 +41,7 @@ Page({
         counselorInfo.college = this.data.counselorCollege;
         counselorInfo.major = this.data.counselorMajor;
         counselorInfo.telephone = this.data.counselorPhonenumber;
+        counselorInfo.grade = this.data.counselorGrade;
         console.log(counselorInfo);
         wx.request({
             url: api.counselorVerify,

@@ -33,6 +33,10 @@ const student = {
                     errmsg: JSON.stringify(e)
                 }
             })
+    },
+
+    queryStudentByClassNumber(class_number) {
+        return _.query($sqlQueryStu.queryByClassNumber, class_number)
     }
 }
 

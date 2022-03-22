@@ -1,18 +1,20 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
-  <f-card headline="学生管理">
+  <f-card headline="学生和班级">
     <view class="student-manage-list">
       <view class="list-item">
-        <view class="list-item-pic"></view>
-        <view class="list-item-text">请假</view>
+        <navigator url="/pages/manage/student/index">
+          <view class="list-item-pic"></view>
+          <view class="list-item-text">学生管理</view>
+        </navigator>
       </view>
       <view class="list-item">
         <view class="list-item-pic"></view>
-        <view class="list-item-text">请假</view>
+        <view class="list-item-text">宿舍管理</view>
       </view>
       <view class="list-item">
         <view class="list-item-pic"></view>
-        <view class="list-item-text">请假</view>
+        <view class="list-item-text">班委管理</view>
       </view>
     </view>
   </f-card>

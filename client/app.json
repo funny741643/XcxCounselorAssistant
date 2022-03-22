@@ -4,7 +4,8 @@
     "pages/verify/index",
     "pages/home/index",
     "pages/my/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/manage/student/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

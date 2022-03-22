@@ -7,6 +7,7 @@ const user = {
 const student = {
     queryById: 'select * from students where uid=?',
     add: 'insert into students set ?',
+    queryByClassNumber: 'select * from students where class_number=?'
 }
 
 const counselor = {
@@ -14,8 +15,13 @@ const counselor = {
     add: 'insert into counselors set ?',
 }
 
+const classes = {
+    queryByUid: 'select * from classes where uid=?',
+}
+
 module.exports = {
     user,
     student,
-    counselor
+    counselor,
+    classes
 }
