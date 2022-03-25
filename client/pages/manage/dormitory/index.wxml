@@ -1,0 +1,66 @@
+<view class="head-decorate"></view>
+<view class="container">
+    <f-card headline="数据概况">
+        <view class="data-profile">
+            <view class="data-profile-item">
+                <view class="ptofile-item-number">2</view>
+                <view class="ptofile-item-desc">宿舍楼</view>
+            </view>
+            <view class="data-profile-item">
+                <view class="ptofile-item-number">20</view>
+                <view class="ptofile-item-desc">宿舍</view>
+            </view>
+            <view class="data-profile-item">
+                <view class="ptofile-item-number">
+                    0
+                    <text>次</text>
+                </view>
+                <view class="ptofile-item-desc">内务检查</view>
+            </view>
+        </view>
+    </f-card>
+
+    <f-card headline="常用功能">
+        <view class="common-functions">
+            <view class="function-item">
+                <navigator url="">
+                    <view class="function-item-pic"></view>
+                    <view class="function-item-text">发起检查</view>
+                </navigator>
+            </view>
+            <view class="function-item">
+                <navigator url="">
+                    <view class="function-item-pic"></view>
+                    <view class="function-item-text">检查统计</view>
+                </navigator>
+            </view>
+        </view>
+    </f-card>
+
+    <f-card headline="数据简报">
+        <view class="f-table">
+            <view class="f-table-head">
+                <view class="f-table-head-item">宿舍楼</view>
+                <view class="f-table-head-item">房间</view>
+                <view class="f-table-head-item">人数</view>
+            </view>
+            <view class="f-table-body">
+                <view class="f-table-body-col">
+                    <view class="f-table-body-col-item">安悦2号楼</view>
+                    <view class="f-table-body-col-item">2618</view>
+                    <view class="f-table-body-col-item">6</view>
+                </view>
+                <view class="f-table-body-col">
+                    <view class="f-table-body-col-item">安悦2号楼</view>
+                    <view class="f-table-body-col-item">2618</view>
+                    <view class="f-table-body-col-item">6</view>
+                </view>
+                <view class="f-table-body-col">
+                    <view class="f-table-body-col-item">安悦2号楼</view>
+                    <view class="f-table-body-col-item">2618</view>
+                    <view class="f-table-body-col-item">6</view>
+                </view>
+            </view>
+        </view>
+    </f-card>
+</view>

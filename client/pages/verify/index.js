@@ -13,6 +13,8 @@ Page({
         studentCollege: "",
         studentMajor: "",
         studentClass: "",
+        studentApartment: "",
+        studentDormitory: "",
         studentPhonenumber: "",
         counselorNumber: "",
         counselorName: "",
@@ -77,7 +79,8 @@ Page({
         studentInfo.major = this.data.studentMajor;
         studentInfo.class = this.data.studentClass;
         studentInfo.telephone = this.data.studentPhonenumber;
-        console.log(studentInfo);
+        studentInfo.apartment = this.data.studentApartment;
+        studentInfo.dormitory = this.data.studentDormitory;
         wx.request({
             url: api.studentVerify,
             data: {

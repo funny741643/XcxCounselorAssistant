@@ -7,6 +7,7 @@ const loginRouter = require('./routes/login');
 const studentRouter = require('./routes/students');
 const counselorRouter = require('./routes/counselors');
 const classRouter = require('./routes/classes');
+const dormitoryRouter = require('./routes/dormitories');
 
 const app = express();
 
@@ -18,5 +19,6 @@ app.use('/login', authorizeMiddleware, loginRouter);
 app.use('/api/student', studentRouter);
 app.use('/api/counselor', counselorRouter);
 app.use('/api/classes', classRouter);
+app.use('/api/dormitory', dormitoryRouter);
 
 module.exports = app;

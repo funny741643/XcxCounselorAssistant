@@ -7,7 +7,7 @@ const student = {
        studentInfo = JSON.parse(studentInfo)
         const insertObj = {
             'uid': uid,
-            'sclass_number': '',
+            'class_number': '',
             ...studentInfo
         }
         _.query($sqlQueryUser.update, [{urole: role}, uid]).then((res) => {
@@ -37,6 +37,10 @@ const student = {
 
     queryStudentByClassNumber(class_number) {
         return _.query($sqlQueryStu.queryByClassNumber, class_number)
+    },
+
+    getDormitoryByClassNumber: function(class_number) {
+        return _.query($sqlQueryStu.queryDormitoryByClassNumber, class_number);
     }
 }
 

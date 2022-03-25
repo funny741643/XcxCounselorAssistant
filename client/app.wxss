@@ -8,6 +8,7 @@
   padding: 50rpx 0;
   box-sizing: border-box;
   background-color: rgb(235, 229, 229);
+  z-index: -100;
 }
 
 .block-hidden {

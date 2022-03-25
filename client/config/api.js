@@ -13,9 +13,13 @@ const counselorVerify = baseUrl + 'api/counselor/verify';
 // 获取所管班级的所有学生
 const allStudentsOfClass = baseUrl + 'api/classes/allStudents';
 
+// 获取所管宿舍
+const allDormitoriesInfo = baseUrl + 'api/dormitory/allDormitories';
+
 module.exports = {
     loginUrl,
     studentVerify,
     counselorVerify,
-    allStudentsOfClass
+    allStudentsOfClass,
+    allDormitoriesInfo
 }

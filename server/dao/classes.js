@@ -3,7 +3,7 @@ const $sqlQueryClass = require("./sqlCRUD").classes;
 
 
 const classes = {
-    getclassesAndStudentsByUid: function (uid) {
+    getclassesByUid: function (uid) {
         return _.query($sqlQueryClass.queryByUid, uid)
     },
 };

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "宿舍管理",
+  "usingComponents": {
+    "f-card": "/components/card/index"
+  }
+}

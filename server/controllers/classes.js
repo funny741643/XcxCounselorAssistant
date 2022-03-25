@@ -3,14 +3,14 @@ const Students = require('../dao/students');
 
 module.exports = {
     /**
-     * 通过专业和年级获取所有的班级信息
+     * 通过辅导员id获取其所管理的所有的班级信息
      */
      getclassesAndStudentsByUid: async function(req, res, next) {
         const { uid } = req.query;
         
-        let classInfo = await Classes.getclassesAndStudentsByUid(uid)
+        let classInfo = await Classes.getclassesByUid(uid)
 
-        classInfo.sort((a, b) => a.class - b.class )
+        classInfo.sort((a, b) => a.class - b.class)
 
         let resData = []
         for (let i = 0; i< classInfo.length; i++) {
@@ -21,7 +21,6 @@ module.exports = {
         res.json({
             result: '0',
             data: resData
-        })
-        
+        }) 
     },
 }

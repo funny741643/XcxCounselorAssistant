@@ -9,8 +9,10 @@
         </navigator>
       </view>
       <view class="list-item">
-        <view class="list-item-pic"></view>
-        <view class="list-item-text">宿舍管理</view>
+        <navigator url="/pages/manage/dormitory/index">
+          <view class="list-item-pic"></view>
+          <view class="list-item-text">宿舍管理</view>
+        </navigator>
       </view>
       <view class="list-item">
         <view class="list-item-pic"></view>

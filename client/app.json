@@ -5,7 +5,8 @@
     "pages/home/index",
     "pages/my/index",
     "pages/logs/logs",
-    "pages/manage/student/index"
+    "pages/manage/student/index",
+    "pages/manage/dormitory/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
