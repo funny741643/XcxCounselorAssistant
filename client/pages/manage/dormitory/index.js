@@ -4,7 +4,25 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        dormitoryBaseInfo: [],
+        show: false,
+        radio: '1',
+    },
+
+    closeDialog() {
+        this.setData({ show: false });
+    },
+
+    showDialog() {
+        this.setData({ show: true });
+    },
+
+    onChange(event) {
+        this.setData({
+          radio: event.detail,
+        });
+    },
 
     getDormitoriesData() {
         let that = this;
@@ -15,7 +33,20 @@ Page({
             },
 
             success: function (res) {
-                console.log(res);
+                const data = res.data.data;
+                let dormitoryBaseInfo = data.map((item) => {
+                    return {
+                        ...item.dormitory,
+                        dormitory_build: `${item.dormitory.apartment.slice(
+                            0,
+                            2
+                        )}${item.dormitory.apartment_number}号楼`,
+                    };
+                });
+                console.log("22", dormitoryBaseInfo);
+                that.setData({
+                    dormitoryBaseInfo,
+                });
             },
 
             fail: function (error) {
@@ -28,7 +59,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getDormitoriesData()
+        this.getDormitoriesData();
     },
 
     /**

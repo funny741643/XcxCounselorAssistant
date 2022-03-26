@@ -8,7 +8,8 @@ const student = {
     queryById: 'select * from students where uid=?',
     add: 'insert into students set ?',
     queryByClassNumber: 'select * from students where class_number=?',
-    queryDormitoryByClassNumber: 'select dormitory_id from students where class_number=?'
+    queryDormitoryByClassNumber: 'select dormitory_id from students where class_number=?',
+    queryByDormitoryIdInClassNumber: 'select * from students where dormitory_id=?  and  class_number in (?)',
 }
 
 const counselor = {

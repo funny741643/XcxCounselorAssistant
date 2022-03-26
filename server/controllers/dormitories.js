@@ -3,14 +3,21 @@ const Students = require("../dao/students");
 const Dormitories = require("../dao/dormitories");
 
 module.exports = {
+    /**
+     * 通过辅导员的Id号获取到其所管理宿舍的信息
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     getDormitoryInfoByUid: async function (req, res, next) {
         const { uid } = req.query;
-        console.log(uid);
 
         let classInfo = await Classes.getclassesByUid(uid);
         let class_numbers = classInfo
             .sort((a, b) => a.class - b.class)
             .map((item) => item.class_number);
+        
+        console.log(class_numbers);
 
         let allDormitoryIds = [];
         for (let i = 0; i < class_numbers.length; i++) {
@@ -21,12 +28,13 @@ module.exports = {
             allDormitoryIds.push(dormitoryId);
         }
 
-        allDormitoryIds = Array.from(new Set(allDormitoryIds));
+        allDormitoryIds.sort();
         
         const resData = [];
         for (let i = 0; i< allDormitoryIds.length; i++) {
-            let ret = await Dormitories.getclassesByUid(allDormitoryIds[i])
-            resData.push(ret[0])
+            let dormitory = await Dormitories.getDormitoryByUid(allDormitoryIds[i])
+            let students = await Students.getStudentsByDormitoryIdInClassNumber(allDormitoryIds[i], class_numbers);
+            resData.push({dormitory: {...dormitory[0], studentCounts: students.length}, students})
         }
 
         res.json({

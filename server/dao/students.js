@@ -41,6 +41,10 @@ const student = {
 
     getDormitoryByClassNumber: function(class_number) {
         return _.query($sqlQueryStu.queryDormitoryByClassNumber, class_number);
+    },
+
+    getStudentsByDormitoryIdInClassNumber(dormitoryId, class_numbers) {
+        return _.query($sqlQueryStu.queryByDormitoryIdInClassNumber, [dormitoryId, class_numbers]);
     }
 }
 

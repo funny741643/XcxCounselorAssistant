@@ -17,5 +17,11 @@ module.exports = {
                 })   
             }
         })
+    },
+
+    async getStudentsByDormitoryIdInClassNumber(req, res, next) {
+        const { dormitoryId, class_numbers } = req.query;
+        let resData = await Students.getStudentsByDormitoryIdInClassNumber( dormitoryId, class_numbers);
+        return resData;
     }
 }
