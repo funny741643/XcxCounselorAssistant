@@ -16,6 +16,13 @@
           "name": "",
           "pathName": "pages/manage/dormitory/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/verify/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

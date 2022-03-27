@@ -21,7 +21,7 @@
     </f-card>
     <f-card headline="常用功能">
         <view class="common-functions">
-            <view class="function-item" bindtap="showDialog">
+            <view class="function-item" bindtap="showPop">
                 <view class="function-item-pic"></view>
                 <view class="function-item-text">发起检查</view>
             </view>
@@ -33,16 +33,16 @@
             </view>
         </view>
     </f-card>
-    <van-dialog use-slot title="请选择宿舍" show="{{ show }}" showConfirmButton="{{ false }}" bind:close="closeDialog">
-        <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
-            <van-radio name="1">安悦2618</van-radio>
-            <van-radio name="2">安悦2617</van-radio>
-            <van-radio name="3">安悦2619</van-radio>
-            <van-radio name="4">安悦2620</van-radio>
-            <van-radio name="5">安悦2615</van-radio>
-            <van-radio name="6">安悦2616</van-radio>
-        </van-radio-group>
-    </van-dialog>
+    <van-popup show="{{ show }}" position="bottom" custom-style="height: 35%;" bind:close="closePop">
+        <van-picker
+            show-toolbar
+            title="选择宿舍"
+            default-index="{{ defaultColumn }}"
+            columns="{{ columns }}"
+            bind:cancel="onCancel"
+            bind:confirm="onConfirm"
+        />
+    </van-popup>    
     <f-card headline="数据简报">
         <view class="f-table">
             <view class="f-table-head">

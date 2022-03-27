@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "宿舍检查",
+  "usingComponents": {
+    "f-card": "/components/card/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
+  }
+}

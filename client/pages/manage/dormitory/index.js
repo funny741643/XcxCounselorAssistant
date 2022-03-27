@@ -7,21 +7,28 @@ Page({
     data: {
         dormitoryBaseInfo: [],
         show: false,
-        radio: '1',
+        columns: [],
+        defaultColumn: 2,
     },
 
-    closeDialog() {
+    closePop() {
         this.setData({ show: false });
     },
 
-    showDialog() {
+    showPop() {
         this.setData({ show: true });
     },
 
-    onChange(event) {
-        this.setData({
-          radio: event.detail,
-        });
+    onConfirm(event) {
+        const { value } = event.detail;
+        wx.navigateTo({
+            url: `/pages/manage/dormitory/check/index?id=${value.id}`
+        })
+    },
+    
+    onCancel() {
+        this.closePop();
+        console.log('取消');
     },
 
     getDormitoriesData() {
@@ -43,9 +50,16 @@ Page({
                         )}${item.dormitory.apartment_number}号楼`,
                     };
                 });
-                console.log("22", dormitoryBaseInfo);
+                let columns = dormitoryBaseInfo.map(item => {
+                    return {
+                        text: `${item.apartment}${item.dormitory_number}`,
+                        id: item.id,
+                    }
+                })
+                
                 that.setData({
                     dormitoryBaseInfo,
+                    columns,
                 });
             },
 

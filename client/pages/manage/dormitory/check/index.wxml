@@ -1,0 +1,22 @@
+<view class="container">
+    <f-card headline="新增一次检查记录">
+        <block>
+            <view>宿舍风貌</view>
+            <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+                <van-radio name="1">不达标</van-radio>
+                <van-radio name="2">达标</van-radio>
+                <van-radio name="3">优秀</van-radio>
+            </van-radio-group>
+        </block>
+        <block>
+            <view>简评</view>
+            <view class="section">
+                <textarea bindblur="bindTextAreaBlur" placeholder="输入简评" />
+            </view>
+        </block>
+        <block>
+            <view>评分</view>
+        </block>
+        <button>新增一次检查</button>
+    </f-card>
+</view>
