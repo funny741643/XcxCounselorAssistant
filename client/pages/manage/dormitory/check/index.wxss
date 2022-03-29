@@ -1,1 +1,25 @@
 /* pages/manage/dormitory/check/index.wxss */
+
+.check-item {
+    padding-bottom: 15rpx;
+    margin-bottom: 15rpx;
+    /* border-bottom: 1px solid bisque; */
+}
+
+.check-item-title {
+    margin-bottom: 10rpx;
+}
+
+.textarea {
+    min-height: 80rpx !important;
+    max-height: 100rpx !important;
+}
+
+.records-wrapper {
+    width: 700rpx;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10rpx;
+    position: relative;
+    z-index: 1;
+}

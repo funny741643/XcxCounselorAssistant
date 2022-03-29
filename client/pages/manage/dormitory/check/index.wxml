@@ -1,22 +1,28 @@
 <view class="container">
     <f-card headline="新增一次检查记录">
-        <block>
-            <view>宿舍风貌</view>
-            <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+        <view class="check-item">
+            <view class="check-item-title">宿舍风貌</view>
+            <van-radio-group value="{{ level }}" bind:change="onLevelChange" direction="horizontal">
                 <van-radio name="1">不达标</van-radio>
                 <van-radio name="2">达标</van-radio>
                 <van-radio name="3">优秀</van-radio>
             </van-radio-group>
-        </block>
-        <block>
-            <view>简评</view>
-            <view class="section">
-                <textarea bindblur="bindTextAreaBlur" placeholder="输入简评" />
-            </view>
-        </block>
-        <block>
-            <view>评分</view>
-        </block>
-        <button>新增一次检查</button>
+        </view>
+        <view class="check-item">
+            <view class="check-item-title">简评</view>
+            <van-cell-group>
+                <van-field value="{{ comment }}" type="textarea" maxlength="30" show-word-limit placeholder="宿舍简评" border="{{ false }}" autosize input-class="textarea" bind:change="onCommentChange" />
+            </van-cell-group>
+        </view>
+        <view class="check-item">
+            <view class="check-item-title">评分</view>
+            <van-rate value="{{ rate }}" bind:change="onRateChange" />
+        </view>
+        <button bindtap="onHandlerCommit">新增一次检查</button>
     </f-card>
+    <view class="records-wrapper">
+        <van-cell-group inset>
+            <van-cell wx:for="{{records}}" wx:key="index" title="{{item.check_date}}" value="{{item.level}}" label="{{item.comment}}" />
+        </van-cell-group>
+    </view>
 </view>

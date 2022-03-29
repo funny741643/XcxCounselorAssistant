@@ -25,10 +25,16 @@ const dormitory = {
     queryById: 'select * from dormitories where id=?',
 }
 
+const check = {
+    add: 'insert into dormitory_check set ?',
+    queryByDid: 'select * from dormitory_check where dId=?'
+}
+
 module.exports = {
     user,
     student,
     counselor,
     classes,
-    dormitory
+    dormitory,
+    check
 }

@@ -3,21 +3,13 @@ const Students = require("../dao/students");
 const Dormitories = require("../dao/dormitories");
 
 module.exports = {
-    /**
-     * 通过辅导员的Id号获取到其所管理宿舍的信息
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} next 
-     */
-    getDormitoryInfoByUid: async function (req, res, next) {
+    getDormitoryIdByUid: async function (req, res, next) {
         const { uid } = req.query;
 
         let classInfo = await Classes.getclassesByUid(uid);
         let class_numbers = classInfo
             .sort((a, b) => a.class - b.class)
             .map((item) => item.class_number);
-        
-        console.log(class_numbers);
 
         let allDormitoryIds = [];
         for (let i = 0; i < class_numbers.length; i++) {
@@ -28,13 +20,35 @@ module.exports = {
             allDormitoryIds.push(dormitoryId);
         }
 
-        allDormitoryIds.sort();
-        
+        return allDormitoryIds.sort();
+    },
+
+    /**
+     * 通过辅导员的Id号获取到其所管理宿舍的信息
+     * @param {*} req
+     * @param {*} res
+     * @param {*} next
+     */
+    getDormitoryInfoByUid: async function (req, res, next) {
+        const { uid } = req.query;
+        let allDormitoryIds = await this.getDormitoryIdByUid(req, res, next);
+        let classInfo = await Classes.getclassesByUid(uid);
+        let class_numbers = classInfo
+            .sort((a, b) => a.class - b.class)
+            .map((item) => item.class_number);
         const resData = [];
-        for (let i = 0; i< allDormitoryIds.length; i++) {
-            let dormitory = await Dormitories.getDormitoryByUid(allDormitoryIds[i])
-            let students = await Students.getStudentsByDormitoryIdInClassNumber(allDormitoryIds[i], class_numbers);
-            resData.push({dormitory: {...dormitory[0], studentCounts: students.length}, students})
+        for (let i = 0; i < allDormitoryIds.length; i++) {
+            let dormitory = await Dormitories.getDormitoryByUid(
+                allDormitoryIds[i]
+            );
+            let students = await Students.getStudentsByDormitoryIdInClassNumber(
+                allDormitoryIds[i],
+                class_numbers
+            );
+            resData.push({
+                dormitory: { ...dormitory[0], studentCounts: students.length },
+                students,
+            });
         }
 
         res.json({

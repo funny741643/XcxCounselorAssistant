@@ -26,7 +26,7 @@
                 <view class="function-item-text">发起检查</view>
             </view>
             <view class="function-item">
-                <navigator url="">
+                <navigator url="/pages/manage/dormitory/statistics/index">
                     <view class="function-item-pic"></view>
                     <view class="function-item-text">检查统计</view>
                 </navigator>

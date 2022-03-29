@@ -16,10 +16,20 @@ const allStudentsOfClass = baseUrl + 'api/classes/allStudents';
 // 获取所管宿舍
 const allDormitoriesInfo = baseUrl + 'api/dormitory/allDormitories';
 
+// 提交一条宿舍检查记录
+const postDormitoryCheckRecord = baseUrl + 'api/check/record';
+// 根据宿舍id获取该宿舍的所有检查记录
+const getCheckRecordsByDid = baseUrl+'api/check/records';
+// 获取所管理所有宿舍的检查报告
+const getCheckstatisticsByUid = baseUrl+'api/check/statistics';
+
 module.exports = {
     loginUrl,
     studentVerify,
     counselorVerify,
     allStudentsOfClass,
-    allDormitoriesInfo
+    allDormitoriesInfo,
+    postDormitoryCheckRecord,
+    getCheckRecordsByDid,
+    getCheckstatisticsByUid
 }
