@@ -1,12 +1,18 @@
 const checkModel = require("../dao/check");
 const moment = require("moment");
-const dormitoryMethods = require('./dormitories');
+const dormitoryMethods = require("./dormitories");
 
 const checkMethods = {
+    /**
+     * 根据宿舍id，为其新增一条检查记录
+     * @param {*} req
+     * @param {*} res
+     * @param {*} next
+     */
     postOneRecord: async function (req, res, next) {
         let check_date = moment().format("YYYY-MM-DD");
         const data = { check_date, ...req.body };
-        console.log(data)
+        console.log(data);
         try {
             const ret = await checkModel.addOneRecord(data);
             if (ret) {
@@ -23,11 +29,16 @@ const checkMethods = {
         }
     },
 
+    /**
+     * 根据宿舍id获取其所有检查记录
+     * @param {宿舍id} dId
+     * @returns
+     */
     getRecordsByDid: async function (dId) {
         try {
             const ret = await checkModel.getRecordsByDid(dId);
             return ret;
-        } catch(e) {
+        } catch (e) {
             res.json({
                 result: -3,
                 err: e.sqlMessage,
@@ -35,15 +46,36 @@ const checkMethods = {
         }
     },
 
-    getStatisticsByUid: async function(req, res, next) {
-        let allRecords = []
-        let dormitoryIds = await dormitoryMethods.getDormitoryIdByUid(req, res, next)
+    /**
+     * 通过用户id获取宿舍检查的统计结果
+     * @param {用户id} uid
+     */
+    getStatisticsByUid: async function (uid) {
+        let allRecords = {};
+        let resData = [];
+        let dormitoryIds = await dormitoryMethods.getDormitoryIdByUid(uid);
         for (let i = 0; i < dormitoryIds.length; i++) {
-            const ret = await this.getRecordsByDid(dormitoryIds[i])
-            allRecords.push(ret)
+            const ret = await this.getRecordsByDid(dormitoryIds[i]);
+            allRecords[dormitoryIds[i]] = ret;
         }
-        console.log(allRecords)
-    }
+        Object.keys(allRecords).forEach((key) => {
+            let count = allRecords[key].length;
+            let result = {
+                不达标: 0,
+                达标: 0,
+                优秀: 0,
+            };
+            allRecords[key].forEach((item) => {
+                result[item.level] = result[item.level] + 1;
+            });
+            let record = {
+                count,
+                result,
+            };
+            resData.push(record);
+        });
+        return resData;
+    },
 };
 
 module.exports = checkMethods;

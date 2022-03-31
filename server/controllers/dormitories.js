@@ -3,9 +3,7 @@ const Students = require("../dao/students");
 const Dormitories = require("../dao/dormitories");
 
 module.exports = {
-    getDormitoryIdByUid: async function (req, res, next) {
-        const { uid } = req.query;
-
+    getDormitoryIdByUid: async function (uid) {
         let classInfo = await Classes.getclassesByUid(uid);
         let class_numbers = classInfo
             .sort((a, b) => a.class - b.class)
@@ -29,9 +27,8 @@ module.exports = {
      * @param {*} res
      * @param {*} next
      */
-    getDormitoryInfoByUid: async function (req, res, next) {
-        const { uid } = req.query;
-        let allDormitoryIds = await this.getDormitoryIdByUid(req, res, next);
+    getDormitoryInfoByUid: async function (uid) {
+        let allDormitoryIds = await this.getDormitoryIdByUid(uid);
         let classInfo = await Classes.getclassesByUid(uid);
         let class_numbers = classInfo
             .sort((a, b) => a.class - b.class)
@@ -51,9 +48,6 @@ module.exports = {
             });
         }
 
-        res.json({
-            result: "0",
-            data: resData,
-        });
+        return resData;
     },
 };

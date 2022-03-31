@@ -1,2 +1,8 @@
-<!--pages/manage/dormitory/statistics/index.wxml-->
-<text>pages/manage/dormitory/statistics/index.wxml</text>
+<view class="container">
+    <f-table>
+        <f-table-head></f-table-head>
+        <f-table-body>
+            <f-table-column></f-table-column>
+        </f-table-body>
+    </f-table>
+</view>
