@@ -4,7 +4,9 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        records: []
+    },
 
     getCheckstatisticsByUid() {
         let that = this;
@@ -17,7 +19,11 @@ Page({
 
             success: function (res) {
                 let data = res.data;
-                console.log(data)
+                if (data.result === 0) {
+                    that.setData({
+                        records: data.data
+                    })
+                }
             },
 
             fail: function (error) {

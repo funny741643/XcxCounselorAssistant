@@ -1,8 +1,18 @@
 <view class="container">
-    <f-table>
-        <f-table-head></f-table-head>
-        <f-table-body>
-            <f-table-column></f-table-column>
-        </f-table-body>
-    </f-table>
+    <view class="f-table">
+        <view class="f-table-head">
+            <view class="f-table-head-col">宿舍名</view>
+            <view class="f-table-head-col">总次数</view>
+            <view class="f-table-head-col">不达标</view>
+            <view class="f-table-head-col">达标</view>
+            <view class="f-table-head-col">优秀</view>
+        </view>
+        <view class="f-table-body" wx:for="{{records}}" wx:for-index="idx" wx:key="index">
+            <view class="f-table-body-col">{{item.dormitoryName}}</view>
+            <view class="f-table-body-col">{{item.count}}</view>
+            <view class="f-table-body-col">{{item.result['达标']}}</view>
+            <view class="f-table-body-col">{{item.result['不达标']}}</view>
+            <view class="f-table-body-col">{{item.result['优秀']}}</view>
+        </view>
+    </view>
 </view>

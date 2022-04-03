@@ -22,4 +22,13 @@ router.get("/allDormitoryIds", function (req, res, next) {
     });
 });
 
+router.get("/baseDataById", async function (req, res, next) {
+    const { uid } = req.query;
+    let resData = await Dormitory.getBaseData(uid);
+    res.json({
+        result: 0,
+        data: resData,
+    })
+});
+
 module.exports = router;

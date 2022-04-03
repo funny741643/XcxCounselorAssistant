@@ -9,6 +9,7 @@ Page({
         show: false,
         columns: [],
         defaultColumn: 2,
+        baseData: {},
     },
 
     closePop() {
@@ -29,6 +30,29 @@ Page({
     onCancel() {
         this.closePop();
         console.log('取消');
+    },
+
+    getDormitoryBaseData () {
+        let that = this;
+        wx.request({
+            url: api.dormitoryBaseData,
+            data: {
+                uid: wx.getStorageSync("openId"),
+            },
+
+            success: function (res) {
+                let data = res.data;
+                if (data.result === 0) {
+                    that.setData({
+                        baseData: data.data
+                    })
+                }
+            },
+
+            fail: function (error) {
+                app.showInfo("调用接口失败");
+            },
+        });
     },
 
     getDormitoriesData() {
@@ -73,6 +97,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.getDormitoryBaseData();
         this.getDormitoriesData();
     },
 

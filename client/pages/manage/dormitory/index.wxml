@@ -3,16 +3,16 @@
     <f-card headline="数据概况">
         <view class="data-profile">
             <view class="data-profile-item">
-                <view class="ptofile-item-number">2</view>
+                <view class="ptofile-item-number">{{baseData.apartmentCounts}}</view>
                 <view class="ptofile-item-desc">宿舍楼</view>
             </view>
             <view class="data-profile-item">
-                <view class="ptofile-item-number">20</view>
+                <view class="ptofile-item-number">{{baseData.dormitoryCounts}}</view>
                 <view class="ptofile-item-desc">宿舍</view>
             </view>
             <view class="data-profile-item">
                 <view class="ptofile-item-number">
-                    0
+                    {{baseData.recordCounts}}
                     <text>次</text>
                 </view>
                 <view class="ptofile-item-desc">内务检查</view>

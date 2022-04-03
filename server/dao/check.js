@@ -7,6 +7,9 @@ const check = {
     },
     getRecordsByDid: function(dId) {
         return _.query($sqlQueryDormitoryCheck.queryByDid, dId)
+    },
+    getRecordCounts: function(dIds) {
+        return _.query($sqlQueryDormitoryCheck.queryCountsByDIds, [dIds]);
     }
 };
 

@@ -26,7 +26,8 @@ router.get("/records", async function (req, res, next) {
  */
 router.get("/statistics", async function (req, res, next) {
     const { uid } = req.query;
-    resData = await checkMethods.getStatisticsByUid(uid);
+    let resData = await checkMethods.getStatisticsByUid(uid);
+    console.log(resData)
     res.json({
         result: 0,
         data: resData,

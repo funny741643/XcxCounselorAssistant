@@ -1,6 +1,7 @@
 const checkModel = require("../dao/check");
 const moment = require("moment");
 const dormitoryMethods = require("./dormitories");
+const dormitoryModel = require("../dao/dormitories");
 
 const checkMethods = {
     /**
@@ -55,11 +56,18 @@ const checkMethods = {
         let resData = [];
         let dormitoryIds = await dormitoryMethods.getDormitoryIdByUid(uid);
         for (let i = 0; i < dormitoryIds.length; i++) {
-            const ret = await this.getRecordsByDid(dormitoryIds[i]);
-            allRecords[dormitoryIds[i]] = ret;
+            let record = await this.getRecordsByDid(dormitoryIds[i]);
+            allRecords[dormitoryIds[i]] = record;
         }
-        Object.keys(allRecords).forEach((key) => {
+
+        let recordKeys = Object.keys(allRecords);
+        for (let i = 0; i < recordKeys.length; i++) {
+            let key = recordKeys[i];
             let count = allRecords[key].length;
+            const dormitoryInfo = await dormitoryModel.getDormitoryByUid(key);
+            const dormitoryName = `${dormitoryInfo[0].apartment.slice(0, 2)}${
+                dormitoryInfo[0].dormitory_number
+            }`;
             let result = {
                 不达标: 0,
                 达标: 0,
@@ -71,9 +79,10 @@ const checkMethods = {
             let record = {
                 count,
                 result,
+                dormitoryName,
             };
             resData.push(record);
-        });
+        }
         return resData;
     },
 };
