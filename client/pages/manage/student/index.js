@@ -34,7 +34,7 @@ Page({
             success: function (res) {
                 if (res.data.result == 0) {
                     let data = res.data.data;
-                    let items = data.map(item => {
+                    let items = data.map((item) => {
                         let students = item.students;
                         let children = students.map((item) => {
                             return {
@@ -43,12 +43,10 @@ Page({
                             };
                         });
                         return {
-                            text: `${item.major.slice(0, 2)}${item.grade}0${
-                                item.class
-                            }`,
-                            children
-                        }
-                    })
+                            text: `${item.major.slice(0, 2)}${item.class}`,
+                            children,
+                        };
+                    });
                     that.setData({
                         items,
                     });

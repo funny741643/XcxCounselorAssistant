@@ -19,6 +19,8 @@ const counselor = {
 
 const classes = {
     queryByUid: 'select * from classes where uid=?',
+    queryCollege: 'select college from classes group by college',
+    queryMajorByCollege: 'select major from classes where college=? group by major'
 }
 
 const dormitory = {

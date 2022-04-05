@@ -22,6 +22,69 @@ Page({
         counselorMajor: "",
         counselorGrade: "",
         counselorPhonenumber: "",
+        collegeSelectShow: false,
+        majorSelectShow: false,
+        isMajorDisabled: true,
+        collegeColumns: [],
+        majorColumns: [],
+    },
+
+    onCollegeDisplay: function () {
+        this.setData({
+            collegeSelectShow: true,
+        });
+    },
+
+    onCollegeClose: function () {
+        this.setData({
+            collegeSelectShow: false,
+        });
+    },
+
+    onCollegeCancel() {
+        this.setData({
+            collegeSelectShow: false,
+        });
+    },
+
+    onCollegeConfirm(event) {
+        const { detail } = event;
+        this.setData(
+            {
+                studentCollege: detail.value,
+                collegeSelectShow: false,
+                isMajorDisabled: false,
+            },
+            (e) => {
+                this.getMajorsByCollege();
+            }
+        );
+    },
+
+    onMajorDisplay: function () {
+        this.setData({
+            majorSelectShow: true,
+        });
+    },
+
+    onMajorClose: function () {
+        this.setData({
+            majorSelectShow: false,
+        });
+    },
+
+    onMajorCancel() {
+        this.setData({
+            majorSelectShow: false,
+        });
+    },
+
+    onMajorConfirm(event) {
+        const { detail } = event;
+        this.setData({
+            studentMajor: detail.value,
+            majorSelectShow: false,
+        });
     },
 
     handleRoleSelect: function (event) {
@@ -33,6 +96,48 @@ Page({
         this.setData({
             role,
             isStuHidden,
+        });
+    },
+
+    getAllColleges() {
+        let that = this;
+        wx.request({
+            url: api.getAllColleges,
+
+            success: function (res) {
+                let data = res.data;
+                if (data.result == 0) {
+                    that.setData({
+                        collegeColumns: data.data,
+                    });
+                }
+            },
+
+            fail: function (error) {
+                app.showInfo("调用接口失败");
+            },
+        });
+    },
+
+    getMajorsByCollege() {
+        let that = this;
+        wx.request({
+            url: api.getMajorsByCollege,
+            data: {
+                college: this.data.studentCollege,
+            },
+            success: function (res) {
+                let data = res.data;
+                if (data.result === 0) {
+                    that.setData({
+                        majorColumns: data.data,
+                    });
+                }
+            },
+
+            fail: function (error) {
+                app.showInfo("调用接口失败");
+            },
         });
     },
 
@@ -81,6 +186,7 @@ Page({
         studentInfo.telephone = this.data.studentPhonenumber;
         studentInfo.apartment = this.data.studentApartment;
         studentInfo.dormitory = this.data.studentDormitory;
+        console.log(studentInfo, this.data.role);
         wx.request({
             url: api.studentVerify,
             data: {
@@ -91,6 +197,7 @@ Page({
 
             success: function (res) {
                 let data = res.data;
+                console.log(data);
                 if (data.result === 0) {
                     const { studentInfo, role } = data.data;
                     wx.setStorageSync("detailInfo", studentInfo);
@@ -110,7 +217,9 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {},
+    onLoad: function (options) {
+        this.getAllColleges();
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

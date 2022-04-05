@@ -4,6 +4,12 @@ const baseUrl = 'http://127.0.0.1:3003/';
 // 登录接口
 const loginUrl 	= baseUrl + 'login';
 
+// 获取所有学院
+const getAllColleges = baseUrl + 'api/classes/allColleges';
+
+// 根据学院获取到其所含专业
+const getMajorsByCollege = baseUrl + 'api/classes/majorsByCollege';
+
 // 学生验证接口
 const studentVerify = baseUrl + 'api/student/verify';
 
@@ -35,5 +41,7 @@ module.exports = {
     postDormitoryCheckRecord,
     getCheckRecordsByDid,
     getCheckstatisticsByUid,
-    dormitoryBaseData
+    dormitoryBaseData,
+    getAllColleges,
+    getMajorsByCollege
 }

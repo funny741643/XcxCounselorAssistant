@@ -8,6 +8,7 @@ const student = {
         const insertObj = {
             'uid': uid,
             'class_number': '',
+            'dormitory_id': '',
             ...studentInfo
         }
         _.query($sqlQueryUser.update, [{urole: role}, uid]).then((res) => {
@@ -20,6 +21,7 @@ const student = {
                         reject('您已经认证过了！！')
                     })
                 } else {
+                    console.log(insertObj)
                     return _.query($sqlQueryStu.add, insertObj);
                 }
             }).then(function() {

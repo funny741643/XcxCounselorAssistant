@@ -18,7 +18,7 @@ const user = {
             'sessionkey': session_key,
             'update_time': update_time,
             'create_time': create_time,
-            'role': 0,
+            'urole': 0,
         }
         const updateObj = {
             'uname': userInfo.nickName,
@@ -36,7 +36,7 @@ const user = {
                     role = res[0].urole;
                     return _.query($sqlQueryUser.update, [updateObj, uid])
                 } else {
-                    console.log('插入成功')
+                    console.log('插入成功', insertObj)
                     return _.query($sqlQueryUser.add, insertObj)
                 }
             })
