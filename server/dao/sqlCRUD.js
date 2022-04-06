@@ -20,12 +20,15 @@ const counselor = {
 const classes = {
     queryByUid: 'select * from classes where uid=?',
     queryCollege: 'select college from classes group by college',
-    queryMajorByCollege: 'select major from classes where college=? group by major'
+    queryMajorByCollege: 'select major from classes where college=? group by major',
+    queryClassNumByMajorAndClass: 'select class_number from classes where major=? and class=?',
 }
 
 const dormitory = {
     queryById: 'select * from dormitories where id=?',
-    queryApartmentCount: 'select apartment from dormitories where id in (?) group by apartment'
+    queryApartmentCount: 'select apartment from dormitories where id in (?) group by apartment',
+    queryApartments: 'select apartment from dormitories group by apartment',
+    queryIdByApartmentAndNum: 'select id from dormitories where apartment=? and dormitory_number=?',
 }
 
 const check = {

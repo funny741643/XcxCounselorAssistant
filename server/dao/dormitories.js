@@ -9,6 +9,14 @@ const dormitory = {
 
     getDormitoryCount: function(ids) {
         return _.query($sqlQueryDormitory.queryApartmentCount, [ids]);
+    },
+
+    getApartments: function() {
+        return _.query($sqlQueryDormitory.queryApartments);
+    },
+
+    getIdByApartmentAndNum: function(apartment, dormitory_num) {
+        return _.query($sqlQueryDormitory.queryIdByApartmentAndNum, [apartment, dormitory_num]);
     }
 };
 

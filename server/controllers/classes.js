@@ -42,5 +42,14 @@ module.exports = {
         let majors = await ClasseModel.getMajorsByCollege(college);
         majors = majors.map(item => item.major);
         return majors;
+    },
+
+    /**
+     * 通过专业和班级获取到班级号
+     */
+    getClassNumByMajorAndClass: async function(major, ownClass) {
+        let class_number = await ClasseModel.getClassNumByMajorAndClass(major, ownClass);
+        class_number = class_number[0].class_number;
+        return class_number;
     }
 };

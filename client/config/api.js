@@ -23,6 +23,8 @@ const allStudentsOfClass = baseUrl + 'api/classes/allStudents';
 const allDormitoriesInfo = baseUrl + 'api/dormitory/allDormitories';
 // 获取宿舍管理基本数据
 const dormitoryBaseData = baseUrl + 'api/dormitory/baseDataById';
+// 获取所有公寓名称
+const getApartments = baseUrl+'api/dormitory/apartments';
 
 // 提交一条宿舍检查记录
 const postDormitoryCheckRecord = baseUrl + 'api/check/record';
@@ -32,16 +34,18 @@ const getCheckRecordsByDid = baseUrl+'api/check/records';
 const getCheckstatisticsByUid = baseUrl+'api/check/statistics';
 
 
+
 module.exports = {
     loginUrl,
+    getAllColleges,
+    getMajorsByCollege,
     studentVerify,
     counselorVerify,
     allStudentsOfClass,
     allDormitoriesInfo,
     postDormitoryCheckRecord,
+    getApartments,
     getCheckRecordsByDid,
     getCheckstatisticsByUid,
     dormitoryBaseData,
-    getAllColleges,
-    getMajorsByCollege
 }

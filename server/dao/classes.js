@@ -13,6 +13,10 @@ const classes = {
 
     getMajorsByCollege: function(college) {
         return _.query($sqlQueryClass.queryMajorByCollege, college)
+    },
+
+    getClassNumByMajorAndClass: function(major, ownClass) {
+        return _.query($sqlQueryClass.queryClassNumByMajorAndClass, [major, ownClass]);
     }
 };
 

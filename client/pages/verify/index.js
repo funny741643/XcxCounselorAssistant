@@ -24,9 +24,11 @@ Page({
         counselorPhonenumber: "",
         collegeSelectShow: false,
         majorSelectShow: false,
+        apartmentSelectShow: false,
         isMajorDisabled: true,
         collegeColumns: [],
         majorColumns: [],
+        apartmentColumns: []
     },
 
     onCollegeDisplay: function () {
@@ -87,6 +89,32 @@ Page({
         });
     },
 
+    onApartmentDisplay: function () {
+        this.setData({
+            apartmentSelectShow: true,
+        });
+    },
+
+    onApartmentClose: function () {
+        this.setData({
+            apartmentSelectShow: false,
+        });
+    },
+
+    onApartmentCancel() {
+        this.setData({
+            apartmentSelectShow: false,
+        });
+    },
+
+    onApartmentConfirm(event) {
+        const { detail } = event;
+        this.setData({
+            studentApartment: detail.value,
+            apartmentSelectShow: false,
+        });
+    },
+
     handleRoleSelect: function (event) {
         let role = +event.target.dataset.role;
         let isStuHidden = true;
@@ -96,6 +124,26 @@ Page({
         this.setData({
             role,
             isStuHidden,
+        });
+    },
+
+    getAllApartments() {
+        let that = this;
+        wx.request({
+            url: api.getApartments,
+
+            success: function (res) {
+                let data = res.data;
+                if (data.result == 0) {
+                    that.setData({
+                        apartmentColumns: data.data,
+                    });
+                }
+            },
+
+            fail: function (error) {
+                app.showInfo("调用接口失败");
+            },
         });
     },
 
@@ -149,7 +197,6 @@ Page({
         counselorInfo.major = this.data.counselorMajor;
         counselorInfo.telephone = this.data.counselorPhonenumber;
         counselorInfo.grade = this.data.counselorGrade;
-        console.log(counselorInfo);
         wx.request({
             url: api.counselorVerify,
             data: {
@@ -186,7 +233,6 @@ Page({
         studentInfo.telephone = this.data.studentPhonenumber;
         studentInfo.apartment = this.data.studentApartment;
         studentInfo.dormitory = this.data.studentDormitory;
-        console.log(studentInfo, this.data.role);
         wx.request({
             url: api.studentVerify,
             data: {
@@ -203,7 +249,7 @@ Page({
                     wx.setStorageSync("detailInfo", studentInfo);
                     wx.setStorageSync("role", role);
                     wx.switchTab({
-                        url: "/pages/home/index",
+                        url: "/pages/home/studentHome/index",
                     });
                 }
             },
@@ -219,6 +265,7 @@ Page({
      */
     onLoad: function (options) {
         this.getAllColleges();
+        this.getAllApartments();
     },
 
     /**

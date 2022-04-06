@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Dormitory = require("../controllers/dormitories");
+const DormitoryMethods = require("../controllers/dormitories");
 
 router.get("/allDormitories", async function (req, res, next) {
     const { uid } = req.query;
-    let resData = await Dormitory.getDormitoryInfoByUid(uid);
+    let resData = await DormitoryMethods.getDormitoryInfoByUid(uid);
 
     res.json({
         result: "0",
@@ -14,7 +14,7 @@ router.get("/allDormitories", async function (req, res, next) {
 
 router.get("/allDormitoryIds", function (req, res, next) {
     const { uid } = req.query;
-    let allDormitoryIds = Dormitory.getDormitoryIdByUid(uid);
+    let allDormitoryIds = DormitoryMethods.getDormitoryIdByUid(uid);
 
     res.json({
         result: 0,
@@ -24,11 +24,21 @@ router.get("/allDormitoryIds", function (req, res, next) {
 
 router.get("/baseDataById", async function (req, res, next) {
     const { uid } = req.query;
-    let resData = await Dormitory.getBaseData(uid);
+    let resData = await DormitoryMethods.getBaseData(uid);
     res.json({
         result: 0,
         data: resData,
     })
 });
 
+router.get("/apartments", async function(req, res, next) {
+    let resData = await DormitoryMethods.getApartments()
+    res.json({
+        result: 0,
+        data: resData
+    })
+})
+
+// 待思考
+// router.get("/dormitoryNumByApartment", async function(req, res, next) {})
 module.exports = router;
