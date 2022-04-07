@@ -37,11 +37,16 @@ const check = {
     queryCountsByDIds: 'select count(*) as recordCounts from dormitory_check where dId in (?)'
 }
 
+const holiday = {
+    add: 'insert into holiday set ?'
+}
+
 module.exports = {
     user,
     student,
     counselor,
     classes,
     dormitory,
-    check
+    check,
+    holiday
 }

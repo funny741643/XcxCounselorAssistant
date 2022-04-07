@@ -1,0 +1,48 @@
+<view class="container-simple">
+    <view class="form-wrapper">
+        <view class="radio-wrapper">
+            <view class="radio-title">请假类型(必选)</view>
+            <van-radio-group value="{{ type }}" bind:change="onTypeChange" direction="horizontal">
+                <van-radio name="1">事假</van-radio>
+                <van-radio name="2">病假</van-radio>
+            </van-radio-group>
+            <view class="radio-title">是否离校(必选)</view>
+            <van-radio-group value="{{ outschool }}" bind:change="onOutSchoolChange" direction="horizontal">
+                <van-radio name="1">是</van-radio>
+                <van-radio name="2">否</van-radio>
+            </van-radio-group>
+        </view>
+
+        <van-cell-group>
+            <van-cell required is-link title="起始日期" value="{{ startTime }}" bind:click="onStartTimeDisplay" />
+            <van-calendar show="{{ startTimeShow }}" bind:close="onStartTimeClose" bind:confirm="onStartTimeConfirm" />
+            <van-cell required is-link title="结束日期" value="{{ endTime }}" bind:click="onEndTimeDisplay" />
+            <van-calendar show="{{ endTimeShow }}" bind:close="onEndTimeClose" bind:confirm="onEndTimeConfirm" />
+            <van-field
+                required
+                label="联系电话"
+                value="{{ telephone }}"
+                placeholder="请输入紧急联系人联系电话"
+                border="{{ false }}"
+                bind:change="onTelephoneChange"
+            />
+            <van-field
+                required
+                value="{{ explain }}"
+                label="事由说明"
+                type="textarea"
+                maxlength="50"
+                show-word-limit
+                placeholder="请简短的说明请假原因"
+                border="{{ false }}"
+                autosize
+                input-class="textarea"
+                bind:change="onExplainChange"
+            />
+        </van-cell-group>
+
+        <view class="button">
+            <van-button bind:click="handleSubmit" type="primary" size="large">提交申请</van-button>
+        </view>
+    </view>
+</view>

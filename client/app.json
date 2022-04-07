@@ -8,7 +8,8 @@
     "pages/manage/student/index",
     "pages/manage/dormitory/index",
     "pages/manage/dormitory/check/index",
-    "pages/manage/dormitory/statistics/index"
+    "pages/manage/dormitory/statistics/index",
+    "pages/student/holiday/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

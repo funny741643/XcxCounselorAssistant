@@ -34,6 +34,9 @@ const getCheckRecordsByDid = baseUrl+'api/check/records';
 const getCheckstatisticsByUid = baseUrl+'api/check/statistics';
 
 
+// 请假申请
+const postHolidayApply = baseUrl+'api/holiday/apply';
+
 
 module.exports = {
     loginUrl,
@@ -48,4 +51,5 @@ module.exports = {
     getCheckRecordsByDid,
     getCheckstatisticsByUid,
     dormitoryBaseData,
+    postHolidayApply
 }

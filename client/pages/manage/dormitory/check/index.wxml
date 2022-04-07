@@ -11,7 +11,17 @@
         <view class="check-item">
             <view class="check-item-title">简评</view>
             <van-cell-group>
-                <van-field value="{{ comment }}" type="textarea" maxlength="30" show-word-limit placeholder="宿舍简评" border="{{ false }}" autosize input-class="textarea" bind:change="onCommentChange" />
+                <van-field
+                    value="{{ comment }}"
+                    type="textarea"
+                    maxlength="30"
+                    show-word-limit
+                    placeholder="宿舍简评"
+                    border="{{ false }}"
+                    autosize
+                    input-class="textarea"
+                    bind:change="onCommentChange"
+                />
             </van-cell-group>
         </view>
         <view class="check-item">
@@ -22,7 +32,13 @@
     </f-card>
     <view class="records-wrapper">
         <van-cell-group inset>
-            <van-cell wx:for="{{records}}" wx:key="index" title="{{item.check_date}}" value="{{item.level}}" label="{{item.comment}}" />
+            <van-cell
+                wx:for="{{records}}"
+                wx:key="index"
+                title="{{item.check_date}}"
+                value="{{item.level}}"
+                label="{{item.comment}}"
+            />
         </van-cell-group>
     </view>
 </view>

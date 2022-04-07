@@ -1,0 +1,22 @@
+/* pages/student/holiday/index.wxss */
+.form-wrapper {
+    background-color: #fff;
+    padding: 30rpx 20rpx;
+    margin: 0 30rpx;
+    border-radius: 20rpx;
+}
+
+.radio-wrapper {
+    margin: 0 20rpx 20rpx;
+    font-size: 28rpx;
+}
+
+.radio-title {
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.button {
+    padding: 30rpx 60rpx;
+    text-align: center;
+}

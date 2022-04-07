@@ -1,45 +1,87 @@
 <!-- index.wxml -->
 <view class="container">
-    <block wx:if="{{wx.getStorageSync(role) === 1}}">
-        <f-card headline="学生和班级">
+    <block wx:if="{{role === 1}}">
+        <f-card headline="学生管理">
             <view class="student-manage-list">
                 <view class="list-item">
                     <navigator url="/pages/manage/student/index">
                         <view class="list-item-pic"></view>
-                        <view class="list-item-text">学生管理</view>
+                        <view class="list-item-text">学生信息</view>
                     </navigator>
                 </view>
                 <view class="list-item">
                     <navigator url="/pages/manage/dormitory/index">
                         <view class="list-item-pic"></view>
-                        <view class="list-item-text">宿舍管理</view>
+                        <view class="list-item-text">宿舍信息</view>
                     </navigator>
                 </view>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">班委管理</view>
+                    <view class="list-item-text">请假信息</view>
                 </view>
             </view>
         </f-card>
-        <f-card headline="日常管理">
+        <f-card headline="心理管理">
             <view class="student-manage-list">
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">请假</view>
+                    <view class="list-item-text">谈话记录</view>
                 </view>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">请假</view>
+                    <view class="list-item-text">心理预警</view>
                 </view>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">请假</view>
+                    <view class="list-item-text">月报</view>
+                </view>
+            </view>
+        </f-card>
+        <f-card headline="党团管理">
+            <view class="student-manage-list">
+                <view class="list-item">
+                    <view class="list-item-pic"></view>
+                    <view class="list-item-text">党员统计</view>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-pic"></view>
+                    <view class="list-item-text">党团活动记录</view>
+                </view>
+            </view>
+        </f-card>
+        <f-card headline="其他">
+            <view class="student-manage-list">
+                <view class="list-item">
+                    <view class="list-item-pic"></view>
+                    <view class="list-item-text">就业统计</view>
                 </view>
             </view>
         </f-card>
     </block>
 
     <block wx:else>
-        lalala
+        <f-card headline="最新公告"></f-card>
+        <f-card headline="常用功能">
+            <view class="student-manage-list">
+                <view class="list-item">
+                    <navigator url="/pages/student/holiday/index">
+                        <view class="list-item-pic"></view>
+                        <view class="list-item-text">请假</view>
+                    </navigator>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-pic"></view>
+                    <view class="list-item-text">签到</view>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-pic"></view>
+                    <view class="list-item-text">返校申请</view>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-pic"></view>
+                    <view class="list-item-text">就业登记</view>
+                </view>
+            </view>
+        </f-card>
     </block>
 </view>

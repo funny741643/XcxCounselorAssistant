@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    role: 0,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -20,7 +21,8 @@ Page({
   onLoad() {
     if (wx.getUserProfile) {
       this.setData({
-        canIUseGetUserProfile: true
+        canIUseGetUserProfile: true,
+        role: wx.getStorageSync('role')
       })
     }
   },
@@ -44,5 +46,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
 })

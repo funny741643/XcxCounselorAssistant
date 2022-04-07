@@ -12,6 +12,13 @@
   z-index: -100;
 }
 
+.container-simple {
+  padding-top: 30rpx;
+  min-height: 100vh;
+  background-color: rgb(235, 229, 229);
+  z-index: -100;
+}
+
 .block-hidden {
   display: none;
 }
