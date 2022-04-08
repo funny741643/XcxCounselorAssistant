@@ -1,0 +1,43 @@
+/* pages/student/holiday/home/index.wxss */
+
+.add-buttom {
+    margin-bottom: 30rpx;
+}
+
+.apply-title {
+    font-size: 28rpx;
+    color: rgb(55, 55, 55);
+    margin-bottom: 20rpx;
+}
+
+.apply {
+    padding: 25rpx 25rpx 10rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.apply_type {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.apply_desc {
+    color: rgb(70, 62, 62);
+    font-size: 28rpx;
+}
+
+.apply_desc_item {
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.apply-status {
+    color: rgb(8, 182, 98);
+    font-size: 32rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-top: 15rpx;
+    padding-top: 10rpx;
+    border-top: 1px dotted black;
+}

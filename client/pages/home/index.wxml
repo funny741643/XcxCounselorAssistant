@@ -64,7 +64,7 @@
         <f-card headline="常用功能">
             <view class="student-manage-list">
                 <view class="list-item">
-                    <navigator url="/pages/student/holiday/index">
+                    <navigator url="/pages/student/holiday/home/index">
                         <view class="list-item-pic"></view>
                         <view class="list-item-text">请假</view>
                     </navigator>

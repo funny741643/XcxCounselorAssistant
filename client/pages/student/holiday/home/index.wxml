@@ -1,0 +1,19 @@
+<view class="container-simple">
+    <view class="add-buttom">
+        <navigator url="/pages/student/holiday/apply/index">
+            <van-button size="large">+新增一条请假</van-button>
+        </navigator>
+    </view>
+
+    <view class="apply-title"> {{name + '(' + number + ')' + '的请假申请'}} </view>
+
+    <view class="apply" bindtap="goSicknote" wx:for="{{applyList}}" id="{{item.id}}" wx:for-index="idx" wx:key="id">
+        <view class="apply_type">{{item.type}}</view>
+        <view class="apply_desc">
+            <view class="apply_desc_item">请假原因：{{item.explain}}</view>
+            <view class="apply_desc_item"> 请假时间：{{item.startTime + '~' + item.endTime}} </view>
+            <view class="apply_desc_item">申请日期：{{item.applyTime}}</view>
+        </view>
+        <view class="apply-status">{{item.status}} -></view>
+    </view>
+</view>

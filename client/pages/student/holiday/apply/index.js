@@ -1,13 +1,13 @@
-const api = require('../../../config/api');
+const api = require("../../../../config/api");
 const typeMap = {
-    "1": "事假",
-    "2": "病假"
-}
+    1: "事假",
+    2: "病假",
+};
 
 const outschoolMap = {
-    "1": "是",
-    "2": "否"
-}
+    1: "是",
+    2: "否",
+};
 Page({
     /**
      * 页面的初始数据
@@ -26,6 +26,18 @@ Page({
     formatDate(date) {
         date = new Date(date);
         return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+    },
+
+    onTypeChange(event) {
+        this.setData({
+            type: event.detail,
+        });
+    },
+
+    onOutSchoolChange(event) {
+        this.setData({
+            outschool: event.detail,
+        });
     },
 
     onStartTimeDisplay() {
@@ -88,7 +100,7 @@ Page({
             endTime: this.data.endTime,
             status: "待审批",
             uid: wx.getStorageSync("openId"),
-        }
+        };
         this.postHolidayApply(formData);
     },
 
@@ -101,7 +113,7 @@ Page({
             success: function (res) {
                 let data = res.data;
                 if (+data.result === 0) {
-                   console.log(data.data)
+                    console.log(data);
                 }
             },
 

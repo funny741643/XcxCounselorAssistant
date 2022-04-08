@@ -2,7 +2,6 @@
 .form-wrapper {
     background-color: #fff;
     padding: 30rpx 20rpx;
-    margin: 0 30rpx;
     border-radius: 20rpx;
 }
 

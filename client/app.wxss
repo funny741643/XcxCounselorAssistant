@@ -13,7 +13,7 @@
 }
 
 .container-simple {
-  padding-top: 30rpx;
+  padding: 30rpx 30rpx;
   min-height: 100vh;
   background-color: rgb(235, 229, 229);
   z-index: -100;

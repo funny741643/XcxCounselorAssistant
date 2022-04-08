@@ -9,7 +9,9 @@
     "pages/manage/dormitory/index",
     "pages/manage/dormitory/check/index",
     "pages/manage/dormitory/statistics/index",
-    "pages/student/holiday/index"
+    "pages/student/holiday/apply/index",
+    "pages/student/holiday/home/index",
+    "pages/student/holiday/sicknote/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

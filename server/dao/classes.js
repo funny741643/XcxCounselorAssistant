@@ -17,6 +17,10 @@ const classes = {
 
     getClassNumByMajorAndClass: function(major, ownClass) {
         return _.query($sqlQueryClass.queryClassNumByMajorAndClass, [major, ownClass]);
+    },
+
+    getCidBySid: function(sid) {
+        return _.query($sqlQueryClass.queryCidBySid, sid);
     }
 };
 

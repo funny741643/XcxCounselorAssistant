@@ -22,6 +22,7 @@ const classes = {
     queryCollege: 'select college from classes group by college',
     queryMajorByCollege: 'select major from classes where college=? group by major',
     queryClassNumByMajorAndClass: 'select class_number from classes where major=? and class=?',
+    queryCidBySid: 'select uid from classes where class_number=(select class_number from students where uid = ?)'
 }
 
 const dormitory = {
@@ -38,7 +39,9 @@ const check = {
 }
 
 const holiday = {
-    add: 'insert into holiday set ?'
+    add: 'insert into holiday set ?',
+    queryApplysBySid: 'select * from holiday where uid=?',
+    queryApplyById: 'select * from holiday where id=?'
 }
 
 module.exports = {
