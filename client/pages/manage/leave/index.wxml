@@ -1,0 +1,46 @@
+<view class="head-decorate"></view>
+<view class="container-simple">
+    <f-card headline="数据概况">
+        <view class="data-profile">
+            <view class="data-profile-item">
+                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-desc">在假/总数</view>
+            </view>
+            <view class="data-profile-item">
+                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-desc">离校</view>
+            </view>
+            <view class="data-profile-item">
+                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-desc">待审核</view>
+            </view>
+            <view class="data-profile-item">
+                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-desc">逾期未销</view>
+            </view>
+        </view>
+    </f-card>
+
+    <f-card headline="常用功能">
+        <view class="common-functions">
+            <view class="function-item">
+                <navigator url="">
+                    <view class="function-item-pic"></view>
+                    <view class="function-item-text">待审核</view>
+                </navigator>
+            </view>
+            <view class="function-item">
+                <navigator url="">
+                    <view class="function-item-pic"></view>
+                    <view class="function-item-text">逾期未销列表</view>
+                </navigator>
+            </view>
+            <view class="function-item">
+                <navigator url="">
+                    <view class="function-item-pic"></view>
+                    <view class="function-item-text">统计报表</view>
+                </navigator>
+            </view>
+        </view>
+    </f-card>
+</view>

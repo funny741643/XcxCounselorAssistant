@@ -41,4 +41,36 @@ router.get("/getOneApply", async function (req, res, next) {
     });
 });
 
+router.get("/getBaseData", async function (req, res, next) {
+    const { uid } = req.query;
+    let ret = await holidayMethods.getBaseData(uid);
+    res.json({
+        result: 0,
+        data: 'lalal',
+    });
+})
+
+router.post("/deleteApply", async function (req, res, next) {
+    const { id } = req.body;
+    let ret = await holidayMethods.deleteApply(id);
+    if (ret) {
+        res.json({
+            result: 0,
+            msg: '删除成功',
+        });
+    }
+})
+
+router.post("/revocationApply", async function (req, res, next) {
+    const { id } = req.body;
+    let ret = await holidayMethods.revocationApply(id);
+    if (ret) {
+        res.json({
+            result: 0,
+            msg: '销假成功',
+        });
+    }
+})
+
+
 module.exports = router;

@@ -1,1 +1,9 @@
 /* pages/student/holiday/sicknote/index.wxss */
+
+.sick-item {
+    margin-bottom: 15rpx;
+}
+
+.sick-status {
+    color: green;
+}

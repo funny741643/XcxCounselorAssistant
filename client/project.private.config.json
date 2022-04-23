@@ -30,6 +30,13 @@
           "name": "",
           "pathName": "pages/student/holiday/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/student/holiday/sicknote/index",
+          "query": "id=8",
           "scene": null,
           "launchMode": "default"
         }

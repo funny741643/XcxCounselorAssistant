@@ -16,8 +16,10 @@
                     </navigator>
                 </view>
                 <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">请假信息</view>
+                    <navigator url="/pages/manage/leave/index">
+                        <view class="list-item-pic"></view>
+                        <view class="list-item-text">请假信息</view>
+                    </navigator>
                 </view>
             </view>
         </f-card>

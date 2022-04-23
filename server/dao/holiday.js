@@ -12,6 +12,24 @@ const holidayModel = {
 
     getOneApplyById: function(id) {
         return _.query($sqlQueryHoliday.queryApplyById, id);
+    },
+
+    getWaitAgreeStudents: function(uid) {
+        return _.query($sqlQueryHoliday.queryWaitAgreeStudents, uid);
+    },
+    getLeaveStudents: function(uid) {
+        return _.query($sqlQueryHoliday.queryLeaveStudents, uid);
+    },
+    getOverdueStudents: function(uid) {
+        return _.query($sqlQueryHoliday.queryOverdueStudents, uid);
+    },
+
+    deleteApply: function(id) {
+        return _.query($sqlQueryHoliday.deleteApply, id);
+    },
+
+    revocationApply: function(id) {
+        return _.query($sqlQueryHoliday.revocationApply, id);
     }
 };
 

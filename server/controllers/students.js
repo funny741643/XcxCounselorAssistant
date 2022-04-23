@@ -5,7 +5,6 @@ const DormitoryMethods = require("./dormitories");
 module.exports = {
     async insertStudentInfo(req, res, next) {
         const { studentInfo, uid, role } = req.query;
-        console.log(studentInfo, uid, role);
         const {
             major,
             class: ownClass,
@@ -51,4 +50,11 @@ module.exports = {
         );
         return resData;
     },
+
+    // 根据辅导员Id获取到学生数
+    async getStudentNumByUid(uid) {
+        let classes = ClassMethods.getclassesAndStudentsByUid(uid);
+        console.log(classes);
+        return classes;
+    }
 };

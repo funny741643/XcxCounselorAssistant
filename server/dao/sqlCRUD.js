@@ -40,8 +40,13 @@ const check = {
 
 const holiday = {
     add: 'insert into holiday set ?',
-    queryApplysBySid: 'select * from holiday where uid=?',
-    queryApplyById: 'select * from holiday where id=?'
+    queryApplysBySid: 'select * from holiday where uid=? order by applyTime desc limit 3',
+    queryApplyById: 'select * from holiday where id=?',
+    queryWaitAgreeStudents: 'select * from holiday where cid=? and status=1',
+    queryLeaveStudents: 'select * from holiday where cid=? and status=2',
+    queryOverdueStudents: 'select * from holiday where cid=? and status=3',
+    deleteApply: 'delete from holiday where id=?',
+    revocationApply: 'update holiday set status=4 where id=?',
 }
 
 module.exports = {

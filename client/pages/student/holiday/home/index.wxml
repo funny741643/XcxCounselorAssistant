@@ -1,8 +1,6 @@
 <view class="container-simple">
     <view class="add-buttom">
-        <navigator url="/pages/student/holiday/apply/index">
-            <van-button size="large">+新增一条请假</van-button>
-        </navigator>
+        <van-button bind:click="addApply" size="large">+新增一条请假</van-button>
     </view>
 
     <view class="apply-title"> {{name + '(' + number + ')' + '的请假申请'}} </view>

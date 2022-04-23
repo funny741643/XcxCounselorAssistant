@@ -115,6 +115,9 @@ Page({
                 if (+data.result === 0) {
                     console.log(data);
                 }
+                wx.navigateBack({
+                    delta: 1
+                });
             },
 
             fail: function (error) {

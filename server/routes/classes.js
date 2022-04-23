@@ -2,8 +2,13 @@ const express = require("express");
 const router = express.Router();
 const ClassMethods = require("../controllers/classes");
 
-router.get("/allStudents", function (req, res, next) {
-    ClassMethods.getclassesAndStudentsByUid(req, res, next);
+router.get("/allStudents", async function (req, res, next) {
+    const { uid } = req.query;
+    let ret = await ClassMethods.getclassesAndStudentsByUid(uid);
+    res.json({
+        result: "0",
+        data: ret,
+    });
 });
 
 router.get("/allColleges", async function (req, res, next) {

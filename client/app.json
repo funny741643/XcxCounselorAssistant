@@ -11,7 +11,8 @@
     "pages/manage/dormitory/statistics/index",
     "pages/student/holiday/apply/index",
     "pages/student/holiday/home/index",
-    "pages/student/holiday/sicknote/index"
+    "pages/student/holiday/sicknote/index",
+    "pages/manage/leave/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

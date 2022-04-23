@@ -37,6 +37,9 @@ const getCheckstatisticsByUid = baseUrl + "api/check/statistics";
 const postHolidayApply = baseUrl + "api/holiday/apply";
 const getHolidayApplysBySid = baseUrl + "api/holiday/applyListBySid";
 const getOneHolidayApply = baseUrl + "api/holiday/getOneApply";
+const getLeaveBaseData = baseUrl + "api/holiday/getBaseData";
+const deleteApply = baseUrl + "api/holiday/deleteApply";
+const revocationApply = baseUrl + "api/holiday/revocationApply";
 
 module.exports = {
     loginUrl,
@@ -53,5 +56,8 @@ module.exports = {
     dormitoryBaseData,
     postHolidayApply,
     getHolidayApplysBySid,
-    getOneHolidayApply
+    getOneHolidayApply,
+    getLeaveBaseData,
+    deleteApply,
+    revocationApply
 };

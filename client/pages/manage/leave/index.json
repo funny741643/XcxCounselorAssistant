@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "请假管理",
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
+    "f-card": "/components/card/index"
   }
 }

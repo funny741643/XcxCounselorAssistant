@@ -5,8 +5,7 @@ module.exports = {
     /**
      * 通过辅导员id获取其所管理的所有的班级信息
      */
-    getclassesAndStudentsByUid: async function (req, res, next) {
-        const { uid } = req.query;
+    getclassesAndStudentsByUid: async function (uid) {
 
         let classInfo = await ClasseModel.getclassesByUid(uid);
 
@@ -20,10 +19,7 @@ module.exports = {
             resData.push({ ...classInfo[i], students });
         }
 
-        res.json({
-            result: "0",
-            data: resData,
-        });
+        return resData;
     },
 
     /**

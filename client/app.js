@@ -48,7 +48,7 @@ App({
         wx.showToast({
             title: info,
             icon: icon,
-            duration: 1500,
+            duration: 2000,
             mask: true,
         });
     },

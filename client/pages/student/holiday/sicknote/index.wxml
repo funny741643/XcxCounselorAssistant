@@ -1,2 +1,40 @@
-<!--pages/student/holiday/sicknote/index.wxml-->
-<text>pages/student/holiday/sicknote/index.wxml</text>
+<view class="container-simple">
+    <view class="delete-button">
+        <van-button bind:click="showDeleteDialog" size="large" wx:if="{{status === '待审批'}}">点击撤销请假</van-button>
+    </view>
+    <van-dialog
+        message="确认删除该条请假吗？"
+        show="{{deleteDiglogShow}}"
+        showCancelButton="{{true}}"
+        bind:confirm="deleteApply"
+        bind:close="hideDeleteDialog"
+    />
+    <view class="revocation-button">
+        <van-button bind:click="showRevocationDialog" size="large" wx:if="{{status === '已审批' || status === '已逾期'}}"
+            >点击进行销假</van-button
+        >
+    </view>
+    <van-dialog
+        message="确认进行销假吗？"
+        show="{{revocationDiglogShow}}"
+        showCancelButton="{{true}}"
+        bind:confirm="revocationApply"
+        bind:close="hideRevocationDialog"
+    />
+    <f-card headline="基础信息">
+        <view class="sick-name sick-item"> 姓名：{{name + '(' + number + ')'}} </view>
+        <view class="sick-startTime sick-item">开始时间：{{startTime}}</view>
+        <view class="sick-endTime sick-item">结束时间：{{endTime}}</view>
+    </f-card>
+
+    <f-card headline="状态信息">
+        <view class="sick-type sick-item">请假类型：{{type}}</view>
+        <view class="sick-outschool sick-item">是否离校：{{outschool}}</view>
+        <view class="sick-status sick-item">状态：{{status}}</view>
+    </f-card>
+
+    <f-card headline="其他信息">
+        <view class="sick-telephone sick-item">联系电话：{{telephone}}</view>
+        <view class="sick-explain sick-item">请假原因：{{explain}}</view>
+    </f-card>
+</view>

@@ -1,4 +1,5 @@
 const api = require("../../../../config/api");
+const app = getApp();
 Page({
     /**
      * 页面的初始数据
@@ -7,6 +8,18 @@ Page({
         applyList: [],
         name: "",
         number: "",
+        isSick: false
+    },
+
+    addApply() {
+        console.log(this.data.isSick)
+        if (this.data.isSick) {
+            app.showInfo("你还在在假状态，请撤销后再申请");
+        } else {
+            wx.navigateTo({
+                url: "/pages/student/holiday/apply/index"
+            });
+        }
     },
 
     goSicknote(event) {
@@ -29,7 +42,9 @@ Page({
             success: (result) => {
                 let data = result.data;
                 if (data.result === 0) {
-                    const applyList = data.data.map((item) => {
+                    let list = data.data.list
+                    let isSick = data.data.isSick
+                    const applyList = list.map((item) => {
                         return {
                             ...item,
                             startTime: item.startTime.split("T")[0],
@@ -40,6 +55,7 @@ Page({
 
                     that.setData({
                         applyList,
+                        isSick
                     });
                 }
             },
@@ -68,7 +84,9 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () {
+        this.getApplyList();
+    },
 
     /**
      * 生命周期函数--监听页面隐藏
