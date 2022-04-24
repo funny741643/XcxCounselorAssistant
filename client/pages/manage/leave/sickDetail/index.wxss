@@ -7,3 +7,13 @@
 .sick-status {
     color: green;
 }
+
+.btns {
+    margin-top: 30rpx;
+    text-align: right;
+}
+
+.block {
+    display: inline-block;
+    width: 30rpx;
+}

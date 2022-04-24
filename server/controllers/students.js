@@ -22,7 +22,7 @@ module.exports = {
             uid,
             class_number,
             dormitory_id,
-            pictrue: pictrue || '',
+            pictrue: pictrue || "",
             name,
             telephone,
             number,
@@ -32,13 +32,13 @@ module.exports = {
         if (resData.errmsg) {
             res.json({
                 result: -3,
-                errmsg: resData.errmsg
-            })
+                errmsg: resData.errmsg,
+            });
         } else {
             res.json({
                 result: 0,
-                data: resData
-            })
+                data: resData,
+            });
         }
     },
 
@@ -56,5 +56,15 @@ module.exports = {
         let classes = ClassMethods.getclassesAndStudentsByUid(uid);
         console.log(classes);
         return classes;
-    }
+    },
+
+    // 通过学生id获取学生信息
+    async getStudentBySid(sid) {
+        let student = await StudentModel.getStudentBySid(sid);
+        student = student[0];
+        const { class_number } = student;
+        let classInfo = await ClassMethods.getClassInfoByClassNumber(class_number);
+        student.classInfo = classInfo;
+        return student;
+    },
 };

@@ -1,0 +1,17 @@
+
+<view class="container-simple">
+    <view class="apply" bindtap="goSicknote" wx:for="{{overdueList}}" id="{{item.id}}" wx:for-index="idx" wx:key="id">
+        <view class="student_info">
+            {{item.studentName}} <text>{{item.studentNumber}}</text>
+        </view>
+        <view class="class_info">
+            班级: {{item.studentClass}}
+        </view>
+        <view class="apply_desc">
+            <view class="apply_desc_item">请假类型：{{item.type}}</view>
+            <view class="apply_desc_item">请假原因：{{item.explain}}</view>
+            <view class="apply_desc_item">请假时间：{{item.startTime + '~' + item.endTime}} </view>
+            <view class="apply_desc_item">申请日期：{{item.applyTime}}</view>
+        </view>
+    </view>
+</view>

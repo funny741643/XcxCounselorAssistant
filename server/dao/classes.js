@@ -21,6 +21,10 @@ const classes = {
 
     getCidBySid: function(sid) {
         return _.query($sqlQueryClass.queryCidBySid, sid);
+    },
+
+    getClassInfoByClassNumber: function(class_number) {
+        return _.query($sqlQueryClass.queryByClassNumber, class_number);
     }
 };
 

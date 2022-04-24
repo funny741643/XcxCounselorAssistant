@@ -10,7 +10,10 @@
         bind:close="hideDeleteDialog"
     />
     <view class="revocation-button">
-        <van-button bind:click="showRevocationDialog" size="large" wx:if="{{status === '已审批' || status === '已逾期'}}"
+        <van-button
+            bind:click="showRevocationDialog"
+            size="large"
+            wx:if="{{status === '已审批' || status === '已逾期'}}"
             >点击进行销假</van-button
         >
     </view>
@@ -36,5 +39,9 @@
     <f-card headline="其他信息">
         <view class="sick-telephone sick-item">联系电话：{{telephone}}</view>
         <view class="sick-explain sick-item">请假原因：{{explain}}</view>
+    </f-card>
+
+    <f-card headline="审批建议">
+        <view class="suggest" hover-class="none" hover-stop-propagation="false"> {{suggest || '无'}} </view>
     </f-card>
 </view>

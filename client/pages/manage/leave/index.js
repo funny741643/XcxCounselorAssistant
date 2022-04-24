@@ -8,10 +8,7 @@ Page({
         baseData: {},
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
+    getBaseData() {
         wx.request({
             url: api.getLeaveBaseData,
             data: {
@@ -22,11 +19,23 @@ Page({
             dataType: 'json',
             responseType: 'text',
             success: (result)=>{
-                console.log(result)
+                let ret = result.data;
+                if (ret.result === 0) {
+                    this.setData({
+                        baseData: ret.data,
+                    });
+                }
             },
             fail: ()=>{},
             complete: ()=>{}
         });
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+       this.getBaseData()
     },
 
     /**
@@ -37,7 +46,9 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () {
+        this.getBaseData()
+    },
 
     /**
      * 生命周期函数--监听页面隐藏

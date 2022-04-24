@@ -23,6 +23,9 @@ const holidayModel = {
     getOverdueStudents: function(uid) {
         return _.query($sqlQueryHoliday.queryOverdueStudents, uid);
     },
+    getOutschoolStudents: function(uid) {
+        return _.query($sqlQueryHoliday.queryOutschoolStudents, uid);
+    },
 
     deleteApply: function(id) {
         return _.query($sqlQueryHoliday.deleteApply, id);
@@ -30,6 +33,10 @@ const holidayModel = {
 
     revocationApply: function(id) {
         return _.query($sqlQueryHoliday.revocationApply, id);
+    },
+
+    sickApproval: function(id, status, suggest) {
+        return _.query($sqlQueryHoliday.sickApproval, [status, suggest, id]);
     }
 };
 

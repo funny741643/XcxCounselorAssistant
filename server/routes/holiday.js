@@ -46,7 +46,7 @@ router.get("/getBaseData", async function (req, res, next) {
     let ret = await holidayMethods.getBaseData(uid);
     res.json({
         result: 0,
-        data: 'lalal',
+        data: ret,
     });
 })
 
@@ -72,5 +72,48 @@ router.post("/revocationApply", async function (req, res, next) {
     }
 })
 
+router.get("/waitList", async function(req, res, next) {
+    const { id } = req.query;
+    let ret = await holidayMethods.getWaitAgreeStudents(id);
+    if (ret) {
+        res.json({
+            result: 0,
+            data: ret,
+        })
+    }
+})
+
+router.get("/overdueList", async function(req, res, next) {
+    const { id } = req.query;
+    let ret = await holidayMethods.getOverdueStudents(id);
+    if (ret) {
+        res.json({
+            result: 0,
+            data: ret,
+        })
+    }
+})
+
+router.get("/leaveList", async function(req, res, next) {
+    const { id } = req.query;
+    let ret = await holidayMethods.getLeaveStudents(id);
+    if (ret) {
+        res.json({
+            result: 0,
+            data: ret,
+        })
+    }
+})
+
+router.post("/sickApproval", async function(req, res, next) {
+    const { id, isAgree, suggest } = req.body;
+    let ret = await holidayMethods.sickApproval(id, isAgree, suggest);
+    if (ret) {
+        res.json({
+            result: 0,
+            msg: '审批完成',
+        })
+    }
+})
 
 module.exports = router;

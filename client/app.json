@@ -12,7 +12,11 @@
     "pages/student/holiday/apply/index",
     "pages/student/holiday/home/index",
     "pages/student/holiday/sicknote/index",
-    "pages/manage/leave/index"
+    "pages/manage/leave/index",
+    "pages/manage/leave/waitlist/index",
+    "pages/manage/leave/sickDetail/index",
+    "pages/manage/leave/ovedueList/index",
+    "pages/manage/leave/leaveList/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

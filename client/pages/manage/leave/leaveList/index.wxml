@@ -1,0 +1,20 @@
+<view class="leave-container" hover-class="none" hover-stop-propagation="false">
+    <view class="f-table">
+        <view class="f-table-head">
+            <view class="f-table-head-item">姓名</view>
+            <view class="f-table-head-item">学号</view>
+            <view class="f-table-head-item">班级</view>
+            <view class="f-table-head-item">类型</view>
+            <view class="f-table-head-item">是否离校</view>
+        </view>
+        <view class="f-table-body">
+            <view class="f-table-body-col {{idx % 2 !== 0 ? '' : 'f-table-body-col-even'}} " wx:for="{{leaveList}}" wx:for-index="idx" wx:key="id">
+                <view class="f-table-body-col-item">{{item.studentName}}</view>
+                <view class="f-table-body-col-item">{{item.studentNumber}}</view>
+                <view class="f-table-body-col-item">{{item.studentClass}}</view>
+                <view class="f-table-body-col-item">{{item.type}}</view>
+                <view class="f-table-body-col-item">{{item.outschool}}</view>
+            </view>
+        </view>
+    </view>
+</view>

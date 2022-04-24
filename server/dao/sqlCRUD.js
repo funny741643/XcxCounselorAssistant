@@ -19,10 +19,11 @@ const counselor = {
 
 const classes = {
     queryByUid: 'select * from classes where uid=?',
+    queryByClassNumber: 'select * from classes where class_number=?',
     queryCollege: 'select college from classes group by college',
     queryMajorByCollege: 'select major from classes where college=? group by major',
     queryClassNumByMajorAndClass: 'select class_number from classes where major=? and class=?',
-    queryCidBySid: 'select uid from classes where class_number=(select class_number from students where uid = ?)'
+    queryCidBySid: 'select uid from classes where class_number=(select class_number from students where uid = ?)',
 }
 
 const dormitory = {
@@ -45,8 +46,10 @@ const holiday = {
     queryWaitAgreeStudents: 'select * from holiday where cid=? and status=1',
     queryLeaveStudents: 'select * from holiday where cid=? and status=2',
     queryOverdueStudents: 'select * from holiday where cid=? and status=3',
+    queryOutschoolStudents: 'select * from holiday where cid=? and status=2 and outschool=1',
     deleteApply: 'delete from holiday where id=?',
     revocationApply: 'update holiday set status=4 where id=?',
+    sickApproval: 'update holiday set status=?,suggest=? where id=?',
 }
 
 module.exports = {

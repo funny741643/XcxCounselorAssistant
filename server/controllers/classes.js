@@ -47,5 +47,13 @@ module.exports = {
         let class_number = await ClasseModel.getClassNumByMajorAndClass(major, ownClass);
         class_number = class_number[0].class_number;
         return class_number;
+    },
+
+    /**
+     * 通过班级号获取到班级信息
+     */
+    getClassInfoByClassNumber: async function(class_number) {
+        let classInfo = await ClasseModel.getClassInfoByClassNumber(class_number);
+        return classInfo[0];
     }
 };

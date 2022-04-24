@@ -43,6 +43,10 @@ const student = {
     getStudentsByDormitoryIdInClassNumber(dormitoryId, class_numbers) {
         return _.query($sqlQueryStu.queryByDormitoryIdInClassNumber, [dormitoryId, class_numbers]);
     },
+
+    getStudentBySid(sid) {
+        return _.query($sqlQueryStu.queryById, sid);
+    }
 };
 
 module.exports = student;

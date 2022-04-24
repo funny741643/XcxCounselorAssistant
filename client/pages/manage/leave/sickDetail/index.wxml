@@ -1,0 +1,44 @@
+<view class="container-simple">
+    <f-card headline="基础信息">
+        <view class="sick-name sick-item"> 姓名：{{studentName + '(' + studentNumber + ')'}} </view>
+        <view class="sick-startTime sick-item">开始时间：{{startTime}}</view>
+        <view class="sick-endTime sick-item">结束时间：{{endTime}}</view>
+    </f-card>
+
+    <f-card headline="状态信息">
+        <view class="sick-type sick-item">请假类型：{{type}}</view>
+        <view class="sick-outschool sick-item">是否离校：{{outschool}}</view>
+        <view class="sick-status sick-item">状态：{{status}}</view>
+    </f-card>
+
+    <f-card headline="其他信息">
+        <view class="sick-telephone sick-item">紧急联系电话：{{telephone}}</view>
+        <view class="sick-telephone sick-item">学生联系电话：{{studentPhone}}</view>
+        <view class="sick-explain sick-item">请假原因：{{explain}}</view>
+    </f-card>
+
+    <block wx:if="{{status === '未审批'}}">
+        <van-field
+            value="{{ suggest }}"
+            label="审批意见说明"
+            type="textarea"
+            maxlength="50"
+            show-word-limit
+            placeholder="请简短的审批说明"
+            border="{{ false }}"
+            autosize
+            input-class="textarea"
+            bind:change="onSuggestChange"
+        />
+        <view class="btns">
+            <van-button type="primary" bind:click="agree">同意审批</van-button>
+            <view class="block"></view>
+            <van-button type="warning" bind:click="disagree">不同意审批</van-button>
+        </view>
+    </block>
+    <block wx:if="{{status === '已逾期'}}">
+        <view class="btns">
+            <van-button type="primary" bind:click="revocation">点击销假</van-button>
+        </view>
+    </block>
+</view>

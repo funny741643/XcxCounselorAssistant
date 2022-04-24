@@ -1,0 +1,16 @@
+.apply {
+    padding: 25rpx 25rpx 10rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.apply_desc {
+    color: rgb(70, 62, 62);
+    font-size: 28rpx;
+}
+
+.apply_desc_item {
+    height: 40rpx;
+    line-height: 40rpx;
+}

@@ -3,19 +3,19 @@
     <f-card headline="数据概况">
         <view class="data-profile">
             <view class="data-profile-item">
-                <view class="ptofile-item-number"></view>
-                <view class="ptofile-item-desc">在假/总数</view>
+                <view class="ptofile-item-number">{{baseData.studentNum + '/' + baseData.leaveStudentsNum}}</view>
+                <view class="ptofile-item-desc">总数/在假</view>
             </view>
             <view class="data-profile-item">
-                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-number">{{baseData.outschoolStudentsNum}}</view>
                 <view class="ptofile-item-desc">离校</view>
             </view>
             <view class="data-profile-item">
-                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-number">{{baseData.waitAgreeStudentsNum}}</view>
                 <view class="ptofile-item-desc">待审核</view>
             </view>
             <view class="data-profile-item">
-                <view class="ptofile-item-number"></view>
+                <view class="ptofile-item-number">{{baseData.overdueStudentsNum}}</view>
                 <view class="ptofile-item-desc">逾期未销</view>
             </view>
         </view>
@@ -24,21 +24,21 @@
     <f-card headline="常用功能">
         <view class="common-functions">
             <view class="function-item">
-                <navigator url="">
+                <navigator url="/pages/manage/leave/waitlist/index">
                     <view class="function-item-pic"></view>
                     <view class="function-item-text">待审核</view>
                 </navigator>
             </view>
             <view class="function-item">
-                <navigator url="">
+                <navigator url="/pages/manage/leave/ovedueList/index">
                     <view class="function-item-pic"></view>
                     <view class="function-item-text">逾期未销列表</view>
                 </navigator>
             </view>
             <view class="function-item">
-                <navigator url="">
+                <navigator url="/pages/manage/leave/leaveList/index">
                     <view class="function-item-pic"></view>
-                    <view class="function-item-text">统计报表</view>
+                    <view class="function-item-text">在假统计</view>
                 </navigator>
             </view>
         </view>

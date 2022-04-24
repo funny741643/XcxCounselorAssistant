@@ -12,6 +12,7 @@ Page({
         explain: "",
         status: "",
         telephone: "",
+        suggest: "",
         outschool: false,
         deleteDiglogShow: false,
         revocationDiglogShow: false,
@@ -110,6 +111,7 @@ Page({
                 let data = result.data;
                 if (data.result === 0) {
                     let sickInfo = data.data;
+                    console.log(sickInfo)
                     this.setData({
                         name: wx.getStorageSync("detailInfo").name,
                         number: wx.getStorageSync("detailInfo").number,
@@ -120,6 +122,7 @@ Page({
                         type: sickInfo.type,
                         telephone: sickInfo.telephone,
                         outschool: sickInfo.outschool,
+                        suggest: sickInfo.suggest,
                     });
                 }
                 console.log(result);

@@ -38,8 +38,12 @@ const postHolidayApply = baseUrl + "api/holiday/apply";
 const getHolidayApplysBySid = baseUrl + "api/holiday/applyListBySid";
 const getOneHolidayApply = baseUrl + "api/holiday/getOneApply";
 const getLeaveBaseData = baseUrl + "api/holiday/getBaseData";
+const getWaitList = baseUrl + "api/holiday/waitList";
+const getOverdueList = baseUrl + "api/holiday/overdueList";
+const getLeaveList = baseUrl + "api/holiday/leaveList";
 const deleteApply = baseUrl + "api/holiday/deleteApply";
 const revocationApply = baseUrl + "api/holiday/revocationApply";
+const sickApproval = baseUrl + "api/holiday/sickApproval";
 
 module.exports = {
     loginUrl,
@@ -59,5 +63,9 @@ module.exports = {
     getOneHolidayApply,
     getLeaveBaseData,
     deleteApply,
-    revocationApply
+    revocationApply,
+    getWaitList,
+    getOverdueList,
+    getLeaveList,
+    sickApproval,
 };
