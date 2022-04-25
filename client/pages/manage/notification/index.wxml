@@ -1,0 +1,5 @@
+<view class="container-simple">
+    <view class="add-button">
+        <van-button bind:click="addNotification" size="large">+新增一条通知</van-button>
+    </view>
+</view>

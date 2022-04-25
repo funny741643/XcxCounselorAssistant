@@ -23,28 +23,30 @@
                 </view>
             </view>
         </f-card>
-        <f-card headline="心理管理">
+        <f-card headline="日常工作">
             <view class="student-manage-list">
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">谈话记录</view>
+                    <view class="list-item-text">心理访谈</view>
                 </view>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">心理预警</view>
+                    <view class="list-item-text">工作报告</view>
                 </view>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">月报</view>
+                    <view class="list-item-text">就业统计</view>
                 </view>
             </view>
         </f-card>
         <f-card headline="党团管理">
             <view class="student-manage-list">
-                <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">党员统计</view>
-                </view>
+                <navigator url="/pages/manage/politics/index">
+                    <view class="list-item">
+                        <view class="list-item-pic"></view>
+                        <view class="list-item-text">党员统计</view>
+                    </view>
+                </navigator>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
                     <view class="list-item-text">党团活动记录</view>
@@ -53,10 +55,12 @@
         </f-card>
         <f-card headline="其他">
             <view class="student-manage-list">
-                <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">就业统计</view>
-                </view>
+                <navigator url="/pages/manage/notification/index">
+                    <view class="list-item">
+                        <view class="list-item-pic"></view>
+                        <view class="list-item-text">信息发布</view>
+                    </view>
+                </navigator>
             </view>
         </f-card>
     </block>

@@ -1,5 +1,5 @@
 <view class="container-simple">
-    <view class="add-buttom">
+    <view class="add-button">
         <van-button bind:click="addApply" size="large">+新增一条请假</van-button>
     </view>
 

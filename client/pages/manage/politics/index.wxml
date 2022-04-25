@@ -1,0 +1,33 @@
+<view class="side" hover-class="none" hover-stop-propagation="false">
+    <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+        <van-sidebar-item title="群众" />
+        <van-sidebar-item title="团员" />
+        <van-sidebar-item title="积极分子" />
+        <van-sidebar-item title="预备党员" />
+        <van-sidebar-item title="党员" />
+    </van-sidebar>
+    <view class="content">
+        <view class="content-item" wx:for="{{itemList}}" wx:for-index="idx" wx:key="idx">
+            <f-card headline=" {{item.major + item.class}}">
+                <view
+                    wx:if="{{item.students.length > 0}}"
+                    class="students"
+                    hover-class="none"
+                    hover-stop-propagation="false"
+                >
+                    <view
+                        class="f-tag"
+                        wx:for="{{item.students}}"
+                        wx:for-index="idx"
+                        wx:key="uid"
+                        bind:tap="goToDetail"
+                        data-id="{{item.uid}}"
+                    >
+                        {{item.name}}
+                    </view>
+                </view>
+                <view wx:else> 暂无学生 </view>
+            </f-card>
+        </view>
+    </view>
+</view>

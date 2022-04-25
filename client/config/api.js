@@ -16,6 +16,9 @@ const studentVerify = baseUrl + "api/student/verify";
 // 辅导员验证接口
 const counselorVerify = baseUrl + "api/counselor/verify";
 
+// 通过学生id获取到学生信息
+const getStudentInfoById = baseUrl + 'api/student/getInfoById';
+
 // 获取所管班级的所有学生
 const allStudentsOfClass = baseUrl + "api/classes/allStudents";
 
@@ -45,12 +48,17 @@ const deleteApply = baseUrl + "api/holiday/deleteApply";
 const revocationApply = baseUrl + "api/holiday/revocationApply";
 const sickApproval = baseUrl + "api/holiday/sickApproval";
 
+// 党团管理
+const getPoliticsStatusData = baseUrl + "api/politics/statusData";
+
 module.exports = {
     loginUrl,
     getAllColleges,
     getMajorsByCollege,
     studentVerify,
     counselorVerify,
+
+    getStudentInfoById,
     allStudentsOfClass,
     allDormitoriesInfo,
     postDormitoryCheckRecord,
@@ -58,6 +66,7 @@ module.exports = {
     getCheckRecordsByDid,
     getCheckstatisticsByUid,
     dormitoryBaseData,
+
     postHolidayApply,
     getHolidayApplysBySid,
     getOneHolidayApply,
@@ -68,4 +77,6 @@ module.exports = {
     getOverdueList,
     getLeaveList,
     sickApproval,
+
+    getPoliticsStatusData
 };

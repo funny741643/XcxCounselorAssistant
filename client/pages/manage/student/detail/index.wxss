@@ -1,0 +1,5 @@
+/* pages/manage/student/detail/index.wxss */
+
+.info-item {
+    margin-bottom: 10rpx;
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "党团管理",
+  "usingComponents": {
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "f-card": "/components/card/index"
+  }
+}

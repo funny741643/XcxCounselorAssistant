@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "通知管理",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  }
+}

@@ -17,6 +17,10 @@ const dormitory = {
 
     getIdByApartmentAndNum: function(apartment, dormitory_num) {
         return _.query($sqlQueryDormitory.queryIdByApartmentAndNum, [apartment, dormitory_num]);
+    },
+
+    getDormitoryInfoById: function(id) {
+        return _.query($sqlQueryDormitory.queryDormitoryInfoById, id);
     }
 };
 

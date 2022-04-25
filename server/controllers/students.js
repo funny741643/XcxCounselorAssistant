@@ -62,9 +62,11 @@ module.exports = {
     async getStudentBySid(sid) {
         let student = await StudentModel.getStudentBySid(sid);
         student = student[0];
-        const { class_number } = student;
+        const { class_number, dormitory_id } = student;
         let classInfo = await ClassMethods.getClassInfoByClassNumber(class_number);
+        let dormitoryInfo = await DormitoryMethods.getDormitoryInfoById(dormitory_id);
         student.classInfo = classInfo;
+        student.dormitoryInfo = dormitoryInfo;
         return student;
     },
 };

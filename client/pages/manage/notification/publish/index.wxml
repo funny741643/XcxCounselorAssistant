@@ -1,0 +1,35 @@
+<view class="container">
+    <f-card headline="通知类型">
+        <van-radio-group value="{{ type }}" bind:change="onTypeChange">
+            <van-radio name="1">校园签到</van-radio>
+            <van-radio name="2">日常消息</van-radio>
+            <van-radio name="3">党员活动</van-radio>
+        </van-radio-group>
+    </f-card>
+    <f-card headline="通知内容">
+        <view class="notification-item">
+            <van-cell-group>
+                <van-field
+                    value="{{ content }}"
+                    type="textarea"
+                    maxlength="100"
+                    show-word-limit
+                    placeholder="通知内容"
+                    border="{{ false }}"
+                    autosize
+                    input-class="textarea"
+                    bind:change="onContentChange"
+                />
+            </van-cell-group>
+        </view>
+    </f-card>
+    <f-card headline="通知有效期">
+        <van-cell-group>
+            <van-cell required is-link title="起始日期" value="{{ startTime }}" bind:click="onStartTimeDisplay" />
+            <van-calendar show="{{ startTimeShow }}" bind:close="onStartTimeClose" bind:confirm="onStartTimeConfirm" />
+            <van-cell required is-link title="结束日期" value="{{ endTime }}" bind:click="onEndTimeDisplay" />
+            <van-calendar show="{{ endTimeShow }}" bind:close="onEndTimeClose" bind:confirm="onEndTimeConfirm" />
+        </van-cell-group>
+    </f-card>
+    <van-button bind:click="publishNotification" size="large">发布通知</van-button>
+</view>

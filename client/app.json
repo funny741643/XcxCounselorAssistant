@@ -16,7 +16,11 @@
     "pages/manage/leave/waitlist/index",
     "pages/manage/leave/sickDetail/index",
     "pages/manage/leave/ovedueList/index",
-    "pages/manage/leave/leaveList/index"
+    "pages/manage/leave/leaveList/index",
+    "pages/manage/politics/index",
+    "pages/manage/student/detail/index",
+    "pages/manage/notification/index",
+    "pages/manage/notification/publish/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

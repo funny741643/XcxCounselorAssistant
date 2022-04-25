@@ -26,7 +26,7 @@ module.exports = {
     },
 
     /**
-     * 根据已得的宿舍id获取，管理的宿舍数量，公寓数量，检查次数
+     * 根据辅导员id获取，管理的宿舍数量，公寓数量，检查次数
      * @param {*} uid
      * @returns
      */
@@ -87,5 +87,13 @@ module.exports = {
         let resData = await DormitoryModel.getIdByApartmentAndNum(apartment, dormitory_num);
         let id = resData[0].id;
         return id;
+    },
+
+    /**
+     * 根据宿舍id获取宿舍信息
+     */
+    getDormitoryInfoById: async function (id) {
+        let resData = await DormitoryModel.getDormitoryInfoById(id);
+        return resData[0];
     }
 };

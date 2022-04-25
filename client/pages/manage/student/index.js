@@ -18,9 +18,10 @@ Page({
     },
 
     onClickItem({ detail = {} }) {
-        const activeId = (this.data.activeId = detail.id ? null : detail.id);
-
-        this.setData({ activeId });
+        const activeId = detail.id;
+        wx.navigateTo({
+            url: '/pages/manage/student/detail/index?id=' + activeId,
+        });
     },
 
     getPageItemsData() {

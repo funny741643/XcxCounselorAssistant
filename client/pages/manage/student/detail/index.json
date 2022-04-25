@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学生信息",
+  "usingComponents": {
+    "f-card": "/components/card/index"
+  }
+}

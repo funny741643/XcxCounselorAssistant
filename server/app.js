@@ -10,6 +10,8 @@ const classRouter = require('./routes/classes');
 const dormitoryRouter = require('./routes/dormitories');
 const checkRouter = require('./routes/check');
 const holidayRouter = require('./routes/holiday');
+const politicsRouter = require('./routes/politics');
+const notificationRouter = require('./routes/notification');
 
 const app = express();
 
@@ -24,5 +26,7 @@ app.use('/api/classes', classRouter);
 app.use('/api/dormitory', dormitoryRouter);
 app.use('/api/check', checkRouter);
 app.use('/api/holiday', holidayRouter);
+app.use('/api/politics', politicsRouter);
+app.use('/api/notification', notificationRouter);
 
 module.exports = app;

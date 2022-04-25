@@ -31,6 +31,7 @@ const dormitory = {
     queryApartmentCount: 'select apartment from dormitories where id in (?) group by apartment',
     queryApartments: 'select apartment from dormitories group by apartment',
     queryIdByApartmentAndNum: 'select id from dormitories where apartment=? and dormitory_number=?',
+    queryDormitoryInfoById: 'select * from dormitories where id=?',
 }
 
 const check = {
@@ -50,6 +51,10 @@ const holiday = {
     deleteApply: 'delete from holiday where id=?',
     revocationApply: 'update holiday set status=4 where id=?',
     sickApproval: 'update holiday set status=?,suggest=? where id=?',
+}
+
+const notification = {
+    add: 'insert into notification set ?',
 }
 
 module.exports = {

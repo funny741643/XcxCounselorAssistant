@@ -1,6 +1,6 @@
 /* pages/student/holiday/home/index.wxss */
 
-.add-buttom {
+.add-button {
     margin-bottom: 30rpx;
 }
 

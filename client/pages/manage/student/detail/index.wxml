@@ -1,0 +1,19 @@
+<view class="container-simple" hover-class="none" hover-stop-propagation="false">
+    <f-card headline="基本信息">
+        <view class="info-item"> 姓名：{{studentInfo.name}} </view>
+        <view class="info-item"> 学号：{{studentInfo.number}} </view>
+        <view class="info-item"> 政治面貌：{{studentInfo.politics_status}} </view>
+        <view class="info-item"> 电话号码：{{studentInfo.telephone}} </view>
+    </f-card>
+
+    <f-card headline="班级信息">
+        <view class="info-item"> 学院：{{studentInfo.classInfo.college}} </view>
+        <view class="info-item"> 专业：{{studentInfo.classInfo.major}} </view>
+        <view class="info-item"> 年级：{{studentInfo.classInfo.class}} </view>
+    </f-card>
+
+    <f-card headline="宿舍信息">
+        <view class="info-item"> 公寓名称：{{studentInfo.dormitoryInfo.apartment}} </view>
+        <view class="info-item"> 宿舍号：{{studentInfo.dormitoryInfo.dormitory_number}} </view>
+    </f-card>
+</view>

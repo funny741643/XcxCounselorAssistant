@@ -1,0 +1,5 @@
+/* pages/manage/notification/publish/index.wxss */
+
+.notification-item {
+    background-color: #fff;
+}
