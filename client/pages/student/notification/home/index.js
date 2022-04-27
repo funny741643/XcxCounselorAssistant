@@ -1,21 +1,11 @@
-// pages/manage/notification/index.js
-const api = require("../../../config/api.js");
+// pages/student/notification/home/index.js
+const api = require("../../../../config/api");
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        active: 0,
         notificationList: [],
-        activityList: [],
-        dailyList: [],
-        signInList: [],
-    },
-
-    addNotification() {
-        wx.navigateTo({
-            url: "/pages/manage/notification/publish/index",
-        });
     },
 
     gotoDetail(event) {
@@ -25,19 +15,15 @@ Page({
         })
         const data = JSON.stringify(item[0]);
         wx.navigateTo({
-            url: '/pages/manage/notification/detail/index?query=' + data,
+            url: '/pages/student/notification/detail/index?query=' + data,
         });
     },
 
-    onChange(event) {
-        // console.log(event.detail);
-    },
-
-    getNotificationList() {
+    initData() {
         wx.request({
             url: api.getNotificationList,
             data: {
-                cid: wx.getStorageSync("openId"),
+                sid: wx.getStorageSync("openId"),
             },
             header: { "content-type": "application/json" },
             method: "GET",
@@ -46,27 +32,21 @@ Page({
             success: (result) => {
                 if (result.data.result === 0) {
                     let notificationList = result.data.data.map((item) => {
+                        let isConfirm = false;
+                        if (item.feedback) {
+                            const feedbacks = item.feedback.split(',');
+                            isConfirm = feedbacks.includes(wx.getStorageSync("openId")) ? true : false;
+                        }
                         return {
                             ...item,
-                            startDate: item.startDate.split('T')[0],
-                            endDate: item.endDate.split('T')[0],
-                            releaseDate: item.releaseDate.split('T')[0],
+                            isConfirm,
+                            startDate: item.startDate.split("T")[0],
+                            endDate: item.endDate.split("T")[0],
+                            releaseDate: item.releaseDate.split("T")[0],
                         };
-                    });
-                    let activityList = notificationList.filter((item) => {
-                        return item.type === "党团活动";
-                    });
-                    let dailyList = notificationList.filter((item) => {
-                        return item.type === "日常消息";
-                    });
-                    let signInList = notificationList.filter((item) => {
-                        return item.type === "校园签到";
                     });
                     this.setData({
                         notificationList,
-                        activityList,
-                        dailyList,
-                        signInList,
                     });
                 }
             },
@@ -79,7 +59,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getNotificationList();
+        this.initData();
     },
 
     /**
@@ -91,7 +71,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.getNotificationList();
+        this.initData();
     },
 
     /**

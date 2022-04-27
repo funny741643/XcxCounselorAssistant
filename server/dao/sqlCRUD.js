@@ -55,6 +55,10 @@ const holiday = {
 
 const notification = {
     add: 'insert into notification set ?',
+    getList: 'select * from notification where cid=? order by releaseDate desc limit 10',
+    getNotificationById: 'select * from notification where id=?',
+    getUnderwayList: 'select * from notification where cid=? and status=1 order by releaseDate desc',
+    feedback: 'update notification set feedback=? where id=?',
 }
 
 module.exports = {
@@ -64,5 +68,6 @@ module.exports = {
     classes,
     dormitory,
     check,
-    holiday
+    holiday,
+    notification
 }

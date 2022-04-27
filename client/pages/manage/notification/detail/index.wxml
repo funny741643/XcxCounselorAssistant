@@ -1,0 +1,26 @@
+<view class="container-simple">
+    <f-card headline="基础信息">
+        <view class="notification_item"> 类型： {{notification.type}} </view>
+        <view class="notification_item"> 开始日期： {{notification.startDate}} </view>
+        <view class="notification_item"> 结束日期： {{notification.endDate}} </view>
+    </f-card>
+    <f-card headline="通知内容">
+        <view class="title" hover-class="none" hover-stop-propagation="false"> {{notification.title}} </view>
+        <view class="content" hover-class="none" hover-stop-propagation="false"> {{notification.content}} </view>
+    </f-card>
+    <f-card headline="未确认收到学生">
+        <view wx:if="{{notConfirmStudents.length > 0}}" class="students" hover-class="none" hover-stop-propagation="false">
+            <view
+                class="f-tag"
+                wx:for="{{notConfirmStudents}}"
+                wx:for-index="idx"
+                wx:key="uid"
+                bind:tap="goToDetail"
+                data-id="{{item.uid}}"
+            >
+                {{item.name}}
+            </view>
+        </view>
+        <view wx:else> 全都确认消息啦！ </view>
+    </f-card>
+</view>

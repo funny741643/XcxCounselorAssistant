@@ -1,7 +1,3 @@
-.add-button {
-    margin-bottom: 30rpx;
-}
-
 .notification {
     background-color: #fff;
     margin-top: 20rpx;
@@ -9,7 +5,7 @@
     border-radius: 10rpx;
 }
 
-.title {
+.type {
     font-size: 30rpx;
     font-weight: 600;
     margin-bottom: 10rpx;
@@ -22,4 +18,11 @@
 .status {
     color: rgb(95, 185, 5);
     font-weight: 600;
+}
+
+.confirm {
+    text-align: center;
+    border-top: 1rpx solid #eee;
+    padding-top: 5rpx;
+    font-size: 28rpx;
 }

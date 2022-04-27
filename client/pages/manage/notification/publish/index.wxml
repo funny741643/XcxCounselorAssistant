@@ -9,6 +9,9 @@
     <f-card headline="通知内容">
         <view class="notification-item">
             <van-cell-group>
+                <van-field value="{{title}}" placeholder="标题" bind:change="onTitleChange">
+
+                </van-field>
                 <van-field
                     value="{{ content }}"
                     type="textarea"

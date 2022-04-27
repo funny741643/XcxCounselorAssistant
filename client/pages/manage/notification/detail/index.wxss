@@ -1,0 +1,18 @@
+/* pages/manage/notification/detail/index.wxss */
+
+.title {
+    font-weight: 600;
+    margin-bottom: 10rpx;
+}
+
+.f-tag {
+    display: inline-block;
+    text-align: center;
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: rgb(243, 113, 113);
+    color: #fff;
+    margin-right: 20rpx;
+    margin-bottom: 10rpx;
+}

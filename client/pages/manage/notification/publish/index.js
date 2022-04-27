@@ -1,4 +1,5 @@
 // pages/manage/notification/publish/index.js
+const api = require('../../../../config/api.js');
 Page({
     /**
      * 页面的初始数据
@@ -9,6 +10,8 @@ Page({
         endTime: "",
         startTimeShow: false,
         endTimeShow: false,
+        content: '',
+        title: '',
     },
 
     formatDate(date) {
@@ -19,6 +22,18 @@ Page({
     onTypeChange(event) {
         this.setData({
             type: event.detail,
+        });
+    },
+
+    onContentChange(event) {
+        this.setData({
+            content: event.detail,
+        });
+    },
+
+    onTitleChange(event) {
+        this.setData({
+            title: event.detail,
         });
     },
 
@@ -57,6 +72,40 @@ Page({
         this.setData({
             endTimeShow: false,
             endTime: this.formatDate(event.detail),
+        });
+    },
+
+    publishNotification() {
+        wx.request({
+            url: api.insertNotification,
+            data: {
+                cid: wx.getStorageSync('openId'),
+                type: this.data.type,
+                startDate: this.data.startTime,
+                endDate: this.data.endTime,
+                title: this.data.title,
+                content: this.data.content,
+            },
+            header: {'content-type':'application/json'},
+            method: 'POST',
+            dataType: 'json',
+            responseType: 'text',
+            success: (result)=>{
+                if (result.data.result === 0) {
+                    wx.showToast({
+                        title: '发布成功',
+                        icon: 'success',
+                        duration: 2000,
+                    });
+                    setTimeout(() => {
+                        wx.navigateBack({
+                            delta: 1,
+                        });
+                    }, 2000);
+                }
+            },
+            fail: ()=>{},
+            complete: ()=>{}
         });
     },
 

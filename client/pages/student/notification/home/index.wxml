@@ -1,0 +1,17 @@
+<view class="container-simple">
+    <view
+        class="notification"
+        wx:for="{{notificationList}}"
+        wx:for-index="idx"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="gotoDetail"
+    >
+        <view class="type"> {{item.type}} </view>
+        <view class="title notification_item">标题：{{item.title}}</view>
+        <view class="content notification_item">内容简介：{{item.content}}</view>
+        <view class="release_date notification_item">发布日期：{{item.releaseDate}}</view>
+        <view class="notification_item"> 通知状态：<text class="status">{{item.status}}</text></view>
+        <view class="notification_item confirm"> {{item.isConfirm ? '已确认' : '未确认'}} </view>
+    </view>
+</view>

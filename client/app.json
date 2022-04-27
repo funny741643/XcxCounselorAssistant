@@ -20,7 +20,10 @@
     "pages/manage/politics/index",
     "pages/manage/student/detail/index",
     "pages/manage/notification/index",
-    "pages/manage/notification/publish/index"
+    "pages/manage/notification/publish/index",
+    "pages/student/notification/home/index",
+    "pages/student/notification/detail/index",
+    "pages/manage/notification/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

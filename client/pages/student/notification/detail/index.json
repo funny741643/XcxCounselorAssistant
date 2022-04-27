@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "通知详情",
+  "usingComponents": {
+    "f-card": "/components/card/index",
+    "van-button": "@vant/weapp/button/index"
+  }
+}

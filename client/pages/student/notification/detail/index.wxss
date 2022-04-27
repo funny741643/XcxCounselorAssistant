@@ -1,0 +1,6 @@
+/* pages/student/notification/detail/index.wxss */
+
+.title {
+    font-weight: 600;
+    margin-bottom: 10rpx;
+}

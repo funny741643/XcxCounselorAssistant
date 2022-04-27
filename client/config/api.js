@@ -51,6 +51,11 @@ const sickApproval = baseUrl + "api/holiday/sickApproval";
 // 党团管理
 const getPoliticsStatusData = baseUrl + "api/politics/statusData";
 
+// 通知管理
+const insertNotification = baseUrl + "api/notification/publish";
+const getNotificationList = baseUrl + "api/notification/list";
+const postNotificationfeedback = baseUrl + "api/notification/feedback";
+
 module.exports = {
     loginUrl,
     getAllColleges,
@@ -78,5 +83,9 @@ module.exports = {
     getLeaveList,
     sickApproval,
 
-    getPoliticsStatusData
+    getPoliticsStatusData,
+
+    insertNotification,
+    getNotificationList,
+    postNotificationfeedback
 };

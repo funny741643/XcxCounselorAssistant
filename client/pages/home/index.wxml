@@ -33,13 +33,17 @@
                     <view class="list-item-pic"></view>
                     <view class="list-item-text">工作报告</view>
                 </view>
-                <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">就业统计</view>
+                <view class="student-manage-list">
+                    <navigator url="/pages/manage/notification/index">
+                        <view class="list-item">
+                            <view class="list-item-pic"></view>
+                            <view class="list-item-text">信息发布</view>
+                        </view>
+                    </navigator>
                 </view>
             </view>
         </f-card>
-        <f-card headline="党团管理">
+        <f-card headline="其他管理">
             <view class="student-manage-list">
                 <navigator url="/pages/manage/politics/index">
                     <view class="list-item">
@@ -49,18 +53,8 @@
                 </navigator>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
-                    <view class="list-item-text">党团活动记录</view>
+                    <view class="list-item-text">就业统计</view>
                 </view>
-            </view>
-        </f-card>
-        <f-card headline="其他">
-            <view class="student-manage-list">
-                <navigator url="/pages/manage/notification/index">
-                    <view class="list-item">
-                        <view class="list-item-pic"></view>
-                        <view class="list-item-text">信息发布</view>
-                    </view>
-                </navigator>
             </view>
         </f-card>
     </block>
@@ -76,12 +70,10 @@
                     </navigator>
                 </view>
                 <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">签到</view>
-                </view>
-                <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">返校申请</view>
+                    <navigator url="/pages/student/notification/home/index">
+                        <view class="list-item-pic"></view>
+                        <view class="list-item-text">我的通知</view>
+                    </navigator>
                 </view>
                 <view class="list-item">
                     <view class="list-item-pic"></view>
