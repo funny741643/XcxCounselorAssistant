@@ -1,0 +1,18 @@
+<!--pages/home/home.wxml-->
+<view class="cu-custom">
+    <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('/images/cat.jpg')">
+        <view class="padding-xl text-white">
+            <view class="padding-xs text-xl"> 学生心理教育 </view>
+        </view>
+    </view>
+    <view class="add-button">
+        <van-button bind:click="addTest" size="large">+新增一条测试</van-button>
+    </view>
+    <view class="psy" wx:for="{{psyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" bindtap="gotoDetail">
+        <view class="type">测试类型：{{item.type}}</view>
+        <view class="release_date psy_item">发布日期：{{item.startDate}}</view>
+        <view class="content psy_item">结束日期：{{item.endDate}}</view>
+        <view class="psy_item"> 测试状态 <text class="status">{{item.status}}</text></view>
+        <view class="confirm_counts psy_item">完成人数：1 / 8</view>
+    </view>
+</view>

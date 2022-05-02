@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "在线答题",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  }
+}

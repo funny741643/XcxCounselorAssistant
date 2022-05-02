@@ -1,0 +1,22 @@
+.psy {
+    background-color: #fff;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    border-radius: 10rpx;
+}
+
+.type {
+    font-size: 30rpx;
+    font-weight: 600;
+    margin-bottom: 10rpx;
+}
+
+.psy_item {
+    font-size: 28rpx;
+    margin-top: 5rpx;
+}
+
+.status {
+    color: rgb(95, 185, 5);
+    font-weight: 600;
+}

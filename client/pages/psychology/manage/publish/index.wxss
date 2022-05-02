@@ -1,0 +1,8 @@
+/* pages/psychology/manage/publish/index.wxss */
+
+.desc {
+    font-size: 30rpx;
+    color: #666;
+    margin-top: 10rpx;
+    line-height: 40rpx;
+}

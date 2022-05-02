@@ -56,6 +56,12 @@ const insertNotification = baseUrl + "api/notification/publish";
 const getNotificationList = baseUrl + "api/notification/list";
 const postNotificationfeedback = baseUrl + "api/notification/feedback";
 
+// 心理辅导
+const insertPsyTest = baseUrl + "api/psy/publish";
+const getPsyList = baseUrl + "api/psy/getList";
+const getPsyquestion = baseUrl + "api/psy/question";
+const addPsyResult = baseUrl + "api/psy/addResult";
+
 module.exports = {
     loginUrl,
     getAllColleges,
@@ -87,5 +93,10 @@ module.exports = {
 
     insertNotification,
     getNotificationList,
-    postNotificationfeedback
+    postNotificationfeedback,
+
+    insertPsyTest,
+    getPsyList,
+    getPsyquestion,
+    addPsyResult
 };

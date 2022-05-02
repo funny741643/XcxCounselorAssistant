@@ -11,7 +11,6 @@ module.exports = {
         endDate = moment(endDate, "YYYY-MM-DD").format("YYYY-MM-DD");
         releaseDate = moment().format("YYYY-MM-DD");
         data = Object.assign({}, data, { startDate, endDate, releaseDate, status });
-        console.log(data);
         const resData = await notificationModel.publish(data);
         return resData;
     },

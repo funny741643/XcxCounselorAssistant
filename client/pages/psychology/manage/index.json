@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "心理管理",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  }
+}

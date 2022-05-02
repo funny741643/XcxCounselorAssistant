@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "心理测评",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  }
+}

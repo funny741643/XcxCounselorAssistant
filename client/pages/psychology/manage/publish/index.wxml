@@ -1,0 +1,25 @@
+<view class="container-simple">
+    <f-card headline="类型选择">
+        <van-radio-group value="{{ type }}" bind:change="onTypeChange">
+            <van-radio name="1">SDS测试</van-radio>
+            <van-radio name="2">BDI测试</van-radio>
+        </van-radio-group>
+        <view class="desc" wx:if="{{type == 1}}">
+            SDS（Self-Rating Depression
+            Scale），是（心理学）抑郁自评量表。广泛应用于门诊病人的粗筛、情绪状态评定以及调查、科研等</view
+        >
+        <view class="desc" wx:if="{{type == 2}}">
+            抑郁自评问卷（BDI），又名Beck抑郁自评量表（Beck depression rating scale），由美国著名心理学家Beck AT
+            编制于20世纪60年代，后被广泛运用于临床流行病学调查。</view
+        >
+    </f-card>
+
+    <f-card headline="测评结束日期">
+        <van-cell-group>
+            <van-cell required is-link title="结束日期" value="{{ endTime }}" bind:click="onEndTimeDisplay" />
+            <van-calendar show="{{ endTimeShow }}" bind:close="onEndTimeClose" bind:confirm="onEndTimeConfirm" />
+        </van-cell-group>
+    </f-card>
+
+    <van-button bind:click="publishTest" size="large">发布测试</van-button>
+</view>

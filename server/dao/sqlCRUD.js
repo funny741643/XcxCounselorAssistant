@@ -61,6 +61,12 @@ const notification = {
     feedback: 'update notification set feedback=? where id=?',
 }
 
+const psy = {
+    add: 'insert into psy_notification set ?',
+    getList: 'select * from psy_notification where cid=? order by startDate desc limit 10',
+    addResult: 'insert into psy_result set ?',
+}
+
 module.exports = {
     user,
     student,
@@ -69,5 +75,6 @@ module.exports = {
     dormitory,
     check,
     holiday,
-    notification
+    notification,
+    psy
 }

@@ -1,0 +1,31 @@
+<view class="cu-bar solid-bottom">
+    <view class="action"> <text class="icon-title text-blue"></text>量表 </view>
+</view>
+<block wx:if="{{isShow == false}}">
+    <view class="padding bg-white">
+        <view class="text-left padding"
+            >下面有二十道题目，请仔细阅读每一条，把意思弄明白，然后根据您最近一星期的实际情况，选择适当的选项。</view
+        >
+        <button class="cu-btn block bg-green margin-tb-sm lg" bindtap="start">开始测试</button>
+    </view>
+</block>
+
+<block wx:if="{{isShow != false}}">
+    <view class="bg-white padding">
+        {{nowQuestion}}
+        <view class="form-group padding">
+            <radio-group class="radio-group" bindchange="radioChange" name="question">
+                <label class="radio" wx:for="{{items}}">
+                    <radio value="{{item.value}}" checked="{{checked}}" />
+                    {{item.name}}
+                </label>
+            </radio-group>
+            <van-button bind:click="gotoNext" size="large"
+                >{{index + 1 < question.length ? '下一题' : '提交'}}</van-button
+            >
+            <view class="solid-bottom text-xl padding">
+                <text class="text-black text-bold">答题进度：{{index + 1}}/{{question.length}}</text>
+            </view>
+        </view>
+    </view>
+</block>

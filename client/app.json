@@ -23,7 +23,11 @@
     "pages/manage/notification/publish/index",
     "pages/student/notification/home/index",
     "pages/student/notification/detail/index",
-    "pages/manage/notification/detail/index"
+    "pages/manage/notification/detail/index",
+    "pages/psychology/manage/index",
+    "pages/psychology/manage/publish/index",
+    "pages/psychology/student/index",
+    "pages/psychology/questionBank/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

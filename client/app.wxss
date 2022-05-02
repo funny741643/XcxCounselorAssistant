@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import "colorui.wxss";
 .container {
   min-height: 100vh;
   display: flex;

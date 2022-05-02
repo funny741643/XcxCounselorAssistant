@@ -12,6 +12,7 @@ const checkRouter = require('./routes/check');
 const holidayRouter = require('./routes/holiday');
 const politicsRouter = require('./routes/politics');
 const notificationRouter = require('./routes/notification');
+const psyRouter = require('./routes/psy');
 
 const app = express();
 
@@ -28,5 +29,6 @@ app.use('/api/check', checkRouter);
 app.use('/api/holiday', holidayRouter);
 app.use('/api/politics', politicsRouter);
 app.use('/api/notification', notificationRouter);
+app.use('/api/psy', psyRouter);
 
 module.exports = app;
