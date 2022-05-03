@@ -10,6 +10,9 @@ const psyModel = {
     },
     addResult: function(data) {
         return _.query($sqlQueryPsy.addResult, data);
+    },
+    getDetail: function(id) {
+        return _.query($sqlQueryPsy.getDetail, id);
     }
 };
 

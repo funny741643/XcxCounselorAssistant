@@ -27,7 +27,8 @@
     "pages/psychology/manage/index",
     "pages/psychology/manage/publish/index",
     "pages/psychology/student/index",
-    "pages/psychology/questionBank/index"
+    "pages/psychology/questionBank/index",
+    "pages/psychology/manage/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

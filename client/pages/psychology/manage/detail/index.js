@@ -1,31 +1,29 @@
-// pages/psychology/manage/index.js
-const api = require("../../../config/api.js");
+// pages/psychology/manage/detail/index.js
+const api = require("../../../../config/api.js");
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        psyList: [],
+        finishedStudents: [],
+        notTestStudents: [],
+        noDepressionStudents: [],
+        mildDepressionStudents: [],
+        moderateDepressionStudents: [],
+        severeDepressionStudents: [],
     },
 
-    gotoDetail(event) {
-        const id = event.currentTarget.dataset.id;
+    goToDetail(event) { 
         wx.navigateTo({
-            url: '/pages/psychology/manage/detail/index?id=' + id,
+            url: '/pages/manage/student/detail/index?id=' + event.currentTarget.dataset.id,
         });
     },
 
-    addTest: function () {
-        console.log("???");
-        wx.navigateTo({
-            url: "/pages/psychology/manage/publish/index",
-        });
-    },
-
-    getPsyList: function () {
+    initData(id) {
         wx.request({
-            url: api.getPsyList,
+            url: api.getPsyDetail,
             data: {
+                id,
                 cid: wx.getStorageSync("openId"),
             },
             header: { "content-type": "application/json" },
@@ -33,18 +31,16 @@ Page({
             dataType: "json",
             responseType: "text",
             success: (result) => {
+                console.log(result);
                 if (result.data.result === 0) {
-                    let psyList = result.data.data.map((item) => {
-                        return {
-                            id: item.id,
-                            type: item.type,
-                            endDate: item.endDate.split("T")[0],
-                            startDate: item.startDate.split("T")[0],
-                            status: item.status,
-                        };
-                    });
+                    let data = result.data.data;
                     this.setData({
-                        psyList,
+                        finishedStudents: data.finishedStudents,
+                        notTestStudents: data.notTestStudents,
+                        noDepressionStudents: data.noDepressionStudents,
+                        mildDepressionStudents: data.mildDepressionStudents,
+                        moderateDepressionStudents: data.moderateDepressionStudents,
+                        severeDepressionStudents: data.severeDepressionStudents,
                     });
                 }
             },
@@ -53,17 +49,12 @@ Page({
         });
     },
 
-    // contact() {
-    //     wx.makePhoneCall({
-    //         phoneNumber: "0931-8915625",
-    //     });
-    // },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getPsyList();
+        const { id } = options;
+        this.initData(id);
     },
 
     /**
@@ -74,9 +65,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-        this.getPsyList();
-    },
+    onShow: function () {},
 
     /**
      * 生命周期函数--监听页面隐藏

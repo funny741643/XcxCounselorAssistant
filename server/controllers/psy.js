@@ -1,6 +1,8 @@
 const moment = require("moment");
 const psyModel = require("../dao/psy");
 const classModel = require("../dao/classes");
+const studentModel = require("../dao/students");
+const counselorMethods = require("./counselors");
 
 const SDSItems = [
     {
@@ -111,12 +113,26 @@ module.exports = {
     },
 
     getList: async function (data) {
+        let isStudent = false;
         let { cid, sid } = data;
         if (sid) {
+            isStudent = true;
             let res = await classModel.getCidBySid(sid);
             cid = res[0].uid;
         }
         const ret = await psyModel.getList(cid);
+        if (isStudent) {
+            for (let i = 0; i < ret.length; i++) {
+                let { id } = ret[i];
+                let finishedDetail = await psyModel.getDetail(id);
+                let sids = finishedDetail.map((item) => item.sid);
+                if (sids.includes(sid)) {
+                    ret[i].finished = true;
+                } else {
+                    ret[i].finished = false;
+                }
+            }
+        }
         return ret;
     },
 
@@ -139,5 +155,80 @@ module.exports = {
             res = await psyModel.addResult(data);
         }
         return res;
+    },
+
+    getDetail: async function (data) {
+        const { id, cid } = data;
+        const ret = await psyModel.getDetail(id);
+        const totalStudents = await counselorMethods.getTotalStudents(cid);
+        const noDepression = ret.filter((item) => {
+            return item.result === "无抑郁";
+        });
+        const mildDepression = ret.filter((item) => {
+            return item.result === "轻度抑郁";
+        });
+        const moderateDepression = ret.filter((item) => {
+            return item.result === "中度抑郁";
+        });
+        const severeDepression = ret.filter((item) => {
+            return item.result === "重度抑郁";
+        });
+
+        const noDepressionStudents = [];
+        for (let i = 0; i < noDepression.length; i++) {
+            let student = await studentModel.getStudentBySid(noDepression[i].sid);
+            noDepressionStudents.push(student[0]);
+        }
+
+        const mildDepressionStudents = [];
+        for (let i = 0; i < mildDepression.length; i++) {
+            let student = await studentModel.getStudentBySid(mildDepression[i].sid);
+            mildDepressionStudents.push(student[0]);
+        }
+
+        const moderateDepressionStudents = [];
+        for (let i = 0; i < moderateDepression.length; i++) {
+            let student = await studentModel.getStudentBySid(moderateDepression[i].sid);
+            moderateDepressionStudents.push(student[0]);
+        }
+
+        const severeDepressionStudents = [];
+        for (let i = 0; i < severeDepression.length; i++) {
+            let student = await studentModel.getStudentBySid(severeDepression[i].sid);
+            severeDepressionStudents.push(student[0]);
+        }
+
+        const finishedStudents = [];
+        for (let i = 0; i < ret.length; i++) {
+            let student = await studentModel.getStudentBySid(ret[i].sid);
+            finishedStudents.push(student[0]);
+        }
+
+        const totalStudentsId = totalStudents.map((item) => {
+            return item.uid;
+        });
+
+        const finishedStudentsId = finishedStudents.map((item) => {
+            return item.uid;
+        });
+
+        const notTestStudentsId = totalStudentsId.filter((item) => {
+            return finishedStudentsId.indexOf(item) === -1;
+        });
+
+        const notTestStudents = [];
+        for (let i = 0; i < notTestStudentsId.length; i++) {
+            let student = await studentModel.getStudentBySid(notTestStudentsId[i]);
+            notTestStudents.push(student[0]);
+        }
+
+        return {
+            finishedStudents,
+            notTestStudents,
+            noDepressionStudents,
+            mildDepressionStudents,
+            moderateDepressionStudents,
+            severeDepressionStudents,
+        };
     },
 };

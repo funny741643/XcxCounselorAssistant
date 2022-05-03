@@ -13,6 +13,5 @@
         <view class="release_date psy_item">发布日期：{{item.startDate}}</view>
         <view class="content psy_item">结束日期：{{item.endDate}}</view>
         <view class="psy_item"> 测试状态 <text class="status">{{item.status}}</text></view>
-        <view class="confirm_counts psy_item">完成人数：1 / 8</view>
     </view>
 </view>

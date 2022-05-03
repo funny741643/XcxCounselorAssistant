@@ -1,4 +1,5 @@
 const Counselors = require("../dao/counselors");
+const studentMethods = require("./students");
 
 module.exports = {
     insertCounselorInfo(req, res, next) {
@@ -17,5 +18,15 @@ module.exports = {
                 })   
             }
         })
-    }
+    },
+
+    // 获取所管理的所有学生的信息
+    async getTotalStudents(cid) {
+        let totalStudents = [];
+        const classes = await studentMethods.getStudentNumByUid(cid);
+        classes.forEach((item) => {
+            totalStudents = [...totalStudents, ...item.students];
+        });
+        return totalStudents;
+    },
 }

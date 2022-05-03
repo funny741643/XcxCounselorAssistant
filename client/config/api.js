@@ -61,6 +61,7 @@ const insertPsyTest = baseUrl + "api/psy/publish";
 const getPsyList = baseUrl + "api/psy/getList";
 const getPsyquestion = baseUrl + "api/psy/question";
 const addPsyResult = baseUrl + "api/psy/addResult";
+const getPsyDetail = baseUrl + "api/psy/detail";
 
 module.exports = {
     loginUrl,
@@ -98,5 +99,6 @@ module.exports = {
     insertPsyTest,
     getPsyList,
     getPsyquestion,
-    addPsyResult
+    addPsyResult,
+    getPsyDetail
 };

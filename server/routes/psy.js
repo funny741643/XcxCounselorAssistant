@@ -38,4 +38,13 @@ router.post('/addResult', async function(req, res, next) {
     });
 })
 
+router.get('/detail', async function(req, res, next) {
+    const data = req.query;
+    let ret = await psyMethods.getDetail(data);
+    res.json({
+        result: 0,
+        data: ret,
+    });
+})
+
 module.exports = router;

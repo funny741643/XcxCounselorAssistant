@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "测试详情",
+  "usingComponents": {
+    "f-card": "/components/card/index"
+  }
+}

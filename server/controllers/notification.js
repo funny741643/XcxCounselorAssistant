@@ -1,6 +1,6 @@
 const notificationModel = require("../dao/notification");
 const classModel = require("../dao/classes");
-const studentMethods = require("./students");
+const counselorMethods = require("./counselors");
 const moment = require("moment");
 
 module.exports = {
@@ -45,17 +45,8 @@ module.exports = {
         return ret;
     },
 
-    async getTotalStudents(cid) {
-        let totalStudents = [];
-        const classes = await studentMethods.getStudentNumByUid(cid);
-        classes.forEach((item) => {
-            totalStudents = [...totalStudents, ...item.students];
-        });
-        return totalStudents;
-    },
-
     async getconfirmInfo(cid, sids) {
-        const totalStudents = await this.getTotalStudents(cid);
+        const totalStudents = await counselorMethods.getTotalStudents(cid);
         let notConfirmStudents = [];
         if (sids) {
             notConfirmStudents = totalStudents.filter((item) => {

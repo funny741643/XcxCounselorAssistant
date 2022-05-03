@@ -13,10 +13,15 @@
 
 .psy_item {
     font-size: 28rpx;
-    margin-top: 5rpx;
+    margin-top: 12rpx;
 }
 
 .status {
     color: rgb(95, 185, 5);
+    font-weight: 600;
+}
+
+.my_status {
+    color: rgb(114, 114, 114);
     font-weight: 600;
 }

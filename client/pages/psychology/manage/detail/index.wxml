@@ -1,0 +1,68 @@
+<view class="container-simple">
+    <f-card headline="基本数据">
+        <view class="f-card-item"> 完成人数：{{finishedStudents.length}} / {{finishedStudents.length + notTestStudents.length}}</view>
+        <view class="f-card-item"> 轻度抑郁：{{mildDepressionStudents.length}} 人</view>
+        <view class="f-card-item"> 中度抑郁：{{moderateDepressionStudents.length}} 人</view>
+        <view class="f-card-item"> 重度抑郁：{{severeDepressionStudents.length}} 人</view>
+    </f-card>
+    <f-card headline="未测试学生">
+        <view wx:if="{{notTestStudents.length > 0}}">
+            <view
+                class="f-tag"
+                wx:for="{{notTestStudents}}"
+                wx:for-index="idx"
+                wx:key="uid"
+                bind:tap="goToDetail"
+                data-id="{{item.uid}}"
+            >
+                {{item.name}}
+            </view>
+        </view>
+        <view wx:else> 全都测试完成啦！ </view>
+    </f-card>
+    <f-card headline="轻度抑郁">
+        <view wx:if="{{mildDepressionStudents.length > 0}}">
+            <view
+                class="f-tag"
+                wx:for="{{mildDepressionStudents}}"
+                wx:for-index="idx"
+                wx:key="uid"
+                bind:tap="goToDetail"
+                data-id="{{item.uid}}"
+            >
+                {{item.name}}
+            </view>
+        </view>
+        <view wx:else> 无 </view>
+    </f-card>
+    <f-card headline="中度抑郁">
+        <view wx:if="{{moderateDepressionStudents.length > 0}}">
+            <view
+                class="f-tag"
+                wx:for="{{moderateDepressionStudents}}"
+                wx:for-index="idx"
+                wx:key="uid"
+                bind:tap="goToDetail"
+                data-id="{{item.uid}}"
+            >
+                {{item.name}}
+            </view>
+        </view>
+        <view wx:else> 无 </view>
+    </f-card>
+    <f-card headline="重度抑郁">
+        <view wx:if="{{severeDepressionStudents.length > 0}}">
+            <view
+                class="f-tag"
+                wx:for="{{severeDepressionStudents}}"
+                wx:for-index="idx"
+                wx:key="uid"
+                bind:tap="goToDetail"
+                data-id="{{item.uid}}"
+            >
+                {{item.name}}
+            </view>
+        </view>
+        <view wx:else> 全都测试完成啦！ </view>
+    </f-card>
+</view>

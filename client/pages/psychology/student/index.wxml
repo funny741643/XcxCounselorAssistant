@@ -12,11 +12,16 @@
         wx:key="id"
         data-type="{{item.type}}"
         data-id="{{item.id}}"
+        data-status="{{item.status}}"
+        data-finished="{{item.finished}}"
         bindtap="gotoTest"
     >
         <view class="type">测试类型：{{item.type}}</view>
         <view class="release_date psy_item">发布日期：{{item.startDate}}</view>
         <view class="content psy_item">结束日期：{{item.endDate}}</view>
         <view class="psy_item"> 测试状态 <text class="status">{{item.status}}</text></view>
+        <view class="psy_item">
+            我的状态：<text class="my_status">{{item.finished ? '已完成' : '未完成'}}</text>
+        </view>
     </view>
 </view>

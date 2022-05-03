@@ -8,7 +8,22 @@ Page({
     },
 
     gotoTest(event) {
-        const { id, type } = event.currentTarget.dataset;
+        const { id, type, status, finished } = event.currentTarget.dataset;
+        if (status === "已失效") {
+            wx.showToast({
+                title: "该测评已失效",
+                icon: "none",
+                duration: 2000,
+            });
+            return;
+        } else if (finished) {
+            wx.showToast({
+                title: "您已完成了该测评",
+                icon: "none",
+                duration: 2000,
+            });
+            return;
+        }
         wx.navigateTo({
             url: '/pages/psychology/questionBank/index?id=' + id + '&type=' + type,
         });
@@ -33,6 +48,7 @@ Page({
                             endDate: item.endDate.split("T")[0],
                             startDate: item.startDate.split("T")[0],
                             status: item.status,
+                            finished: item.finished,
                         };
                     });
                     this.setData({

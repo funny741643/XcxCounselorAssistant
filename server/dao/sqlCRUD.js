@@ -65,6 +65,7 @@ const psy = {
     add: 'insert into psy_notification set ?',
     getList: 'select * from psy_notification where cid=? order by startDate desc limit 10',
     addResult: 'insert into psy_result set ?',
+    getDetail: 'select * from psy_result where nid=?',
 }
 
 module.exports = {
