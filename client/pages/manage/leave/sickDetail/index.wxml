@@ -17,7 +17,7 @@
         <view class="sick-explain sick-item">请假原因：{{explain}}</view>
     </f-card>
 
-    <block wx:if="{{status === '未审批'}}">
+    <block wx:if="{{status === '待审批'}}">
         <van-field
             value="{{ suggest }}"
             label="审批意见说明"

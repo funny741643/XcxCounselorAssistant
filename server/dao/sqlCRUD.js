@@ -68,6 +68,13 @@ const psy = {
     getDetail: 'select * from psy_result where nid=?',
 }
 
+const employment = {
+    add: 'insert into employment_notification set ?',
+    getList: 'select * from employment_notification where cid=? order by publishDate desc limit 10',
+    addRecord: 'insert into employment_statistics set ?',
+    getDetail: 'select * from employment_statistics where nid=?',
+}
+
 module.exports = {
     user,
     student,
@@ -77,5 +84,6 @@ module.exports = {
     check,
     holiday,
     notification,
-    psy
+    psy,
+    employment
 }

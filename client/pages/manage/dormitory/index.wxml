@@ -22,12 +22,16 @@
     <f-card headline="常用功能">
         <view class="common-functions">
             <view class="function-item" bindtap="showPop">
-                <view class="function-item-pic"></view>
+                <view class="function-item-pic">
+                    <image class="pic" src="../../../images/gocheck.png" mode="aspectFill" />
+                </view>
                 <view class="function-item-text">发起检查</view>
             </view>
             <view class="function-item">
                 <navigator url="/pages/manage/dormitory/statistics/index">
-                    <view class="function-item-pic"></view>
+                    <view class="function-item-pic">
+                        <image class="pic" src="../../../images/tongji.png" mode="aspectFill" />
+                    </view>
                     <view class="function-item-text">检查统计</view>
                 </navigator>
             </view>

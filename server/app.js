@@ -13,6 +13,7 @@ const holidayRouter = require('./routes/holiday');
 const politicsRouter = require('./routes/politics');
 const notificationRouter = require('./routes/notification');
 const psyRouter = require('./routes/psy');
+const employmentRouter = require('./routes/employment');
 
 const app = express();
 
@@ -30,5 +31,6 @@ app.use('/api/holiday', holidayRouter);
 app.use('/api/politics', politicsRouter);
 app.use('/api/notification', notificationRouter);
 app.use('/api/psy', psyRouter);
+app.use('/api/employment', employmentRouter);
 
 module.exports = app;

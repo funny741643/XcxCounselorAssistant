@@ -20,6 +20,7 @@ const holidayMethods = {
     applyListBySid: async function (sid) {
         let isSick = false;
         const ret = await holidayModel.applyListBySid(sid);
+        // console.log(ret)
          // 如果最新的记录还未销假，则证明该生还为在假状态
         if (ret[0].status !== "已销假") {
             isSick = true;

@@ -25,19 +25,25 @@
         <view class="common-functions">
             <view class="function-item">
                 <navigator url="/pages/manage/leave/waitlist/index">
-                    <view class="function-item-pic"></view>
+                    <view class="function-item-pic">
+                        <image class="pic" src="../../../images/wait.png" mode="aspectFill" />
+                    </view>
                     <view class="function-item-text">待审核</view>
                 </navigator>
             </view>
             <view class="function-item">
                 <navigator url="/pages/manage/leave/ovedueList/index">
-                    <view class="function-item-pic"></view>
+                    <view class="function-item-pic">
+                        <image class="pic" src="../../../images/yuqi.png" mode="aspectFill" />
+                    </view>
                     <view class="function-item-text">逾期未销列表</view>
                 </navigator>
             </view>
             <view class="function-item">
                 <navigator url="/pages/manage/leave/leaveList/index">
-                    <view class="function-item-pic"></view>
+                    <view class="function-item-pic">
+                        <image class="pic" src="../../../images/leave.png" mode="aspectFill" />
+                    </view>
                     <view class="function-item-text">在假统计</view>
                 </navigator>
             </view>

@@ -249,7 +249,7 @@ Page({
                     wx.setStorageSync("detailInfo", studentInfo);
                     wx.setStorageSync("role", role);
                     wx.switchTab({
-                        url: "/pages/home/studentHome/index",
+                        url: "/pages/home/index",
                     });
                 }
             },

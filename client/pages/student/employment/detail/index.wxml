@@ -1,0 +1,45 @@
+<!--pages/student/employment/detail/index.wxml-->
+<view class="container">
+    <f-card headline="就业表单">
+        <van-cell-group>
+            <van-field
+                model:value="{{ type }}"
+                required
+                label="去向类型"
+                placeholder="请选择就业去向"
+                bind:click-input="onTypeDisplay"
+                right-icon="arrow"
+            >
+            </van-field>
+            <van-field model:value="{{ company }}" required label="就业单位" placeholder="请填写就业单位或预期单位" />
+            <van-field
+                model:value="{{ status }}"
+                required
+                label="当前进度"
+                placeholder="请选择目前进度"
+                bind:click-input="onStatusDisplay"
+                right-icon="arrow"
+            />
+        </van-cell-group>
+        <van-button type="primary" bind:click="handleSubmit">提交</van-button>
+    </f-card>
+
+    <van-popup show="{{ typeSelectShow }}" position="top" bind:close="onTypeClose">
+        <van-picker
+            show-toolbar
+            title="学院选择"
+            columns="{{ typeColumns }}"
+            bind:cancel="onTypeCancel"
+            bind:confirm="onTypeConfirm"
+        />
+    </van-popup>
+    <van-popup show="{{ statusSelectShow }}" position="top" bind:close="onStatusClose">
+        <van-picker
+            show-toolbar
+            title="专业选择"
+            columns="{{ statusColumns }}"
+            bind:cancel="onStatusCancel"
+            bind:confirm="onStatusConfirm"
+        />
+    </van-popup>
+</view>

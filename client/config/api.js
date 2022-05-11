@@ -63,6 +63,11 @@ const getPsyquestion = baseUrl + "api/psy/question";
 const addPsyResult = baseUrl + "api/psy/addResult";
 const getPsyDetail = baseUrl + "api/psy/detail";
 
+// 就业统计
+const insertEmployment = baseUrl + "api/employment/publish";
+const getEmploymentList = baseUrl + "api/employment/getList";
+const addEmploymentRecord = baseUrl + "api/employment/addRecord";
+
 module.exports = {
     loginUrl,
     getAllColleges,
@@ -100,5 +105,9 @@ module.exports = {
     getPsyList,
     getPsyquestion,
     addPsyResult,
-    getPsyDetail
+    getPsyDetail,
+
+    insertEmployment,
+    getEmploymentList,
+    addEmploymentRecord
 };

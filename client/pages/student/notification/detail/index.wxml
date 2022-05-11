@@ -9,6 +9,7 @@
         <view class="content" hover-class="none" hover-stop-propagation="false"> {{notification.content}} </view>
     </f-card>
     <view class="feedback-button" wx:if="{{notification.isConfirm === false}}">
-        <van-button type="primary" bind:click="feedback" size="large">确认收到</van-button>
+        <van-button wx:if="{{notification.type !== '校园签到'}}" type="primary" bind:click="feedback" size="large">确认收到</van-button>
+        <van-button wx:else type="primary" bind:click="feedback" size="large">点击签到</van-button>
     </view>
 </view>

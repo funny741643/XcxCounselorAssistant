@@ -5,19 +5,25 @@
             <view class="student-manage-list">
                 <view class="list-item">
                     <navigator url="/pages/manage/student/index">
-                        <view class="list-item-pic"></view>
+                        <view class="list-item-pic student-info">
+                            <image class="pic" src="../../images/student.png" mode="aspectFill" />
+                        </view>
                         <view class="list-item-text">学生信息</view>
                     </navigator>
                 </view>
                 <view class="list-item">
                     <navigator url="/pages/manage/dormitory/index">
-                        <view class="list-item-pic"></view>
+                        <view class="list-item-pic">
+                            <image class="pic" src="../../images/apartment.png" mode="aspectFill" />
+                        </view>
                         <view class="list-item-text">宿舍管理</view>
                     </navigator>
                 </view>
                 <view class="list-item">
                     <navigator url="/pages/manage/leave/index">
-                        <view class="list-item-pic"></view>
+                        <view class="list-item-pic">
+                            <image class="pic" src="../../images/sick.png" mode="aspectFill" />
+                        </view>
                         <view class="list-item-text">请假信息</view>
                     </navigator>
                 </view>
@@ -27,18 +33,26 @@
             <view class="student-manage-list">
                 <navigator url="/pages/psychology/manage/index">
                     <view class="list-item">
-                        <view class="list-item-pic"></view>
+                        <view class="list-item-pic">
+                            <image class="pic" src="../../images/psy.png" mode="aspectFill" />
+                        </view>
                         <view class="list-item-text">心理教育</view>
                     </view>
                 </navigator>
-                <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">工作报告</view>
-                </view>
+                <navigator url="/pages/manage/work/index">
+                    <view class="list-item">
+                        <view class="list-item-pic">
+                            <image class="pic" src="../../images/record.png" mode="aspectFill" />
+                        </view>
+                        <view class="list-item-text">工作报告</view>
+                    </view>
+                </navigator>
                 <view class="student-manage-list">
                     <navigator url="/pages/manage/notification/index">
                         <view class="list-item">
-                            <view class="list-item-pic"></view>
+                            <view class="list-item-pic">
+                                <image class="pic" src="../../images/notification.png" mode="aspectFill" />
+                            </view>
                             <view class="list-item-text">信息发布</view>
                         </view>
                     </navigator>
@@ -49,14 +63,20 @@
             <view class="student-manage-list">
                 <navigator url="/pages/manage/politics/index">
                     <view class="list-item">
-                        <view class="list-item-pic"></view>
+                        <view class="list-item-pic">
+                            <image class="pic" src="../../images/dangyuan.png" mode="aspectFill" />
+                        </view>
                         <view class="list-item-text">党员统计</view>
                     </view>
                 </navigator>
-                <view class="list-item">
-                    <view class="list-item-pic"></view>
-                    <view class="list-item-text">就业统计</view>
-                </view>
+                <navigator url="/pages/manage/employment/index">
+                    <view class="list-item">
+                        <view class="list-item-pic">
+                            <image class="pic" src="../../images/jiuye.png" mode="aspectFill" />
+                        </view>
+                        <view class="list-item-text">就业统计</view>
+                    </view>
+                </navigator>
             </view>
         </f-card>
     </block>
@@ -81,6 +101,12 @@
                     <navigator url="/pages/psychology/student/index">
                         <view class="list-item-pic"></view>
                         <view class="list-item-text">心理测评</view>
+                    </navigator>
+                </view>
+                <view class="list-item">
+                    <navigator url="/pages/student/employment/home/index">
+                        <view class="list-item-pic"></view>
+                        <view class="list-item-text">就业统计</view>
                     </navigator>
                 </view>
             </view>

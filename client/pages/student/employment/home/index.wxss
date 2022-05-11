@@ -1,0 +1,31 @@
+/* pages/student/employment/index.wxss */
+
+.employment {
+    width: 95%;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    padding-bottom: 10rpx;
+    border-radius: 10rpx;
+}
+
+.employment_item {
+    font-size: 30rpx;
+    font-weight: 600;
+    margin-top: 10rpx;
+}
+
+.status {
+    color: rgb(95, 185, 5);
+    font-weight: 600;
+}
+
+.person_status {
+    font-weight: 600;
+    font-size: 32rpx;
+    text-align: center;
+    padding-top: 8rpx;
+    margin-top: 10rpx;
+    border-top: 1px dotted rgb(26, 27, 26);
+}

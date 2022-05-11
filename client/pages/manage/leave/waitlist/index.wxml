@@ -4,7 +4,7 @@
         <view class="student_info">
             {{item.studentName}} <text>{{item.studentNumber}}</text>
         </view>
-        <view class="class_info">
+        <view class="class_info apply_desc_item">
             班级: {{item.studentClass}}
         </view>
         <view class="apply_desc">

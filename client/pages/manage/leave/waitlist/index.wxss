@@ -14,3 +14,9 @@
     height: 40rpx;
     line-height: 40rpx;
 }
+
+.student_info {
+    font-size: 30rpx;
+    font-weight: 600;
+    margin-bottom: 10rpx;
+}
