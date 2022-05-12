@@ -1,4 +1,0 @@
-<!--pages/manage/work/index.wxml-->
-<view>
-    <hg-editor showTabBar="{{true}}"></hg-editor>
-</view>

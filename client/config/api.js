@@ -17,7 +17,7 @@ const studentVerify = baseUrl + "api/student/verify";
 const counselorVerify = baseUrl + "api/counselor/verify";
 
 // 通过学生id获取到学生信息
-const getStudentInfoById = baseUrl + 'api/student/getInfoById';
+const getStudentInfoById = baseUrl + "api/student/getInfoById";
 
 // 获取所管班级的所有学生
 const allStudentsOfClass = baseUrl + "api/classes/allStudents";
@@ -68,6 +68,11 @@ const insertEmployment = baseUrl + "api/employment/publish";
 const getEmploymentList = baseUrl + "api/employment/getList";
 const addEmploymentRecord = baseUrl + "api/employment/addRecord";
 
+// 工作汇报
+const insertWork = baseUrl + "api/work/publish";
+const getArticleList = baseUrl + "api/work/getList";
+const getArticleDetail = baseUrl + "api/work/detail";
+
 module.exports = {
     loginUrl,
     getAllColleges,
@@ -109,5 +114,9 @@ module.exports = {
 
     insertEmployment,
     getEmploymentList,
-    addEmploymentRecord
+    addEmploymentRecord,
+
+    insertWork,
+    getArticleList,
+    getArticleDetail,
 };

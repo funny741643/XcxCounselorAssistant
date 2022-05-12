@@ -14,6 +14,7 @@ const politicsRouter = require('./routes/politics');
 const notificationRouter = require('./routes/notification');
 const psyRouter = require('./routes/psy');
 const employmentRouter = require('./routes/employment');
+const workRouter = require('./routes/work');
 
 const app = express();
 
@@ -32,5 +33,6 @@ app.use('/api/politics', politicsRouter);
 app.use('/api/notification', notificationRouter);
 app.use('/api/psy', psyRouter);
 app.use('/api/employment', employmentRouter);
+app.use('/api/work', workRouter);
 
 module.exports = app;

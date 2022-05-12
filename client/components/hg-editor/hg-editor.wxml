@@ -37,6 +37,6 @@
   </view>
   <view class="editor-box-content">
     <editor id="editor" name="{{name}}" placeholder="{{placeholder}}" bind:ready="_onEditorReady"
-      bind:input="_onInputting" show-img-resize="{{true}}"></editor>
+      bind:input="_onInputting" show-img-resize="{{true}}">{{value}}</editor>
   </view>
 </view>

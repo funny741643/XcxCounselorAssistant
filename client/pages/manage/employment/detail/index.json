@@ -1,5 +1,6 @@
 {
+  "navigationBarTitleText": "就业详情",
   "usingComponents": {
-    "ec-canvas": "../../../../ec-canvas/ec-canvas"
+    "ec-canvas": "../../../../components/ec-canvas/ec-canvas"
   }
 }

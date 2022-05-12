@@ -26,7 +26,11 @@ Component({
     uploadImageURL: {
       type: 'String',
       value: ''
-    }
+    },
+    value: {
+      type: 'String',
+      value: ''
+    },
   },
 
   /**
@@ -44,6 +48,9 @@ Component({
       const that = this;
       that.createSelectorQuery().select('#editor').context(function (res) {
         that.editorCtx = res.context
+        that.editorCtx.setContents({
+          html: that.properties.value,
+        })
       }).exec()
     },
     //插入图片

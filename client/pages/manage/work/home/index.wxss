@@ -1,0 +1,16 @@
+/* pages/manage/work/home/index.wxss */
+.add-button {
+    margin-bottom: 15rpx;
+}
+
+.list {
+    padding: 15rpx 20rpx;
+    background-color: #fff;
+    margin: 20rpx;
+}
+
+.list_item {
+    margin-top: 10rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+}

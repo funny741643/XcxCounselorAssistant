@@ -1,0 +1,8 @@
+<!--pages/manage/work/detail/index.wxml-->
+<view>
+    <view class="title"> {{title}} </view>
+    <view class="btn">
+        <van-button round type="primary" size="small" bind:click="goWriting">重新编辑</van-button>
+    </view>
+    <rich-text nodes="{{content}}"></rich-text>
+</view>

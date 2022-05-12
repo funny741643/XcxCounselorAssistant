@@ -1,0 +1,19 @@
+/* pages/manage/work/detail/index.wxss */
+
+.title {
+    font-size: 34rpx;
+    font-weight: 600;
+    margin-bottom: 20rpx;
+    text-align: center;
+    margin-top: 30rpx;
+}
+
+.block {
+    height: 50rpx;
+}
+
+.btn {
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+}

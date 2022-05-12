@@ -1,0 +1,21 @@
+<!--pages/manage/work/home/index.wxml-->
+<view>
+    <view class="add-button">
+        <van-button bind:click="addArticle" size="large">+点击写作</van-button>
+    </view>
+    <van-dropdown-menu>
+        <van-dropdown-item model:value="{{ year }}" options="{{ option1 }}" bind:change="yearChange" />
+        <van-dropdown-item model:value="{{ month }}" options="{{ option2 }}" bind:change="monthChange" />
+    </van-dropdown-menu>
+    <view
+        class="list"
+        wx:for="{{articleList}}"
+        wx:for-index="idx"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="gotoDetail"
+    >
+        <view class="title list_item">文章标题：{{item.title}}</view>
+        <view class="date list_item">写作日期：{{item.date}}</view>
+    </view>
+</view>

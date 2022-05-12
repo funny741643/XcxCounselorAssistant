@@ -75,6 +75,14 @@ const employment = {
     getDetail: 'select * from employment_statistics where nid=?',
 }
 
+const work = {
+    add: 'insert into job_logging set ?',
+    getAllList: 'select * from job_logging where cid=? order by date desc limit 10',
+    getList: 'select * from job_logging where cid=? and date like ? order by date desc',
+    getDetail: 'select * from job_logging where id=?',
+    update: 'update job_logging set ? where id=?',
+}
+
 module.exports = {
     user,
     student,
@@ -85,5 +93,6 @@ module.exports = {
     holiday,
     notification,
     psy,
-    employment
+    employment,
+    work
 }

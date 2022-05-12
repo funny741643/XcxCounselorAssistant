@@ -23,7 +23,7 @@
   box-sizing: border-box;
   border-bottom: 2rpx solid #f6f6f6;
   background-color: #f6f6f6;
-  height: 50rpx;
+  height: 70rpx;
 }
 
 .editor-box-header>.operate-box {

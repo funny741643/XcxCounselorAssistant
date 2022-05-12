@@ -33,7 +33,9 @@
     "pages/student/employment/home/index",
     "pages/student/employment/detail/index",
     "pages/manage/employment/detail/index",
-    "pages/manage/work/index"
+    "pages/manage/work/writing/index",
+    "pages/manage/work/home/index",
+    "pages/manage/work/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

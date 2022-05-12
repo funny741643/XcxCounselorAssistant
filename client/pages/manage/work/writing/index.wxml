@@ -1,0 +1,6 @@
+<!--pages/manage/work/index.wxml-->
+<view>
+    <van-field model:value="{{ title }}" required label="文章标题" placeholder="请填写文章标题"> </van-field>
+    <hg-editor showTabBar="{{true}}" bind:input="onInputtingDesc" value="{{ content }}"></hg-editor>
+    <van-button type="primary" size="large" onclick="handleSubmit">提交文章</van-button>
+</view>

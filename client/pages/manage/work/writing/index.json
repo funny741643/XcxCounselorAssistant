@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "工作写作",
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-button": "@vant/weapp/button/index",
+    "hg-editor": "../../../../components/hg-editor/hg-editor"
+  }
+}

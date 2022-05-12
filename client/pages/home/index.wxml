@@ -39,7 +39,7 @@
                         <view class="list-item-text">心理教育</view>
                     </view>
                 </navigator>
-                <navigator url="/pages/manage/work/index">
+                <navigator url="/pages/manage/work/home/index">
                     <view class="list-item">
                         <view class="list-item-pic">
                             <image class="pic" src="../../images/record.png" mode="aspectFill" />
