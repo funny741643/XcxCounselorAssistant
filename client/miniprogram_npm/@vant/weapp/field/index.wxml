@@ -1,5 +1,5 @@
 <wxs src="../wxs/utils.wxs" module="utils" />
-<!-- <wxs src="./index.wxs" module="computed" /> -->
+<wxs src="./index.wxs" module="computed" />
 
 <van-cell
   size="{{ size }}"

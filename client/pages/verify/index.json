@@ -8,6 +8,7 @@
     "van-picker": "@vant/weapp/picker/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-icon": "@vant/weapp/icon/index",
+    "van-uploader": "@vant/weapp/uploader/index",
     "f-card": "/components/card/index"
   }
 }

@@ -29,4 +29,9 @@ module.exports = {
         });
         return totalStudents;
     },
+
+    async getCounselorInfo(id) {
+        let ret = await Counselors.getCounselorInfo(id);
+        return ret[0];
+    }
 }

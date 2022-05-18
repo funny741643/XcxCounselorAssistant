@@ -15,10 +15,12 @@ const notificationRouter = require('./routes/notification');
 const psyRouter = require('./routes/psy');
 const employmentRouter = require('./routes/employment');
 const workRouter = require('./routes/work');
+const fileRouter = require('./routes/file');
 
 const app = express();
 
 app.use(express.json());
+app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -34,5 +36,6 @@ app.use('/api/notification', notificationRouter);
 app.use('/api/psy', psyRouter);
 app.use('/api/employment', employmentRouter);
 app.use('/api/work', workRouter);
+app.use('/api/file', fileRouter);
 
 module.exports = app;

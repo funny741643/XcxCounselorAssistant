@@ -16,6 +16,7 @@ Page({
         outschool: false,
         deleteDiglogShow: false,
         revocationDiglogShow: false,
+        images: [],
     },
 
     showDeleteDialog() {
@@ -123,9 +124,10 @@ Page({
                         telephone: sickInfo.telephone,
                         outschool: sickInfo.outschool,
                         suggest: sickInfo.suggest,
+                        images: sickInfo.images ? sickInfo.images.split(","): [],
                     });
                 }
-                console.log(result);
+                console.log(this.data);
             },
             fail: () => {
                 app.showInfo("调用接口失败");

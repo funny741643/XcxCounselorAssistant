@@ -19,6 +19,9 @@ const counselorVerify = baseUrl + "api/counselor/verify";
 // 通过学生id获取到学生信息
 const getStudentInfoById = baseUrl + "api/student/getInfoById";
 
+// 通过导员id获取到导员信息
+const getCounselorInfoById = baseUrl + "api/counselor/info";
+
 // 获取所管班级的所有学生
 const allStudentsOfClass = baseUrl + "api/classes/allStudents";
 
@@ -67,11 +70,15 @@ const getPsyDetail = baseUrl + "api/psy/detail";
 const insertEmployment = baseUrl + "api/employment/publish";
 const getEmploymentList = baseUrl + "api/employment/getList";
 const addEmploymentRecord = baseUrl + "api/employment/addRecord";
+const getEmploymentDetail = baseUrl + "api/employment/detail";
 
 // 工作汇报
 const insertWork = baseUrl + "api/work/publish";
 const getArticleList = baseUrl + "api/work/getList";
 const getArticleDetail = baseUrl + "api/work/detail";
+
+// 图片上传
+const imageUpload = baseUrl + "api/file/image";
 
 module.exports = {
     loginUrl,
@@ -81,6 +88,7 @@ module.exports = {
     counselorVerify,
 
     getStudentInfoById,
+    getCounselorInfoById,
     allStudentsOfClass,
     allDormitoriesInfo,
     postDormitoryCheckRecord,
@@ -115,8 +123,10 @@ module.exports = {
     insertEmployment,
     getEmploymentList,
     addEmploymentRecord,
+    getEmploymentDetail,
 
     insertWork,
     getArticleList,
     getArticleDetail,
+    imageUpload
 };

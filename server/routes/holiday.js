@@ -4,6 +4,7 @@ const holidayMethods = require("../controllers/holiday");
 
 router.post("/apply", async function (req, res, next) {
     const data = req.body;
+    console.log(data);
     let errmsg = "";
     let msg = "";
     try {

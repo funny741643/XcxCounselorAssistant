@@ -39,8 +39,9 @@
                 input-class="textarea"
                 bind:change="onExplainChange"
             />
+            
         </van-cell-group>
-
+        <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
         <view class="button">
             <van-button bind:click="handleSubmit" type="primary" size="large">提交申请</van-button>
         </view>

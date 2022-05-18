@@ -18,7 +18,11 @@
                 />
                 <van-field model:value="{{ counselorPhonenumber }}" required label="手机号" placeholder="手机号绑定" />
             </van-cell-group>
-            <van-button type="primary" bind:click="handleSubmitCounselor">提交</van-button>
+            <view class="pictrue"> 个人工作照 </view>
+            <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" max-count="1" />
+            <view class="" hover-class="none" hover-stop-propagation="false">
+                <van-button type="primary" bind:click="handleSubmitCounselor" size="large">提交</van-button>
+            </view>
         </f-card>
     </view>
     <view class="student-form" hidden="{{isStuHidden}}">
@@ -26,7 +30,12 @@
             <van-cell-group>
                 <van-field model:value="{{ studentNumber }}" required label="学生号" placeholder="请输入学号" />
                 <van-field model:value="{{ studentName }}" required label="姓名" placeholder="请输入姓名" />
-                <van-field model:value="{{ studentPhonenumber }}" required label="手机号" placeholder="填写真实的手机号" />
+                <van-field
+                    model:value="{{ studentPhonenumber }}"
+                    required
+                    label="手机号"
+                    placeholder="填写真实的手机号"
+                />
                 <van-field
                     model:value="{{ studentCollege }}"
                     required
@@ -35,7 +44,6 @@
                     bind:click-input="onCollegeDisplay"
                     right-icon="arrow"
                 >
-                    
                 </van-field>
                 <van-field
                     model:value="{{ studentMajor }}"
@@ -61,9 +69,12 @@
                     label="宿舍号"
                     placeholder="请输入宿舍号,如2618"
                 />
-                
-                <van-button type="primary" bind:click="handleSubmitStudent">提交</van-button>
             </van-cell-group>
+            <view class="pictrue"> 个人学生照 </view>
+            <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" max-count="1" />
+            <view class="" hover-class="none" hover-stop-propagation="false">
+                <van-button type="primary" bind:click="handleSubmitStudent" size="large">提交</van-button>
+            </view>
         </f-card>
         <van-popup show="{{ collegeSelectShow }}" position="top" bind:close="onCollegeClose">
             <van-picker

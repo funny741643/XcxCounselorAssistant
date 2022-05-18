@@ -40,7 +40,9 @@
         <view class="sick-telephone sick-item">联系电话：{{telephone}}</view>
         <view class="sick-explain sick-item">请假原因：{{explain}}</view>
     </f-card>
-
+    <f-card headline="申请材料">
+        <image wx:for="{{images}}" style="width: 100px; height: 100px; background-color: #eeeeee;" mode="scaleToFill" src="{{item}}"></image>
+    </f-card>
     <f-card headline="审批建议">
         <view class="suggest" hover-class="none" hover-stop-propagation="false"> {{suggest || '无'}} </view>
     </f-card>

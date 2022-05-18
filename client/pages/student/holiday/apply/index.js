@@ -21,6 +21,29 @@ Page({
         endTimeShow: false,
         telephone: "",
         explain: "",
+        fileList: [],
+    },
+
+    afterRead(event) {
+        let that = this;
+        const { file } = event.detail;
+        // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+        wx.uploadFile({
+            url: api.imageUpload, // 仅为示例，非真实的接口地址
+            filePath: file.url,
+            name: "file",
+            // formData: { user: "test" },
+            success(res) {
+                const { fileList = [] } = that.data;
+                const data = JSON.parse(res.data);
+                if (data.result === 0) {
+                    fileList.push({ ...data.data, deletable: true });
+                    that.setData({
+                        fileList,
+                    });
+                }
+            },
+        });
     },
 
     formatDate(date) {
@@ -100,11 +123,13 @@ Page({
             endTime: this.data.endTime,
             status: "待审批",
             uid: wx.getStorageSync("openId"),
+            images: this.data.fileList.map((item) => item.url).join(","),
         };
         this.postHolidayApply(formData);
     },
 
     postHolidayApply(data) {
+        console.log(data);
         wx.request({
             url: api.postHolidayApply,
             method: "POST",
@@ -116,7 +141,7 @@ Page({
                     console.log(data);
                 }
                 wx.navigateBack({
-                    delta: 1
+                    delta: 1,
                 });
             },
 

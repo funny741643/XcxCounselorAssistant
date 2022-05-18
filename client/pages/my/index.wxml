@@ -1,38 +1,73 @@
 <!-- index.wxml -->
 <view class="container">
-  <f-card headline="基本信息">
-    <view class="base-info">
-      <view class="user-avatar-wrapper">
-        <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
-      </view>
-      <view class="user-info">
-        <view class="user-name">{{userInfo.nickName}}</view>
-        <view class="user-school">西安邮电大学</view>
-      </view>
-    </view>
-  </f-card>
-  <f-card headline="个人信息">
-    <view class="person-info">
-      <view class="person-info-item">
-        <text>姓名：</text>
-        {{detailInfo.name}}
-      </view>
-      <view class="person-info-item">
-        <text>学号：</text>
-        {{detailInfo.number}}
-      </view>
-      <view class="person-info-item">
-        <text>学院：</text>
-        {{detailInfo.college}}
-      </view>
-      <view class="person-info-item">
-        <text>专业：</text>
-        {{detailInfo.major}}
-      </view>
-      <view class="person-info-item">
-        <text>班级：</text>
-        {{detailInfo.class || detailInfo.grade}}
-      </view>
-    </view>
-  </f-card>
+    <f-card headline="基本信息">
+        <view class="base-info">
+            <view class="user-avatar-wrapper">
+                <image
+                    class="user-avatar"
+                    src="{{studentInfo.pictrue || counselorInfo.pictrue || userInfo.avatarUrl}}"
+                ></image>
+            </view>
+            <view class="user-info">
+                <view class="user-name">{{userInfo.nickName}}</view>
+                <view class="user-school">西安邮电大学</view>
+            </view>
+        </view>
+    </f-card>
+    <f-card headline="学生信息" wx:if="{{isStudent}}">
+        <view class="person-info">
+            <view class="person-info-item">
+                <text>姓名：</text>
+                {{studentInfo.name}}
+            </view>
+            <view class="person-info-item">
+                <text>学号：</text>
+                {{studentInfo.number}}
+            </view>
+            <view class="person-info-item">
+                <text>学院：</text>
+                {{studentInfo.classInfo.college}}
+            </view>
+            <view class="person-info-item">
+                <text>专业：</text>
+                {{studentInfo.classInfo.major}}
+            </view>
+            <view class="person-info-item">
+                <text>班级：</text>
+                {{studentInfo.classInfo.class}}
+            </view>
+            <view class="person-info-item">
+                <text>宿舍：</text>
+                {{studentInfo.dormitoryInfo.apartment + studentInfo.dormitoryInfo.dormitory_number}}
+            </view>
+            <view class="person-info-item">
+                <text>政治面貌：</text>
+                {{studentInfo.politics_status}}
+            </view>
+        </view>
+    </f-card>
+    <f-card headline="辅导员信息" wx:else>
+        <view class="person-info">
+            <view class="person-info-item">
+                <text>姓名：</text>
+                {{counselorInfo.name}}
+            </view>
+            <view class="person-info-item">
+                <text>工号：</text>
+                {{counselorInfo.number}}
+            </view>
+            <view class="person-info-item">
+                <text>学院：</text>
+                {{counselorInfo.college}}
+            </view>
+            <view class="person-info-item">
+                <text>专业：</text>
+                {{counselorInfo.major}}
+            </view>
+            <view class="person-info-item">
+                <text>管理年级：</text>
+                {{counselorInfo.grade}}
+            </view>
+        </view>
+    </f-card>
 </view>

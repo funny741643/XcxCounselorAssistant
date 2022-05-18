@@ -1,5 +1,6 @@
 // pages/manage/employment/detail/index.js
 import * as echarts from "../../../../components/ec-canvas/echarts";
+const api = require("../../../../config/api");
 
 function initChart(canvas, width, height, dpr) {
     const chart = echarts.init(canvas, null, {
@@ -48,9 +49,70 @@ Page({
      */
     data: {
         nid: "",
+        exams: [],
+        exams_success: [],
+        finishedStudents: [],
+        notTestStudents: [],
+        totalStudents: [],
+        jobs: [],
+        civils: [],
+        jobs_notSign_students: [],
+        jobs_success: [],
+        jobs_notSuccess_students: [],
         ec: {
             onInit: initChart,
         },
+    },
+
+    goToDetail(event) { 
+        wx.navigateTo({
+            url: '/pages/manage/student/detail/index?id=' + event.currentTarget.dataset.id,
+        });
+    },
+
+    getDetailDate() {
+        wx.request({
+            url: api.getEmploymentDetail,
+            data: {
+                nid: this.data.nid,
+                cid: wx.getStorageSync("openId"),
+            },
+            header: { "content-type": "application/json" },
+            method: "GET",
+            dataType: "json",
+            responseType: "text",
+            success: (result) => {
+                console.log(result);
+                if (result.data.result === 0) {
+                    const {
+                        exams,
+                        exams_success,
+                        finishedStudents,
+                        notTestStudents,
+                        totalStudents,
+                        jobs,
+                        civils,
+                        jobs_notSign_students,
+                        jobs_success,
+                        jobs_notSuccess_students,
+                    } = result.data.data;
+                    this.setData({
+                        exams,
+                        exams_success,
+                        finishedStudents,
+                        notTestStudents,
+                        totalStudents,
+                        jobs,
+                        civils,
+                        jobs_notSign_students,
+                        jobs_success,
+                        jobs_notSuccess_students,
+                    });
+                }
+            },
+            fail: () => {},
+            complete: () => {},
+        });
     },
 
     /**
@@ -61,6 +123,7 @@ Page({
         this.setData({
             nid: id,
         });
+        this.getDetailDate();
     },
 
     /**

@@ -32,6 +32,10 @@ const counselor = {
                     errmsg: JSON.stringify(e)
                 }
             })
+    },
+
+    getCounselorInfo(uid) {
+        return _.query($sqlQueryCounselor.queryById, uid)
     }
 }
 

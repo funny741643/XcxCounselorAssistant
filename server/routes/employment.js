@@ -20,6 +20,16 @@ router.get("/getList", async function (req, res, next) {
     });
 });
 
+router.get("/detail", async function (req, res, next) {
+    const data = req.query;
+    const { cid, nid } = data;
+    let ret = await employmentMethods.getDetail(cid, nid);
+    res.json({
+        result: 0,
+        data: ret,
+    });
+});
+
 router.post("/addRecord", async function (req, res, next) {
     const data = req.body;
     console.log(data);
