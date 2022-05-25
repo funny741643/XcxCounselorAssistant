@@ -9,7 +9,7 @@ Page({
 
     gotoTest(event) {
         const { id, type, status, finished } = event.currentTarget.dataset;
-        if (status === "已失效") {
+        if (status === "已结束") {
             wx.showToast({
                 title: "该测评已失效",
                 icon: "none",

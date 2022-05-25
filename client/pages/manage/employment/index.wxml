@@ -3,6 +3,7 @@
         <van-button bind:click="addStatistic" size="large">+新增一次统计</van-button>
     </view>
     <view class="employment" wx:for="{{employmentList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" bindtap="gotoDetail">
+        <van-icon data-id="{{item.id}}" name="close" class="close" size="20px" catchtap="deleteNotification" />
         <view class="publish_date employment_item">发布日期：{{item.publishDate}}</view>
         <view class="content employment_item">结束日期：{{item.endDate}}</view>
         <view class="employment_item"> 当前状态 <text class="status">{{item.status}}</text></view>
@@ -21,6 +22,20 @@
         <van-cell-group>
             <van-cell required is-link title="结束日期" value="{{ endDate }}" bind:click="onEndTimeDisplay" />
         </van-cell-group>
+    </van-dialog>
+
+    <van-dialog
+        use-slot
+        title="通知删除"
+        show="{{ deleteShow }}"
+        show-cancel-button
+        confirmButtonText="确认删除"
+        cancelButtonText="取消删除"
+        bind:close="onDeleteClose"
+        bind:confirm="onDeleteConfirm"
+        overlay="{{false}}"
+    >
+        即将删除该条通知，是否确认？
     </van-dialog>
     <van-calendar show="{{ endTimeShow }}" bind:close="onEndTimeClose" bind:confirm="onEndTimeConfirm" />
 </view>

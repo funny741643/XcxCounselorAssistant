@@ -1,10 +1,3 @@
-// components/hg-editor/hg-editor.js
-
-/**
- * @author 秦玉成
- * 未经允许，请不要擅自改动，如果使用，请在最后说明出处
- */
-
 Component({
   /**
    * 组件的属性列表

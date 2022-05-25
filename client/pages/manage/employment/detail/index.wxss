@@ -15,3 +15,5 @@
     margin-right: 20rpx;
     margin-bottom: 10rpx;
 }
+
+/* // "ec-canvas": "../../../../components/ec-canvas/ec-canvas" */

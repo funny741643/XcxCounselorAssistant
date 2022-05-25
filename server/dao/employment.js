@@ -13,6 +13,9 @@ const employmentModel = {
     },
     getDetail: function(id) {
         return _.query($sqlQueryEmployment.getDetail, id);
+    },
+    delete: function(id) {
+        return _.query($sqlQueryEmployment.delete, id);
     }
 };
 

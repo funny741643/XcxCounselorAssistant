@@ -4,3 +4,9 @@
     font-weight: 600;
     margin-bottom: 10rpx;
 }
+
+.location {
+    background-color: #fff;
+    padding: 20rpx;
+    font-size: 36rpx;
+}

@@ -20,7 +20,11 @@ const notificationModel = {
 
     feedback: function (id, feedback) {
         return _.query($sqlQueryNotification.feedback, [id, feedback]);
-    }
+    },
+
+    delete: function (id) {
+        return _.query($sqlQueryNotification.delete, id);
+    },
 };
 
 module.exports = notificationModel;

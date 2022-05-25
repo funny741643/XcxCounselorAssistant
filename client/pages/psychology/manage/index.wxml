@@ -9,9 +9,23 @@
         <van-button bind:click="addTest" size="large">+新增一条测试</van-button>
     </view>
     <view class="psy" wx:for="{{psyList}}" wx:for-index="idx" wx:key="id" data-id="{{item.id}}" bindtap="gotoDetail">
+        <van-icon data-id="{{item.id}}" name="close" class="close" size="20px" catchtap="deleteNotification" />
         <view class="type">测试类型：{{item.type}}</view>
         <view class="release_date psy_item">发布日期：{{item.startDate}}</view>
         <view class="content psy_item">结束日期：{{item.endDate}}</view>
         <view class="psy_item"> 测试状态 <text class="status">{{item.status}}</text></view>
     </view>
+    <van-dialog
+        use-slot
+        title="通知删除"
+        show="{{ show }}"
+        show-cancel-button
+        confirmButtonText="确认删除"
+        cancelButtonText="取消删除"
+        bind:close="onClose"
+        bind:confirm="onConfirm"
+        overlay="{{false}}"
+    >
+        即将删除该条通知，是否确认？
+    </van-dialog>
 </view>

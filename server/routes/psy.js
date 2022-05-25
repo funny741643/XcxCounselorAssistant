@@ -47,4 +47,25 @@ router.get('/detail', async function(req, res, next) {
     });
 })
 
+router.post('/delete', async function(req, res, next) {
+    const data = req.body;
+    let errmsg = "";
+    let msg = "";
+    try {
+        const resData = await psyMethods.delete(data);
+        if (resData) {
+            msg = "删除成功";
+        } else {
+            errmsg = "删除失败";
+        }
+    } catch (e) {
+        errmsg = JSON.stringify(e);
+    }
+    res.json({
+        msg,
+        errmsg,
+        result: 0,
+    });
+})
+
 module.exports = router;

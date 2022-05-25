@@ -76,4 +76,10 @@ module.exports = {
         const resData = await notificationModel.feedback(feedback, id);
         return resData;
     },
+
+    delete: async function (data) {
+        const { id = "" } = data;
+        const resData = await notificationModel.delete(id);
+        return resData;
+    },
 };

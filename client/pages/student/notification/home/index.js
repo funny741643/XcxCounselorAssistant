@@ -10,13 +10,21 @@ Page({
 
     gotoDetail(event) {
         const id = event.currentTarget.dataset.id;
-        const item = this.data.notificationList.filter(item => {
-            return item.id == id
-        })
-        const data = JSON.stringify(item[0]);
-        wx.navigateTo({
-            url: '/pages/student/notification/detail/index?query=' + data,
+        const item = this.data.notificationList.filter((item) => {
+            return item.id == id;
         });
+        const data = JSON.stringify(item[0]);
+        if (item[0].status === "已结束") {
+            wx.showToast({
+                title: "该通知已结束",
+                duration: 1500,
+                mask: false,
+            });
+        } else {
+            wx.navigateTo({
+                url: "/pages/student/notification/detail/index?query=" + data,
+            });
+        }
     },
 
     initData() {
@@ -34,7 +42,7 @@ Page({
                     let notificationList = result.data.data.map((item) => {
                         let isConfirm = false;
                         if (item.feedback) {
-                            const feedbacks = item.feedback.split(',');
+                            const feedbacks = item.feedback.split(",");
                             isConfirm = feedbacks.includes(wx.getStorageSync("openId")) ? true : false;
                         }
                         return {

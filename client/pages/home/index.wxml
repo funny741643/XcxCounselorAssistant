@@ -82,7 +82,13 @@
     </block>
 
     <block wx:else>
-        <f-card headline="最新公告"></f-card>
+        <view class="logo_wrapper">
+            <view class="logo" style="background-image: url('/images/cat.jpg')">
+                <view class="padding-xl text-white">
+                    <view class="padding-xs text-xl"> 西安邮电大学导员系统学生端 </view>
+                </view>
+            </view>
+        </view>
         <f-card headline="常用功能">
             <view class="student-manage-list">
                 <view class="list-item">

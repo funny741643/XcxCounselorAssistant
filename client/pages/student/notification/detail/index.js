@@ -8,39 +8,28 @@ Page({
      */
     data: {
         notification: {},
+        location: "",
+        district: "",
     },
 
-    signIn() {
-        // qqmapsdk.reverseGeocoder({
-        //     success: (res) => {
-        //         console.log(res, res.result.formatted_addresses.recommend);
-        //         // this.setData({
-        //         // //使用res.result.formatted_address.recommend
-        //         // //这是返回结果的一个属性，是对位置的标准化描述，recommended格式经过腾讯地图优化过的描述方式，更具人性化特点，如果你是使用手机定位，一般能准确地给出你所在地点的名称
-        //         //     areaSelectedStr: res.result.formatted_addresses.recommend
-        //         // });
-        //     },
-        //     fail: function(res) {
-        //         console.log(res);
-        //     },
-        //     complete: function(res) {
-        //         console.log(res);
-        //     }
-        // });
+    getLocation() {
+        let that = this;
         wx.getLocation({
             // type: "wgs84",
             isHighAccuracy: true,
             success(res) {
                 const latitude = res.latitude;
                 const longitude = res.longitude;
-                console.log(latitude, longitude)
                 qqmapsdk.reverseGeocoder({
                     location: {
                         latitude: latitude,
                         longitude: longitude,
                     },
                     success: function (res) {
-                        console.log('??',res.result);
+                        that.setData({
+                            location: res.result.address,
+                            district: res.result.address_component.district,
+                        });
                     },
                     fail: function (res) {
                         console.log(res);
@@ -51,6 +40,18 @@ Page({
                 });
             },
         });
+    },
+
+    signIn() {
+        if (this.data.district !== "长安区") {
+            wx.showToast({
+                title: "请到指定位置进行签到",
+                icon: "none",
+                duration: 1500,
+            });
+        } else {
+            this.feedback();
+        }
     },
 
     feedback() {
@@ -91,14 +92,9 @@ Page({
             key: "MYGBZ-KK3KU-I4MVS-BAMKV-J3W6Z-6GBJT",
         });
 
-        this.setData(
-            {
-                notification: JSON.parse(options.query),
-            },
-            function () {
-                console.log(this.data.notification);
-            }
-        );
+        this.setData({
+            notification: JSON.parse(options.query),
+        });
     },
 
     /**

@@ -7,6 +7,7 @@
     margin-top: 20rpx;
     padding: 20rpx;
     border-radius: 10rpx;
+    position: relative;
 }
 
 .title {
@@ -22,4 +23,10 @@
 .status {
     color: rgb(95, 185, 5);
     font-weight: 600;
+}
+
+.close {
+    position: absolute;
+    right: 20rpx;
+    top: 30rpx;
 }

@@ -14,16 +14,31 @@
             bind:click="showRevocationDialog"
             size="large"
             wx:if="{{status === '已审批' || status === '已逾期'}}"
-            >点击进行销假</van-button
         >
+            点击进行销假
+        </van-button>
     </view>
     <van-dialog
+        use-slot
         message="确认进行销假吗？"
         show="{{revocationDiglogShow}}"
         showCancelButton="{{true}}"
         bind:confirm="revocationApply"
         bind:close="hideRevocationDialog"
-    />
+    >
+        <view class="location_wrapper">
+            <view class="location"> {{location}} </view>
+            <van-button
+                class="location_btn"
+                wx:if="{{location === ''}}"
+                type="primary"
+                bind:click="getLocation"
+                size="large"
+            >
+                获取当前位置信息
+            </van-button>
+        </view>
+    </van-dialog>
     <f-card headline="基础信息">
         <view class="sick-name sick-item"> 姓名：{{name + '(' + number + ')'}} </view>
         <view class="sick-startTime sick-item">开始时间：{{startTime}}</view>
@@ -41,7 +56,12 @@
         <view class="sick-explain sick-item">请假原因：{{explain}}</view>
     </f-card>
     <f-card headline="申请材料">
-        <image wx:for="{{images}}" style="width: 100px; height: 100px; background-color: #eeeeee;" mode="scaleToFill" src="{{item}}"></image>
+        <image
+            wx:for="{{images}}"
+            style="width: 100px; height: 100px; background-color: #eeeeee"
+            mode="scaleToFill"
+            src="{{item}}"
+        ></image>
     </f-card>
     <f-card headline="审批建议">
         <view class="suggest" hover-class="none" hover-stop-propagation="false"> {{suggest || '无'}} </view>

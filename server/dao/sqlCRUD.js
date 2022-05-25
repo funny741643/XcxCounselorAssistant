@@ -59,6 +59,7 @@ const notification = {
     getNotificationById: 'select * from notification where id=?',
     getUnderwayList: 'select * from notification where cid=? and status=1 order by releaseDate desc',
     feedback: 'update notification set feedback=? where id=?',
+    delete: 'delete from notification where id=?',
 }
 
 const psy = {
@@ -66,6 +67,7 @@ const psy = {
     getList: 'select * from psy_notification where cid=? order by startDate desc limit 10',
     addResult: 'insert into psy_result set ?',
     getDetail: 'select * from psy_result where nid=?',
+    delete: 'delete from psy_notification where id=?',
 }
 
 const employment = {
@@ -73,6 +75,7 @@ const employment = {
     getList: 'select * from employment_notification where cid=? order by publishDate desc limit 10',
     addRecord: 'insert into employment_statistics set ?',
     getDetail: 'select * from employment_statistics where nid=?',
+    delete: 'delete from employment_notification where id=?',
 }
 
 const work = {

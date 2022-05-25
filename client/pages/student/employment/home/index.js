@@ -12,7 +12,7 @@ Page({
         const { id, isfinished, status } = event.currentTarget.dataset;
         if (isfinished === true || status === "已结束") {
             wx.showToast({
-                title: "该统计已完成",
+                title: "该统计已完成或已结束",
                 icon: "none",
                 duration: 1500,
             });

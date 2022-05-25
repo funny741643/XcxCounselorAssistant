@@ -12,6 +12,7 @@
                 data-id="{{item.id}}"
                 bindtap="gotoDetail"
             >
+                <van-icon data-id="{{item.id}}" name="close" class="close" size="20px" catchtap="deleteNotification" />
                 <view class="title">{{item.title}}</view>
                 <view class="content notification_item">内容简介：{{item.content}}</view>
                 <view class="release_date notification_item">发布日期：{{item.releaseDate}}</view>
@@ -30,6 +31,7 @@
                 data-id="{{item.id}}"
                 bindtap="gotoDetail"
             >
+                <van-icon data-id="{{item.id}}" name="close" class="close" size="20px" catchtap="deleteNotification" />
                 <view class="title">日期：{{item.releaseDate}}</view>
                 <view class="notification_item"> 通知状态：<text class="status">{{item.status}}</text></view>
                 <view class="confirm_counts notification_item"
@@ -39,21 +41,35 @@
         </van-tab>
         <van-tab title="党团活动">
             <view
-            class="notification"
-            wx:for="{{activityList}}"
-            wx:for-index="idx"
-            wx:key="id"
-            data-id="{{item.id}}"
-            bindtap="gotoDetail"
-        >
-            <view class="title">{{item.title}}</view>
-            <view class="content notification_item">内容简介：{{item.content}}</view>
-            <view class="release_date notification_item">发布日期：{{item.releaseDate}}</view>
-            <view class="notification_item"> 通知状态：<text class="status">{{item.status}}</text></view>
-            <view class="confirm_counts notification_item"
-                >确认人数：{{item.confirmInfo.confirmStudentCounts}}/{{item.confirmInfo.totalStudentCounts}}</view
+                class="notification"
+                wx:for="{{activityList}}"
+                wx:for-index="idx"
+                wx:key="id"
+                data-id="{{item.id}}"
+                bindtap="gotoDetail"
             >
-        </view>
+                <van-icon data-id="{{item.id}}" name="close" class="close" size="20px" catchtap="deleteNotification" />
+                <view class="title">{{item.title}}</view>
+                <view class="content notification_item">内容简介：{{item.content}}</view>
+                <view class="release_date notification_item">发布日期：{{item.releaseDate}}</view>
+                <view class="notification_item"> 通知状态：<text class="status">{{item.status}}</text></view>
+                <view class="confirm_counts notification_item"
+                    >确认人数：{{item.confirmInfo.confirmStudentCounts}}/{{item.confirmInfo.totalStudentCounts}}</view
+                >
+            </view>
         </van-tab>
     </van-tabs>
+    <van-dialog
+        use-slot
+        title="通知删除"
+        show="{{ show }}"
+        show-cancel-button
+        confirmButtonText="确认删除"
+        cancelButtonText="取消删除"
+        bind:close="onClose"
+        bind:confirm="onConfirm"
+        overlay="{{false}}"
+    >
+        即将删除该条通知，是否确认？
+    </van-dialog>
 </view>

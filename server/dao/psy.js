@@ -13,7 +13,10 @@ const psyModel = {
     },
     getDetail: function(id) {
         return _.query($sqlQueryPsy.getDetail, id);
-    }
+    },
+    delete: function(id) {
+        return _.query($sqlQueryPsy.delete, id);
+    },
 };
 
 module.exports = psyModel;

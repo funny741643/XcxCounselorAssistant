@@ -6,6 +6,52 @@ Page({
      */
     data: {
         psyList: [],
+        show: false,
+        deleteId: "",
+    },
+
+    deleteNotification(e) {
+        this.setData({
+            show: true,
+            deleteId: e.currentTarget.dataset.id,
+        });
+    },
+
+    onConfirm(e) {
+        let that = this;
+        wx.request({
+            url: api.deletePsy,
+            data: {
+                id: this.data.deleteId,
+            },
+            header: {'content-type':'application/json'},
+            method: 'POST',
+            dataType: 'json',
+            responseType: 'text',
+            success: (result)=>{
+                if (result.data.result === 0) {
+                    wx.showToast({
+                        title: '删除成功',
+                        icon: 'success',
+                        duration: 1500,
+                    });
+                    that.setData({
+                        show: false,
+                        deleteId: "",
+                    });
+                    that.getPsyList();
+                }
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+        });
+    },
+
+    onClose(e) {
+        this.setData({
+            show: false,
+            deleteId: "",
+        });
     },
 
     gotoDetail(event) {
@@ -16,7 +62,6 @@ Page({
     },
 
     addTest: function () {
-        console.log("???");
         wx.navigateTo({
             url: "/pages/psychology/manage/publish/index",
         });

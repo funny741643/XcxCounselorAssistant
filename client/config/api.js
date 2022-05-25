@@ -58,6 +58,7 @@ const getPoliticsStatusData = baseUrl + "api/politics/statusData";
 const insertNotification = baseUrl + "api/notification/publish";
 const getNotificationList = baseUrl + "api/notification/list";
 const postNotificationfeedback = baseUrl + "api/notification/feedback";
+const deleteNotification = baseUrl + "api/notification/delete";
 
 // 心理辅导
 const insertPsyTest = baseUrl + "api/psy/publish";
@@ -65,12 +66,14 @@ const getPsyList = baseUrl + "api/psy/getList";
 const getPsyquestion = baseUrl + "api/psy/question";
 const addPsyResult = baseUrl + "api/psy/addResult";
 const getPsyDetail = baseUrl + "api/psy/detail";
+const deletePsy = baseUrl + "api/psy/delete";
 
 // 就业统计
 const insertEmployment = baseUrl + "api/employment/publish";
 const getEmploymentList = baseUrl + "api/employment/getList";
 const addEmploymentRecord = baseUrl + "api/employment/addRecord";
 const getEmploymentDetail = baseUrl + "api/employment/detail";
+const deleteEmployment = baseUrl + "api/employment/delete";
 
 // 工作汇报
 const insertWork = baseUrl + "api/work/publish";
@@ -113,17 +116,20 @@ module.exports = {
     insertNotification,
     getNotificationList,
     postNotificationfeedback,
+    deleteNotification,
 
     insertPsyTest,
     getPsyList,
     getPsyquestion,
     addPsyResult,
     getPsyDetail,
+    deletePsy,
 
     insertEmployment,
     getEmploymentList,
     addEmploymentRecord,
     getEmploymentDetail,
+    deleteEmployment,
 
     insertWork,
     getArticleList,

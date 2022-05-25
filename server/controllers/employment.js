@@ -49,6 +49,12 @@ module.exports = {
         return ret;
     },
 
+    delete: async function (data) {
+        const { id } = data;
+        const ret = await employmentModel.delete(id);
+        return ret;
+    },
+
     getDetail: async function (cid, nid) {
         const ret = await employmentModel.getDetail(nid);
         console.log(ret);
@@ -79,13 +85,17 @@ module.exports = {
         // 未有offer
         const jobs_notSuccess = ret.filter((item) => {
             return item.status === "未有offer";
-        })
-        const jobs_notSuccess_ids = jobs_notSuccess.map((item) => {return item.sid})
+        });
+        const jobs_notSuccess_ids = jobs_notSuccess.map((item) => {
+            return item.sid;
+        });
         // 已签三方未登记
         const jobs_notSign = ret.filter((item) => {
             return item.status === "已签三方，未登记";
-        })
-        const jobs_notSign_ids = jobs_notSign.map((item) => {return item.sid})
+        });
+        const jobs_notSign_ids = jobs_notSign.map((item) => {
+            return item.sid;
+        });
         // 未统计
         const totalStudents = await counselorMethods.getTotalStudents(cid);
         const totalStudentsId = totalStudents.map((item) => {
@@ -134,7 +144,7 @@ module.exports = {
             jobs_notSign_students,
             totalStudents,
             finishedStudents,
-            notTestStudents
-        }
+            notTestStudents,
+        };
     },
 };

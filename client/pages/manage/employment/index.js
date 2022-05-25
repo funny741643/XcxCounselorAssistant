@@ -11,6 +11,50 @@ Page({
         employmentList: [],
     },
 
+    deleteNotification(e) {
+        this.setData({
+            deleteShow: true,
+            deleteId: e.currentTarget.dataset.id,
+        });
+    },
+
+    onDeleteConfirm(e) {
+        let that = this;
+        wx.request({
+            url: api.deleteEmployment,
+            data: {
+                id: this.data.deleteId,
+            },
+            header: { "content-type": "application/json" },
+            method: "POST",
+            dataType: "json",
+            responseType: "text",
+            success: (result) => {
+                if (result.data.result === 0) {
+                    wx.showToast({
+                        title: "删除成功",
+                        icon: "success",
+                        duration: 1500,
+                    });
+                    that.setData({
+                        deleteShow: false,
+                        deleteId: "",
+                    });
+                    that.getEmploymentList();
+                }
+            },
+            fail: () => {},
+            complete: () => {},
+        });
+    },
+
+    onDeleteClose(e) {
+        this.setData({
+            deleteShow: false,
+            deleteId: "",
+        });
+    },
+
     gotoDetail(event) {
         const { id } = event.currentTarget.dataset;
         wx.navigateTo({
@@ -59,6 +103,7 @@ Page({
     },
 
     publishEmployment() {
+        let that = this;
         wx.request({
             url: api.insertEmployment,
             data: {
@@ -76,6 +121,7 @@ Page({
                         icon: "success",
                         duration: 2000,
                     });
+                    that.getEmploymentList();
                 }
             },
             fail: () => {},

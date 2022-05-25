@@ -10,6 +10,8 @@ Page({
         activityList: [],
         dailyList: [],
         signInList: [],
+        show: false,
+        deleteId: "",
     },
 
     addNotification() {
@@ -18,14 +20,58 @@ Page({
         });
     },
 
+    deleteNotification(e) {
+        this.setData({
+            show: true,
+            deleteId: e.currentTarget.dataset.id,
+        });
+    },
+
+    onConfirm(e) {
+        let that = this;
+        wx.request({
+            url: api.deleteNotification,
+            data: {
+                id: this.data.deleteId,
+            },
+            header: {'content-type':'application/json'},
+            method: 'POST',
+            dataType: 'json',
+            responseType: 'text',
+            success: (result)=>{
+                if (result.data.result === 0) {
+                    wx.showToast({
+                        title: '删除成功',
+                        icon: 'success',
+                        duration: 1500,
+                    });
+                    that.setData({
+                        show: false,
+                        deleteId: "",
+                    });
+                    that.getNotificationList();
+                }
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+        });
+    },
+
+    onClose(e) {
+        this.setData({
+            show: false,
+            deleteId: "",
+        });
+    },
+
     gotoDetail(event) {
         const id = event.currentTarget.dataset.id;
-        const item = this.data.notificationList.filter(item => {
-            return item.id == id
-        })
+        const item = this.data.notificationList.filter((item) => {
+            return item.id == id;
+        });
         const data = JSON.stringify(item[0]);
         wx.navigateTo({
-            url: '/pages/manage/notification/detail/index?query=' + data,
+            url: "/pages/manage/notification/detail/index?query=" + data,
         });
     },
 
@@ -48,9 +94,9 @@ Page({
                     let notificationList = result.data.data.map((item) => {
                         return {
                             ...item,
-                            startDate: item.startDate.split('T')[0],
-                            endDate: item.endDate.split('T')[0],
-                            releaseDate: item.releaseDate.split('T')[0],
+                            startDate: item.startDate.split("T")[0],
+                            endDate: item.endDate.split("T")[0],
+                            releaseDate: item.releaseDate.split("T")[0],
                         };
                     });
                     let activityList = notificationList.filter((item) => {

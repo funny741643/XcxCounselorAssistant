@@ -27,3 +27,13 @@
     height: 100%;
     border-radius: 50%;
 }
+
+.logo_wrapper {
+    width: 700rpx;
+    margin: 20rpx auto;
+}
+
+.logo {
+    width: 100%;
+    height: 300rpx;
+}
