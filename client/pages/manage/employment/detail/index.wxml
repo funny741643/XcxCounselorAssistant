@@ -1,6 +1,7 @@
 <!--pages/manage/employment/detail/index.wxml-->
 
 <view class="container">
+    <!-- <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas> -->
     <f-card headline="数据概况">
         <view class="item">完成人数：{{totalStudents.length}}/{{finishedStudents.length}}</view>
         <view class="item">就业人数：{{jobs.length}}</view>
@@ -56,5 +57,4 @@
         </view>
         <view wx:else> 全都测试完成啦！ </view>
     </f-card>
-    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
 </view>

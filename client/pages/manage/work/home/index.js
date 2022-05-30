@@ -79,15 +79,21 @@ Page({
             responseType: "text",
             success: (result) => {
                 if (result.data.result === 0) {
-                    let articleList = result.data.data.map((item) => {
-                        return {
-                            ...item,
-                            date: item.date.split("T")[0],
-                        };
-                    });
-                    this.setData({
-                        articleList,
-                    });
+                    if (result.data.data.length === 0 || result.data.data[0] === null) {
+                        this.setData({
+                            articleList: [],
+                        });
+                    } else {
+                        let articleList = result.data.data.map((item) => {
+                            return {
+                                ...item,
+                                date: item.date.split("T")[0],
+                            };
+                        });
+                        this.setData({
+                            articleList,
+                        });
+                    } 
                 }
             },
         });

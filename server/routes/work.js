@@ -5,9 +5,10 @@ const workMethods = require("../controllers/work");
 router.post("/publish", async function (req, res, next) {
     const data = req.body;
     let ret = await workMethods.publish(data);
+    const id = ret.insertId;
     res.json({
         result: 0,
-        data: ret,
+        data: id,
     });
 });
 
@@ -24,6 +25,7 @@ router.get("/detail", async function (req, res, next) {
     const data = req.query;
     const { id } = data;
     let ret = await workMethods.getDetail(id);
+    console.log(id, ret);
     res.json({
         result: 0,
         data: ret,

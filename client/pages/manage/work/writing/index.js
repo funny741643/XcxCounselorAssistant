@@ -17,6 +17,7 @@ Page({
     },
 
     handleSubmit() {
+        let that = this;
         wx.request({
             url: api.insertWork,
             data: {
@@ -31,6 +32,7 @@ Page({
             responseType: "text",
             success: (result) => {
                 if (result.data.result === 0) {
+                    let id = result.data.data;
                     wx.showToast({
                         title: "发布成功",
                         icon: "success",
@@ -38,7 +40,7 @@ Page({
                     });
                     setTimeout(() => {
                         wx.navigateTo({
-                            url: `/pages/manage/work/detail/index?id=${this.data.id}`,
+                            url: `/pages/manage/work/detail/index?id=${id || that.data.id}`,
                         });
                     }, 2000);
                 }

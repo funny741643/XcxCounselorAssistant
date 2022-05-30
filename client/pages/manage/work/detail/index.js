@@ -11,26 +11,25 @@ Page({
     },
 
     goWriting() {
-        console.log('???')
         wx.navigateTo({
             url: `/pages/manage/work/writing/index?id=${this.data.id}`,
         });
     },
 
     getArticleDetail() {
+        let that = this;
         wx.request({
             url: api.getArticleDetail,
             data: {
-                id: this.data.id,
+                id: that.data.id,
             },
             header: { "content-type": "application/json" },
             method: "GET",
             dataType: "json",
             responseType: "text",
             success: (result) => {
-                console.log(result);
                 if (result.data.result === 0) {
-                    this.setData({
+                    that.setData({
                         title: result.data.data.title,
                         content: result.data.data.content,
                     });

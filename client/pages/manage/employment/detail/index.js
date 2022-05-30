@@ -1,48 +1,8 @@
 // pages/manage/employment/detail/index.js
-import * as echarts from "../../../../components/ec-canvas/echarts";
+// import * as echarts from "../../../../components/ec-canvas/echarts";
+// "ec-canvas": "../../../../components/ec-canvas/ec-canvas"
 const api = require("../../../../config/api");
 
-function initChart(canvas, width, height, dpr) {
-    const chart = echarts.init(canvas, null, {
-        width: width,
-        height: height,
-        devicePixelRatio: dpr, // new
-    });
-    canvas.setChart(chart);
-
-    var option = {
-        backgroundColor: "#ffffff",
-        series: [
-            {
-                label: {
-                    normal: {
-                        fontSize: 14,
-                    },
-                },
-                type: "pie",
-                center: ["50%", "50%"],
-                radius: ["20%", "40%"],
-                data: [
-                    {
-                        value: 100,
-                        name: "就业",
-                    },
-                    {
-                        value: 40,
-                        name: "考研",
-                    },
-                    {
-                        value: 10,
-                        name: "考公",
-                    },
-                ],
-            },
-        ],
-    };
-
-    chart.setOption(option);
-    return chart;
-}
 Page({
     /**
      * 页面的初始数据
@@ -59,9 +19,7 @@ Page({
         jobs_notSign_students: [],
         jobs_success: [],
         jobs_notSuccess_students: [],
-        ec: {
-            onInit: initChart,
-        },
+        ec: null,
     },
 
     goToDetail(event) { 
@@ -115,6 +73,48 @@ Page({
         });
     },
 
+    initChart(canvas, width, height, dpr) {
+        const chart = echarts.init(canvas, null, {
+            width: width,
+            height: height,
+            devicePixelRatio: dpr, // new
+        });
+        canvas.setChart(chart);
+    
+        var option = {
+            backgroundColor: "#ffffff",
+            series: [
+                {
+                    label: {
+                        normal: {
+                            fontSize: 14,
+                        },
+                    },
+                    type: "pie",
+                    center: ["50%", "50%"],
+                    radius: ["20%", "40%"],
+                    data: [
+                        {
+                            value: this.data.jobs.length,
+                            name: "就业",
+                        },
+                        {
+                            value: this.data.exams.length,
+                            name: "考研",
+                        },
+                        {
+                            value: this.data.civils.length,
+                            name: "考公",
+                        },
+                    ],
+                },
+            ],
+        };
+    
+        chart.setOption(option);
+        return chart;
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -124,6 +124,11 @@ Page({
             nid: id,
         });
         this.getDetailDate();
+        // this.setData({
+        //     ec: {
+        //         onInit: this.initChart,
+        //     }
+        // })
     },
 
     /**
